@@ -24,12 +24,18 @@ section {
 }
 
 section.main{
+	width: 100%;
+	height: 100vh;              /* 화면 꽉 채움 */
+	margin: 0;                 /* 여백 제거 */	
 	background-image:url(/cinema/resources/img/dog.png);
+	background-size:cover; /* background-size:contain; */
 	background-position: center;
-	background-repeat: no-repeat;	
-	background-size:contain; /*background-size:cover;*/
-	padding:0;
-	margin:30px;
+	/* background-repeat: no-repeat; */	
+	position: relative;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 section.main h1{
