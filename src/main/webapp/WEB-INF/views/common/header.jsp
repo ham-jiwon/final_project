@@ -14,6 +14,14 @@
 <body>
 
 <header>
+    <!-- 오른쪽 메뉴 -->
+    <div>
+        <ul>
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">질문과답변</a></li>
+        </ul>
+    </div>
+    
     <div>
         <!-- 전체 메뉴를 하나의 ul로 묶기 -->
         <ul>
@@ -60,11 +68,5 @@
         </ul>
     </div>
 
-    <!-- 오른쪽 메뉴 -->
-    <div>
-        <ul>
-            <li><a href="#">공지사항</a></li>
-            <li><a href="#">질문과답변</a></li>
-        </ul>
-    </div>
+
 </header>
