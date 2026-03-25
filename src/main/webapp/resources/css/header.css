@@ -47,13 +47,13 @@ header ul li:hover ul {
 }
 
 /* 5. 하이퍼링크 기본 색상 */
-ul li a {
+header ul li a {
 	text-decoration: none;
 	color: #000;
 }
 
 /* 6. 하이퍼링크 마우스오버 시 색상 */
-ul li a:hover {
+header ul li a:hover {
 	color: #ccc;
 	cursor: pointer;
 }
