@@ -34,10 +34,10 @@ ul li {
 
 ul li a {
 	text-decoration: none;
-	color: #000;
+	color: #fff;
 }
 
 ul li a:hover {
-	color: #ccc;
+	color: #orange;
 	cursor: pointer;
 }

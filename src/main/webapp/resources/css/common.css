@@ -24,12 +24,17 @@ section {
 }
 
 section.main{
-	background-image:url(/cinema/resources/img/dog.png);
+	width: 100%;
+	max-width: 1200px;
+	height: 70vh;
+	margin: 50px auto;   /* 핵심: 가운데 정렬 */
+	background-image: url("/cinema/img/dog.jpg");
+	background-size: cover;
 	background-position: center;
-	background-repeat: no-repeat;	
-	background-size:contain; /*background-size:cover;*/
-	padding:0;
-	margin:30px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 section.main h1{
