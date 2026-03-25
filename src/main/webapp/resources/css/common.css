@@ -65,7 +65,7 @@ section.main{
 
 /* 글상자 기본 상태 숨기기 */
 .text-box{
-	opacity: 0.1;                 /* 살짝 보이게 */
+	opacity: 0.15;                 /* 살짝 보이게 */
 	transition: 0.3s ease;
 	cursor: pointer;
 }
