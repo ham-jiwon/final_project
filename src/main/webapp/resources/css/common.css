@@ -40,7 +40,7 @@ section.main h1{
 	
 	position:relative;
 	
-	background-color:##00000080;
+	background-color:#00000080;
 	background-image:url(/cinema/resources/img/dog.png);
 	background-size:contain; /* background-size:cover; */
 	background-position: center;
