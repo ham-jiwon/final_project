@@ -39,7 +39,8 @@
             </li>
         </ul>
         
-		<ul>
+        <!-- 오른쪽 상단 메뉴 -->
+		<ul class="right-menu">
             <!-- 기존 메뉴 -->
             <li><a href="<%=path %>">home</a></li>
             <li><a href="<%=path %>/sendMail.jsp">SEND MAIL</a></li>

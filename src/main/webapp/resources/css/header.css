@@ -94,3 +94,23 @@ header > div:last-child ul li a {
     font-size: 0.9rem;
     color: #333;
 }
+
+/* 오른쪽 상단 메뉴 가로 배치 및 스타일 적용 */
+.right-menu {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.right-menu li a {
+    font-size: 0.9rem;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* 오른쪽 상단 메뉴 마우스 오버 시 색상 변경 */
+.right-menu li a:hover {
+    color: #666;
+    cursor: pointer;
+}
