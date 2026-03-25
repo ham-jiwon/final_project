@@ -1,57 +1,108 @@
+@charset "UTF-8";
+
+/* 1. 기본 초기화 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%; /* 화면 전체를 쓰도록 설정 */
+    font-family: 'Malgun Gothic', sans-serif;
+    background-color: #fff;
+}
+
+/* 2. 헤더 영역 (수평선을 끝까지 긋기 위해 width 100% 사용) */
 header {
-    width: 1100px;
-    margin: 0 auto;
-    height: auto; /* 고정 높이 해제 */
-    padding: 20px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-/* 헤더 안의 두 영역(왼쪽 메뉴, 오른쪽 메뉴)을 한 줄로 정렬 */
-header > div {
-    display: flex;
-    justify-content: space-between; /* 양 끝으로 밀기 */
-    align-items: center; /* 수직 방향 정중앙 정렬! (이게 중요) */
     width: 100%;
+    border-bottom: 1px solid #ccc; /* 수평선 (끊기지 않고 끝까지 감) */
+    background-color: #fff;
+    padding: 15px 0;
 }
 
-/* 메인 ul 정렬 */
+/* 3. 컨텐츠 컨테이너 (실제 메뉴들이 모이는 1100px 박스) */
+header > div {
+    width: 1100px;
+    margin: 0 auto; /* 가운데 정렬 */
+    display: flex;
+    justify-content: space-between; /* 왼쪽과 오른쪽으로 분리 */
+    align-items: center; /* 수직 정중앙 정렬 */
+}
+
+/* 4. 메뉴 리스트 공통 스타일 */
 header ul {
     list-style: none;
     display: flex;
-    gap: 20px;
-    align-items: center; /* 메뉴끼리 키 맞추기 */
+    gap: 25px; /* 메뉴 사이 간격 */
+    align-items: center;
     padding: 0;
 }
 
-/* 메뉴 내부의 링크와 텍스트 스타일 */
+/* 5. 메뉴 아이템 및 링크 스타일 */
 header ul li {
     position: relative;
-    white-space: nowrap; /* 글자가 밑으로 꺾이지 않게 고정 */
-    font-size: 14px;
-    display: flex;
-    align-items: center;
+    white-space: nowrap; /* 글자 줄바꿈 방지 */
 }
 
-/* "님 방가방가" 같이 텍스트만 있는 경우도 정렬되도록 */
-header ul li a {
+header a {
     text-decoration: none;
     color: #333;
-    display: block;
-    line-height: 1.5;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
 }
 
-/* 드롭다운 서브메뉴가 나타날 때 다른 메뉴를 밀어내지 않도록 설정 */
-header ul li ul {
-    display: none;
+header a:hover {
+    color: #666;
+}
+
+/* 6. 드롭다운 서브메뉴 디자인 */
+header ul li > ul {
+    display: none; /* 평소엔 숨김 */
     position: absolute;
     top: 100%; /* 부모 메뉴 바로 아래 */
     left: 0;
-    flex-direction: column; /* 서브메뉴는 세로로 */
     background: #fff;
     border: 1px solid #ddd;
+    padding: 10px 0;
+    min-width: 140px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     z-index: 1000;
+    flex-direction: column; /* 서브메뉴는 세로로 나열 */
+    gap: 0; /* 서브메뉴 사이 간격 제거 */
 }
 
+/* 마우스 올리면 서브메뉴 보이기 */
 header ul li:hover > ul {
-    display: block; /* 마우스 올리면 보이기 */
+    display: flex;
+}
+
+/* 서브메뉴 내부 항목 */
+header ul li > ul > li {
+    width: 100%;
+    padding: 8px 15px;
+}
+
+header ul li > ul > li a {
+    font-size: 13px;
+    font-weight: 400;
+    display: block;
+}
+
+header ul li > ul > li:hover {
+    background-color: #f9f9f9;
+}
+
+/* 7. '방가방가' 등 일반 텍스트 정렬 */
+header li span {
+    font-size: 14px;
+    color: #555;
+    margin-left: 5px;
+}
+
+/* 8. 오른쪽 하단 메뉴 (공지사항 등) 스타일 */
+header > div:last-child ul li a {
+    font-size: 13px;
+    color: #777;
 }

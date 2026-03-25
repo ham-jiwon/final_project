@@ -46,7 +46,7 @@
         </ul>
     </div>
     
-    <!-- 하단 메뉴 -->
+    <!-- 하단 드롭다운 메뉴 -->
     <div>
 
         <ul>
@@ -68,7 +68,8 @@
                     <li><a href="<%=path %>/sendMailFile.jsp">롯데시네마</a></li>
                 </ul>
             </li>
-        </ul>        
+        </ul>
+                
     </div>
 
 
