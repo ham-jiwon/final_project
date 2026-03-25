@@ -2,7 +2,11 @@ package net.koreate.cinema.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import net.koreate.cinema.services.MemberService;
+import net.koreate.cinema.vo.MemberVO;
 
 @Controller
 @RequestMapping("/member")
@@ -18,6 +22,12 @@ public class MemberController {
 	public String login() {
 		
 		return "member/login";
+	}
+	
+	@PostMapping("joinAction")
+	public String joinAction(MemberVO member) {
+		MemberService.insertMember(member);
+		return "redirect:/";
 	}
 	
 }//end calss

@@ -10,7 +10,7 @@ public interface MemberDAO {
 	 * @param member - final_member 테이블에 저장할 사용자 정보를 저장하는 MemberVO 객체
 	 * @return int - final_member 테이블에 회원 정보 삽입 후 삽입된 행 개수 반환
 	 */
-	int insertUser(MemberVO member);
+	int insertMember(MemberVO member);
 
 	
 	/**

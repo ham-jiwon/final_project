@@ -1,5 +1,8 @@
 package net.koreate.cinema.vo;
 
+import lombok.Data;
+
+@Data
 public class MemberVO {
 	
 	private int num;
