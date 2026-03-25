@@ -24,10 +24,6 @@ section {
 }
 
 section.main{
-	background-image:url(/cinema/resources/img/dog.png);	
-	background-position: center;	
-	/* background-repeat: no-repeat; */
-	background-size:contain; /* background-size:cover; */		
 	margin: 30px;                 /* 여백 제거 */	
 	position: relative;
 }
@@ -36,6 +32,12 @@ section.main h1{
 	width:100%;
 	min-height: 700px;
 	background-color:#00000080;
+	
+	background-image:url(/cinema/resources/img/dog.png);	
+	background-size:contain; /* background-size:cover; */	
+	background-position: center;	
+	background-repeat: no-repeat;
+		
 	color:white;
 	display: flex;
 	align-items: center;
