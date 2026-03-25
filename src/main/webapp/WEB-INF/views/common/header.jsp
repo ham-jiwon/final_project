@@ -7,10 +7,13 @@
 <title>CHoi House</title>
 <% String path = request.getContextPath(); %>
 <!-- project contextPath 경로를 저장하는 변수 지정 -->
-<link href="../css/header.css" rel="stylesheet" type="text/css" />
-<link href="../css/footer.css" rel="stylesheet" type="text/css" />
-<link href="../css/common.css" rel="stylesheet" type="text/css" />
-<link rel="icon" href="<%=request.getContextPath()%>/css/img/puppy.ico" type="image/x-icon">
+<li><a href="<%=path %>">영화</a></li>
+				<li><a href="<%=path %>/sendMail.jsp">영화관별</a></li>
+				<li><a href="<%=path %>/sendMailFile.jsp">상영중</a></li>
+				<li><a href="<%=path %>/sendMailFile.jsp">상영예정</a></li>
+				<li><a href="<%=path %>/sendMailFile.jsp">메가박스</a></li>
+			    <li><a href="<%=path %>/sendMailFile.jsp">CGV</a></li>
+			    <li><a href="<%=path %>/sendMailFile.jsp">롯데시네마</a></li>
 </head>
 <body>
 	<header>
@@ -34,7 +37,7 @@
 				<li><a href="<%=path %>/logout.jsp">로그아웃</a></li>
 				
 					<!-- 관리자 로그인일 경우 -->
-					<li><a href="<%=path %>/memberList.jsp">회원관리</a></li>
+					<li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
 			</ul>
 		</div>
 		<div>
