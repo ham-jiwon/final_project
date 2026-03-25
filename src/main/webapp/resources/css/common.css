@@ -39,7 +39,7 @@ section.main{
 	        rgba(0,0,0,0.7) 100%
 	    ),
 		url(/cinema/resources/img/dog.png);	
-	background-size:cover; /* background-size:contain; */ 	
+	background-size:contain; /* background-size:cover; */ 	
 	background-position: center;	
 	background-repeat: no-repeat;	
 }
