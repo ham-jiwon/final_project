@@ -15,7 +15,7 @@
 
 <header>
     <div>
-        <!-- ✅ 전체 메뉴를 하나의 ul로 묶기 -->
+        <!-- 전체 메뉴를 하나의 ul로 묶기 -->
         <ul>
 
             <!-- 영화 -->
@@ -36,7 +36,9 @@
                     <li><a href="<%=path %>/sendMailFile.jsp">롯데시네마</a></li>
                 </ul>
             </li>
-
+        </ul>
+        
+		<ul>
             <!-- 기존 메뉴 -->
             <li><a href="<%=path %>">home</a></li>
             <li><a href="<%=path %>/sendMail.jsp">SEND MAIL</a></li>
