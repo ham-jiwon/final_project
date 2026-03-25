@@ -39,7 +39,7 @@ section.main{
 	        rgba(0,0,0,0.7) 100%
 	    ),
 		url(/cinema/resources/img/dog.png);	
-	background-size:cover; background-size:contain; 	
+	background-size:cover; /* background-size:contain; */ 	
 	background-position: center;	
 	background-repeat: no-repeat;	
 }
@@ -55,12 +55,12 @@ section.main{
 section.main h1{	
 	margin: 0px;                 /* 여백 제거 */
 	width:100%;
-	min-height: 700px;
+	min-height: auto;
 
 	background-color:#00000020;		
 	color:white;
 	
-	display: flex;
+	display: block;
 	align-items: center;
 	justify-content: center;
 }
