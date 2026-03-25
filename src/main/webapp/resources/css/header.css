@@ -1,59 +1,89 @@
 @charset "UTF-8";
 
 * {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-	width: 1100px;
-	margin: auto;
+    width: 1100px;
+    margin: auto;
+    font-family: Arial, sans-serif;
 }
 
 header {
-	height: 100px;
-	border-bottom: 1px solid #ccc;
+    height: 100px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
 }
 
-header div {
-	overflow: hidden;
+/* 헤더 내부 좌우 영역을 flex로 배치 */
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
-/* 1. 가로 메뉴 */
-header ul {
+/* 첫 번째 div에 담긴 전체 메뉴를 가로 배치 */
+header > div:first-child ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     gap: 20px;
 }
 
-/* 2. li 기준 잡기 */
-header ul li {
+/* 각 메뉴 아이템 위치 잡기 */
+header > div:first-child ul > li {
     position: relative;
 }
 
-/* 3. 서브메뉴 숨기기 */
-header ul li ul {
+/* 드롭다운 서브메뉴 숨기기 */
+header > div:first-child ul > li > ul {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px 0;
+    min-width: 120px;
+    z-index: 10;
 }
 
-/* 4. hover 시 보이기 */
-header ul li:hover ul {
+/* 드롭다운 서브메뉴 아이템 */
+header > div:first-child ul > li > ul > li {
+    padding: 5px 20px;
+}
+
+/* 드롭다운 서브메뉴 보이기 */
+header > div:first-child ul > li:hover > ul {
     display: block;
 }
 
-/* 5. 하이퍼링크 기본 색상 */
-header ul li a {
-	text-decoration: none;
-	color: #000;
+/* 링크 기본 스타일 */
+header a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
-/* 6. 하이퍼링크 마우스오버 시 색상 */
-header ul li a:hover {
-	color: #ccc;
-	cursor: pointer;
+/* 링크 호버 스타일 */
+header a:hover {
+    color: #666;
+    cursor: pointer;
+}
+
+/* 오른쪽 메뉴 가로 정렬 */
+header > div:last-child ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+/* 오른쪽 메뉴 아이템 */
+header > div:last-child ul li a {
+    font-size: 0.9rem;
+    color: #333;
 }
