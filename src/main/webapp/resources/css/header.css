@@ -58,13 +58,28 @@ header .main-nav > li > ul {
     position: absolute;
     top: 100%; 
     left: 0;
-    background: #fff;
-    border: 1px solid #eee;
+    background: #111;
+    border: 1px solid #333;
     padding: 10px 0;
     min-width: 140px;
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     z-index: 1000;
     list-style: none;
+}
+
+/* 메인 메뉴 hover */
+header .main-nav > li > a:hover{
+	color: gold;
+}
+
+/* 서브 메뉴 hover */
+header .sub-nav a:hover{
+	color: gold;
+}
+
+/* hover 시 부드러운 색상 전환 */
+header a{
+	transition: color 0.3s ease;
 }
 
 /* 마우스 올릴 때만 보이기 */
@@ -84,7 +99,7 @@ header .main-nav > li > ul > li a {
 
 header .main-nav > li > ul > li a:hover {
     background-color: #f8f8f8;
-    color: goldenrod;
+    color: gold;
 }
 
 /* 6. 오른쪽 서브 메뉴 (로그인, 공지사항 등 - 작게 유지) */
