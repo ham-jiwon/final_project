@@ -4,5 +4,41 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- database Connection 관리 객체 Spring RootApplicationContext 등록-->
+	<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@192.168.0.19:1521/xe"/>
+		<property name="username" value="final_project"/>
+		<property name="password" value="12345"/>
+	</bean>
+	
+	<!-- 
+		Connection 을 생성하고 쿼리 작업을 수행하기 위한 SqlSession 객체를 생성하는 class
+		SqlSessionFactory factory = new SqlSessionFactoryBean();
+		factory.setDataSource(ds);
+	 -->
+	<bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds"/>
+		<property name="configLocation" value="classpath:/mybatis/MybatisConfig.xml"/>
+	</bean>
+	
+	<!-- 
+		SqlSession (실제 작업 객체)
+		핵심 역할 => SQL 실행
+		JDBC의 Connection + PreparedStatement + (ResultSet) 실행 담당
+		Transaction 직접 관리(commit / rollback)
+		자원 반납 직접 관리 (close)
 		
+		SqlSessionTemplate(Spring 전용)
+		핵심 역할 => SqlSession 실행 관리
+		내부적으로 SqlSession 생셩/반환
+		Transaction 자동 관리(Spring 연동)
+		close / commit / rollback 자동 관리
+		
+		SqlSession sqlSession = new SqlSessionTemplate(factory);
+	 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="factory"/>
+	</bean>
 </beans>
