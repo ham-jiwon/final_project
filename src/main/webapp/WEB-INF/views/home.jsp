@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 	<section class="main">
-		<h1>MAIN PAGE</h1>
+		<h1>지켜보고 있다...</h1>
 	</section>
 
 <%@ include file="common/footer.jsp" %>
