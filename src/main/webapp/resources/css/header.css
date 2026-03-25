@@ -46,7 +46,7 @@ header .main-nav > li {
 /* 상위 메뉴 글자 스타일 (크고 굵게) */
 header .main-nav > li > a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
     font-size: 18px; /* 크게 */
     font-weight: bold; /* 굵게 */
     display: block;
@@ -97,7 +97,7 @@ header .sub-nav {
 
 header .sub-nav a, header .sub-nav span {
     text-decoration: none;
-    color: #666;
+    color: #bbb;
     font-size: 13px;
 
 }
