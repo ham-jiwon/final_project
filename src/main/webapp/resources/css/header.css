@@ -15,9 +15,10 @@ body {
 /* 2. 헤더 수평선 (화면 끝까지) */
 header {
     width: 100%;
-    border-bottom: 2px solid #333; /* 상단 라인을 조금 더 두껍게 강조 */
+	border-bottom: 2px solid #222; /* 상단 라인을 조금 더 두껍게 강조 */    
     padding: 20px 0;
-    background-color: #fff;
+	background-color: #0b0b0b;
+	color: #ffffff;
 }
 
 /* 3. 컨텐츠 중앙 정렬 */
@@ -75,15 +76,15 @@ header .main-nav > li:hover > ul {
 header .main-nav > li > ul > li a {
     font-size: 14px; /* 작게 */
     font-weight: normal; /* 보통 굵기 */
-    color: #666;
+    color: #ccc;
     padding: 8px 20px;
     display: block;
-    text-decoration: none;
+    text-decoration: none;    
 }
 
 header .main-nav > li > ul > li a:hover {
     background-color: #f8f8f8;
-    color: #000;
+    color: goldenrod;
 }
 
 /* 6. 오른쪽 서브 메뉴 (로그인, 공지사항 등 - 작게 유지) */
