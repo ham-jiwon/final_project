@@ -24,7 +24,7 @@ section {
 }
 
 section.main{
-	margin: 30px;                 /* 여백 제거 */	
+	margin: 0px;                 /* 여백 제거 */	
 	position: relative;
 	
 	background-image:url(/cinema/resources/img/dog.png);	
@@ -33,8 +33,7 @@ section.main{
 	background-repeat: no-repeat;	
 }
 
-section.main h1{
-	margin: 30px;                 /* 여백 제거 */		
+section.main h1{	
 	width:100%;
 	min-height: 700px;
 
