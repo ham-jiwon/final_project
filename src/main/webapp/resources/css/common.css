@@ -38,8 +38,6 @@ section.main h1{
 	width:100%;
 	min-height: 700px;
 	
-	position:relative;
-	
 	background-color:#00000080;
 	background-image:url(/cinema/resources/img/dog.png);
 	background-size:contain; /* background-size:cover; */
