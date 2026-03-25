@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- project contextPath 경로를 저장하는 변수 지정 -->
 <% String path = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -9,18 +10,18 @@
     <link rel="stylesheet" href="<%=path%>/resources/css/common.css">
 	<link rel="stylesheet" href="<%=path%>/resources/css/header.css">     
     <link rel="stylesheet" href="<%=path%>/resources/css/footer.css">
-<!-- project contextPath 경로를 저장하는 변수 지정 -->
-<li><a href="<%=path %>">영화</a></li>
+</head>
+<body>
+	<header>
+		<div>
+			<ul>
+				<li><a href="<%=path %>">영화</a></li>
 				<li><a href="<%=path %>/sendMail.jsp">영화관별</a></li>
 				<li><a href="<%=path %>/sendMailFile.jsp">상영중</a></li>
 				<li><a href="<%=path %>/sendMailFile.jsp">상영예정</a></li>
 				<li><a href="<%=path %>/sendMailFile.jsp">메가박스</a></li>
 			    <li><a href="<%=path %>/sendMailFile.jsp">CGV</a></li>
-			    <li><a href="<%=path %>/sendMailFile.jsp">롯데시네마</a></li>
-</head>
-<body>
-	<header>
-		<div>
+			    <li><a href="<%=path %>/sendMailFile.jsp">롯데시네마</a></li>	
 			<ul>
 				<li><a href="<%=path %>">home</a></li>
 				<li><a href="<%=path %>/sendMail.jsp">SEND MAIL</a></li>
