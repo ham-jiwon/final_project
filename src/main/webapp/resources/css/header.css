@@ -1,4 +1,19 @@
-/* 1. 메인 메뉴는 가로로(flex), 서브 메뉴는 세로로(block) 정렬 강제 */
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 1100px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    height: 100px;/* 1. 메인 메뉴는 가로로(flex), 서브 메뉴는 세로로(block) 정렬 강제 */
 header > div:first-child > ul {
     display: flex;
     align-items: center; /* 세로 중앙 정렬 */
@@ -34,4 +49,77 @@ header a {
     display: inline-block;
     line-height: 1.5; /* 글꼴에 따른 수직 정렬 편차 감소 */
     vertical-align: middle;
+}
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+/* 헤더 내부 좌우 영역을 flex로 배치 */
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* 첫 번째 div에 담긴 전체 메뉴를 가로 배치 */
+header > div:first-child ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* 각 메뉴 아이템 위치 잡기 */
+header > div:first-child ul > li {
+    position: relative;
+}
+
+/* 드롭다운 서브메뉴 숨기기 */
+header > div:first-child ul > li > ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px 0;
+    min-width: 120px;
+    z-index: 10;
+}
+
+/* 드롭다운 서브메뉴 아이템 */
+header > div:first-child ul > li > ul > li {
+    padding: 5px 20px;
+}
+
+/* 드롭다운 서브메뉴 보이기 */
+header > div:first-child ul > li:hover > ul {
+    display: block;
+}
+
+/* 링크 기본 스타일 */
+header a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* 링크 호버 스타일 */
+header a:hover {
+    color: #666;
+    cursor: pointer;
+}
+
+/* 오른쪽 메뉴 가로 정렬 */
+header > div:last-child ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+/* 오른쪽 메뉴 아이템 */
+header > div:last-child ul li a {
+    font-size: 0.9rem;
+    color: #333;
 }
