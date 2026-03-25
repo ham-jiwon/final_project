@@ -98,7 +98,7 @@ header .main-nav > li > ul > li a {
 }
 
 header .main-nav > li > ul > li a:hover {
-    background-color: #f8f8f8;
+    background-color: #333;
     color: gold;
 }
 
