@@ -117,7 +117,80 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>     
+		
+		<!-- db연동 -->
+		<dependency>
+		    <groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ojdbc11</artifactId>
+		    <version>21.21.0.0</version>
+		    <scope>compile</scope>
+		</dependency>
+		
+		<!-- Spring - JDBC 연동 Connection Pool Bean 관리 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${org.springframework-version}</version>
+		    <scope>compile</scope>
+		</dependency>
+		
+		<!-- Source: https://mvnrepository.com/artifact/org.springframework/spring-test -->
+		<!-- 
+			단위 테스트에서 서버를 구동시키지 않아도 Test 용 Spring Context 를 생성하여
+			등록된 Bean 정보를 테스트할 수 있도록 제공되는 라이브러리
+		 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>${org.springframework-version}</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<!-- 컴파일 코드 자동 완성 라이브러리 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.44</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Source: https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<!-- 
+			Mybatis(기존 ibatis) ORM Framework
+			ORM(Object Relational Mapping) - 객체 관계형 매핑
+			객체지향 프로그래민 언어(Java) 전용 프레임워크로
+			관계형 데이터베이스(RDBMS)의 테이블을 자동으로 객체와 mapping(연결) 해주는 도구
+			
+			객체 <=> 테이블 매핑
+			클래스(class) <=> 테이블(table)
+			객체의 필드(Field) <=> 테이블의 column
+			객체 인스턴스 <=> 테이블의 행(row)
+			
+			SQL 작업 처리를 위한 코드 작성을 최소화할 수 있도록 제공되는 프레임워크
+		 -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.5.19</version>
+		    <scope>compile</scope>
+		</dependency>
+		<!-- Source: https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<!-- 
+			MyBatis ORM Framework 를 Spring 환경에서 지원하는 라이브러리
+			Spring Bean 으로 관리되는 객체를 활용하여
+			Database 연결 작업 -> Query 작업 수행 -> 수행 결과 반환(객체) -> 사용된 자원 반납(close)
+			등을 일괄적으로 처리
+		 -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <!-- 3.x.x 이상은 java17 이상 -->
+		    <version>2.1.2</version>
+		    <scope>compile</scope>
+		</dependency>
+		
+		   
 	</dependencies>
     <build>
         <plugins>

@@ -7,9 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>CHoi House</title>
-    <link rel="stylesheet" href="<%=path%>/resources/css/common.css">
-	<link rel="stylesheet" href="<%=path%>/resources/css/header.css">     
-    <link rel="stylesheet" href="<%=path%>/resources/css/footer.css">
+
+<link rel="stylesheet" href="<%=path%>/resources/css/common.css">
+<link rel="stylesheet" href="<%=path%>/resources/css/header.css">     
+<link rel="stylesheet" href="<%=path%>/resources/css/footer.css">
 </head>
 <body>
 
@@ -25,8 +26,8 @@
 	        <li><a href="<%=path %>/sendMail.jsp">SEND MAIL</a></li>
 	        <li><a href="<%=path %>/sendMailFile.jsp">SEND File MAIL</a></li>
 	
-	        <li><a href="<%=path %>/login.jsp">로그인</a></li>
-	        <li><a href="<%=path %>/join.jsp">회원가입</a></li>
+	        <li><a href="<%=path %>/member/login">로그인</a></li>
+	        <li><a href="<%=path %>/member/join">회원가입</a></li>
 	
 	        <li>
 	            <a href="<%=path %>/info.jsp">회원이름</a><span>님 방가방가</span>
