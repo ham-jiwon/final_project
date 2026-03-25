@@ -8,101 +8,93 @@
 }
 
 body {
-    width: 100%; /* 화면 전체를 쓰도록 설정 */
+    width: 100%;
     font-family: 'Malgun Gothic', sans-serif;
-    background-color: #fff;
 }
 
-/* 2. 헤더 영역 (수평선을 끝까지 긋기 위해 width 100% 사용) */
+/* 2. 헤더 수평선 (화면 끝까지) */
 header {
     width: 100%;
-    border-bottom: 1px solid #ccc; /* 수평선 (끊기지 않고 끝까지 감) */
+    border-bottom: 2px solid #333; /* 상단 라인을 조금 더 두껍게 강조 */
+    padding: 20px 0;
     background-color: #fff;
-    padding: 15px 0;
 }
 
-/* 3. 컨텐츠 컨테이너 (실제 메뉴들이 모이는 1100px 박스) */
+/* 3. 컨텐츠 중앙 정렬 */
 header > div {
     width: 1100px;
-    margin: 0 auto; /* 가운데 정렬 */
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* 왼쪽과 오른쪽으로 분리 */
-    align-items: center; /* 수직 정중앙 정렬 */
+    justify-content: space-between;
+    align-items: flex-end; /* 메뉴 바닥선을 맞춤 */
 }
 
-/* 4. 메뉴 리스트 공통 스타일 */
-header ul {
+/* 4. 왼쪽 메인 메뉴 (영화, 영화관별 등) */
+header .main-nav {
+    display: flex;
+    gap: 40px;
     list-style: none;
-    display: flex;
-    gap: 25px; /* 메뉴 사이 간격 */
-    align-items: center;
-    padding: 0;
 }
 
-/* 5. 메뉴 아이템 및 링크 스타일 */
-header ul li {
+header .main-nav > li {
     position: relative;
-    white-space: nowrap; /* 글자 줄바꿈 방지 */
+    padding-bottom: 10px; /* 드롭다운과의 간격 */
 }
 
-header a {
+/* 상위 메뉴 글자 스타일 (크고 굵게) */
+header .main-nav > li > a {
     text-decoration: none;
-    color: #333;
-    font-size: 15px;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-header a:hover {
-    color: #666;
-}
-
-/* 6. 드롭다운 서브메뉴 디자인 */
-header ul li > ul {
-    display: none; /* 평소엔 숨김 */
-    position: absolute;
-    top: 100%; /* 부모 메뉴 바로 아래 */
-    left: 0;
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 10px 0;
-    min-width: 140px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    flex-direction: column; /* 서브메뉴는 세로로 나열 */
-    gap: 0; /* 서브메뉴 사이 간격 제거 */
-}
-
-/* 마우스 올리면 서브메뉴 보이기 */
-header ul li:hover > ul {
-    display: flex;
-}
-
-/* 서브메뉴 내부 항목 */
-header ul li > ul > li {
-    width: 100%;
-    padding: 8px 15px;
-}
-
-header ul li > ul > li a {
-    font-size: 13px;
-    font-weight: 400;
+    color: #000;
+    font-size: 18px; /* 크게 */
+    font-weight: bold; /* 굵게 */
     display: block;
 }
 
-header ul li > ul > li:hover {
-    background-color: #f9f9f9;
+/* 5. 드롭다운 하위 메뉴 (상위 메뉴보다 작게) */
+header .main-nav > li > ul {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 10px 0;
+    min-width: 140px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+    list-style: none;
 }
 
-/* 7. '방가방가' 등 일반 텍스트 정렬 */
-header li span {
-    font-size: 14px;
-    color: #555;
-    margin-left: 5px;
+/* 마우스 올릴 때만 보이기 */
+header .main-nav > li:hover > ul {
+    display: block;
 }
 
-/* 8. 오른쪽 하단 메뉴 (공지사항 등) 스타일 */
-header > div:last-child ul li a {
+/* 하위 메뉴 글자 스타일 (작고 깔끔하게) */
+header .main-nav > li > ul > li a {
+    font-size: 14px; /* 작게 */
+    font-weight: normal; /* 보통 굵기 */
+    color: #666;
+    padding: 8px 20px;
+    display: block;
+    text-decoration: none;
+}
+
+header .main-nav > li > ul > li a:hover {
+    background-color: #f8f8f8;
+    color: #000;
+}
+
+/* 6. 오른쪽 서브 메뉴 (로그인, 공지사항 등 - 작게 유지) */
+header .sub-nav {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+header .sub-nav a, header .sub-nav span {
+    text-decoration: none;
+    color: #666;
     font-size: 13px;
-    color: #777;
 }
