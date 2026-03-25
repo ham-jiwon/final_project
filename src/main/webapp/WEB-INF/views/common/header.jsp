@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CHoi House</title>
+<title>Cinema in Busan</title>
 
 <% String path = request.getContextPath(); %>
 <!-- project contextPath 경로를 저장하는 변수 지정 -->
