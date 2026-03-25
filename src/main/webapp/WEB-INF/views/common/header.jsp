@@ -52,7 +52,8 @@
 
             <!-- 로그인 -->
             <li>
-                <a href="<%=path %>/info.jsp">회원이름</a>님 방가방가
+                <a href="<%=path %>/info.jsp">회원이름</a>
+                <span style="margin-left:5px;">님 방가방가
             </li>
             <li><a href="<%=path %>/logout.jsp">로그아웃</a></li>
 
