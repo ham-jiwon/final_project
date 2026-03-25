@@ -14,21 +14,30 @@
 <body>
 	<header>
 		<div>
-			<ul>
-				<li><a href="<%=path %>">영화</a></li>
-				<li><a href="<%=path %>/sendMail.jsp">영화관별</a></li>
-				<li><a href="<%=path %>/sendMailFile.jsp">상영중</a></li>
-				<li><a href="<%=path %>/sendMailFile.jsp">상영예정</a></li>
-				<li><a href="<%=path %>/sendMailFile.jsp">메가박스</a></li>
-			    <li><a href="<%=path %>/sendMailFile.jsp">CGV</a></li>
-			    <li><a href="<%=path %>/sendMailFile.jsp">롯데시네마</a></li>	
-			<ul>
+			<!-- 영화 -->
+			<li>
+                <a href="#">영화</a>			
+				<ul>
+					<li><a href="<%=path %>/sendMailFile.jsp">상영중</a></li>
+					<li><a href="<%=path %>/sendMailFile.jsp">상영예정</a></li>
+				</ul>
+			</li>
+			<!-- 영화관별 -->
+			<li>
+                <a href="#">영화관별</a>
+	                <ul>			
+						<li><a href="<%=path %>/sendMailFile.jsp">메가박스</a></li>
+					    <li><a href="<%=path %>/sendMailFile.jsp">CGV</a></li>
+					    <li><a href="<%=path %>/sendMailFile.jsp">롯데시네마</a></li>	
+					</ul>
+			</li>
+			
+	        <!-- 기존 메뉴 -->	
+	        <ul>	    
 				<li><a href="<%=path %>">home</a></li>
 				<li><a href="<%=path %>/sendMail.jsp">SEND MAIL</a></li>
 				<li><a href="<%=path %>/sendMailFile.jsp">SEND File MAIL</a></li>
-				
-				
-			
+		
 				<!-- 비 로그인시용자 -->
 				<li><a href="<%=path %>/login.jsp">로그인</a></li>
 				<li><a href="<%=path %>/join.jsp">회원가입</a></li>
@@ -40,8 +49,8 @@
 				</li>
 				<li><a href="<%=path %>/logout.jsp">로그아웃</a></li>
 				
-					<!-- 관리자 로그인일 경우 -->
-					<li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
+				<!-- 관리자 로그인일 경우 -->
+				<li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
 			</ul>
 		</div>
 		<div>
