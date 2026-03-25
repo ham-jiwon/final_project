@@ -13,43 +13,7 @@ body {
 }
 
 header {
-    height: 100px;/* 1. 메인 메뉴는 가로로(flex), 서브 메뉴는 세로로(block) 정렬 강제 */
-header > div:first-child > ul {
-    display: flex;
-    align-items: center; /* 세로 중앙 정렬 */
-    gap: 30px; /* 메뉴 간격 넓힘 */
-}
-
-/* 2. 서브 메뉴(드롭다운) 설정 수정 */
-header > div:first-child ul > li > ul {
-    display: none;
-    position: absolute;
-    top: 100%; /* 부모 li 바로 아래 붙도록 */
-    left: 0;
-    background: white;
-    border: 1px solid #ddd;
-    padding: 5px 0;
-    min-width: 140px; /* 글자가 잘리지 않게 너비 확보 */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 입체감 추가 */
-    z-index: 100;
-    
-    /* 중요: 하위 메뉴는 다시 세로 정렬로 변경 */
-    flex-direction: column; 
-}
-
-/* 3. 서브 메뉴 내부의 li 정렬 */
-header > div:first-child ul > li > ul > li {
-    width: 100%; /* 부모 너비 꽉 채우기 */
-    padding: 8px 15px;
-    display: block; /* 가로 flex 영향 제거 */
-}
-
-/* 4. 텍스트 수직 정렬 안 맞아 보일 때 (Line-height 조절) */
-header a {
-    display: inline-block;
-    line-height: 1.5; /* 글꼴에 따른 수직 정렬 편차 감소 */
-    vertical-align: middle;
-}
+    height: 100px;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
 }
@@ -62,38 +26,43 @@ header > div {
     margin-bottom: 5px;
 }
 
-/* 첫 번째 div에 담긴 전체 메뉴를 가로 배치 */
+/* 첫 번째 div의 전체 메뉴를 가로 배치 */
 header > div:first-child ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    align-items: center; /* 세로 중앙 정렬 */
 }
 
-/* 각 메뉴 아이템 위치 잡기 */
+/* 메뉴 아이템 위치 잡기 */
 header > div:first-child ul > li {
     position: relative;
 }
 
-/* 드롭다운 서브메뉴 숨기기 */
+/* 서브메뉴(드롭다운) 기본 숨김, 위치 지정 */
 header > div:first-child ul > li > ul {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 100%; /* 부모 li 바로 아래 */
     left: 0;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 10px 0;
-    min-width: 120px;
-    z-index: 10;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 5px 0;
+    min-width: 140px; /* 충분한 너비 확보 */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    flex-direction: column; /* 세로 정렬 */
+    z-index: 100;
 }
 
-/* 드롭다운 서브메뉴 아이템 */
-header > div:first-child ul > li > ul > li {
-    padding: 5px 20px;
-}
-
-/* 드롭다운 서브메뉴 보이기 */
+/* 서브메뉴 보이기 */
 header > div:first-child ul > li:hover > ul {
+    display: flex;
+}
+
+/* 서브메뉴 내부 아이템 */
+header > div:first-child ul > li > ul > li {
+    padding: 8px 15px;
+    width: 100%;
     display: block;
 }
 
@@ -103,22 +72,24 @@ header a {
     color: #000;
     font-weight: 500;
     white-space: nowrap;
+    line-height: 1.5;
+    vertical-align: middle;
 }
 
-/* 링크 호버 스타일 */
+/* 링크 호버 시 색상 변경 */
 header a:hover {
     color: #666;
     cursor: pointer;
 }
 
-/* 오른쪽 메뉴 가로 정렬 */
+/* 오른쪽 메뉴 가로 배치 */
 header > div:last-child ul {
     list-style: none;
     display: flex;
     gap: 15px;
 }
 
-/* 오른쪽 메뉴 아이템 */
+/* 오른쪽 메뉴 아이템 링크 스타일 */
 header > div:last-child ul li a {
     font-size: 0.9rem;
     color: #333;
