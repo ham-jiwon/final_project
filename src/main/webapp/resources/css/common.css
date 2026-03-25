@@ -44,6 +44,14 @@ section.main{
 	background-repeat: no-repeat;	
 }
 
+.text-box{
+	display: flex;
+	flex-direction: column;   /* 🔥 세로 정렬 */
+	gap: 15px;                /* 줄 간격 */
+	text-align: center;
+	color: white;
+}
+
 section.main h1{	
 	margin: 0px;                 /* 여백 제거 */
 	width:100%;
