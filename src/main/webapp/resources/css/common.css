@@ -44,6 +44,7 @@ section.main{
 	background-repeat: no-repeat;	
 }
 
+/* 글상자 css 설정 */
 .text-box{
 	max-width: 600px;     /* 너비 설정 */
 	width: 90%;
@@ -60,6 +61,17 @@ section.main{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+/* 글상자 기본 상태 숨기기 */
+.text-box{
+	opacity: 0;
+	transition: 0.4s ease;
+}
+
+/* 마우스 오버 시 글상자 표시 */
+section.main:hover .text-box{
+	opacity: 1;
 }
 
 section.main h1{	
