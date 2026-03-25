@@ -14,37 +14,28 @@
 <body>
 
 <header>
-    
-    <div>
-    
-         <ul>
-            <li><a href="#">공지사항</a></li>
-            <li><a href="#">질문과답변</a></li>
-        </ul>
 
-        
-        <!-- 오른쪽 상단 메뉴 -->
-		<ul class="right-menu">
-            <!-- 기존 메뉴 -->
-            <li><a href="<%=path %>">home</a></li>
-            <li><a href="<%=path %>/sendMail.jsp">SEND MAIL</a></li>
-            <li><a href="<%=path %>/sendMailFile.jsp">SEND File MAIL</a></li>
-
-            <!-- 비 로그인 -->
-            <li><a href="<%=path %>/login.jsp">로그인</a></li>
-            <li><a href="<%=path %>/join.jsp">회원가입</a></li>
-
-            <!-- 로그인 -->
-            <li>
-                <a href="<%=path %>/info.jsp">회원이름</a>님 방가방가
-            </li>
-            <li><a href="<%=path %>/logout.jsp">로그아웃</a></li>
-
-            <!-- 관리자 -->
-            <li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
-
-        </ul>
-    </div>
+    <!-- 상단 메뉴바 -->
+	<div>
+	    <ul class="sub-nav"> <li><a href="#">공지사항</a></li>
+	        <li><a href="#">질문과답변</a></li>
+	    </ul>
+	
+	    <ul class="right-menu sub-nav"> <li><a href="<%=path %>">home</a></li>
+	        <li><a href="<%=path %>/sendMail.jsp">SEND MAIL</a></li>
+	        <li><a href="<%=path %>/sendMailFile.jsp">SEND File MAIL</a></li>
+	
+	        <li><a href="<%=path %>/login.jsp">로그인</a></li>
+	        <li><a href="<%=path %>/join.jsp">회원가입</a></li>
+	
+	        <li>
+	            <a href="<%=path %>/info.jsp">회원이름</a><span>님 방가방가</span>
+	        </li>
+	        <li><a href="<%=path %>/logout.jsp">로그아웃</a></li>
+	
+	        <li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
+	    </ul>
+	</div>
     
     <!-- 하단 드롭다운 메뉴 -->
     <div>
