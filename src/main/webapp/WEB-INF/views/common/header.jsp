@@ -14,13 +14,6 @@
 <body>
 
 <header>
-    <!-- 오른쪽 메뉴 -->
-    <div>
-        <ul>
-            <li><a href="#">공지사항</a></li>
-            <li><a href="#">질문과답변</a></li>
-        </ul>
-    </div>
     
     <div>
         <!-- 전체 메뉴를 하나의 ul로 묶기 -->
@@ -65,6 +58,14 @@
             <!-- 관리자 -->
             <li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
 
+        </ul>
+    </div>
+    
+    <!-- 하단 메뉴 -->
+    <div>
+        <ul>
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">질문과답변</a></li>
         </ul>
     </div>
 
