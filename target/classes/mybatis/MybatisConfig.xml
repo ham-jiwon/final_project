@@ -6,12 +6,12 @@
 	XML(마크업) 문서의 구조 및 해당 문서에 사용할 수 있는 적법한 요소와 속성의 정의
  -->
 <!DOCTYPE configuration
-PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
 	<mappers>
-		<mapper resource="mybatis/mappers/userMapper.xml"/>
+		<mapper resource="mybatis/mappers/MemberMapper.xml"/>
 	</mappers>
 	
 </configuration>

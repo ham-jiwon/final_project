@@ -23,8 +23,8 @@
 				
 			
 				<!-- 비 로그인시용자 -->
-				<li><a href="<%=path %>/login.jsp">로그인</a></li>
-				<li><a href="<%=path %>/join.jsp">회원가입</a></li>
+				<li><a href="<%=path %>/member/login">로그인</a></li>
+				<li><a href="<%=path %>/member/join">회원가입</a></li>
 				<!-- 로그인 된 사용자 -->
 				<li>
 					<a href="<%=path %>/info.jsp">
