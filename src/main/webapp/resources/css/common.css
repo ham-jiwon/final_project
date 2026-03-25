@@ -1,6 +1,20 @@
 @charset "UTF-8";
 
-/* index.jsp */
+/* home.jsp */
+/* 블랙 테마를 위한 전역 설정입니다 */
+body{
+	background-color: #0b0b0b;
+	color: #ffffff;
+	margin: 0;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+.container{
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
 section {
 	min-height: 700px;
 	display: flex;
