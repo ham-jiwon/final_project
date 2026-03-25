@@ -19,24 +19,40 @@ header div {
 	overflow: hidden;
 }
 
-ul {
-	list-style: none;
-	float: right;
-	height: 50px;
-	line-height: 50px;
+/* 1. 가로 메뉴 */
+header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
 }
 
-ul li {
-	float: left;
-	padding: 10px;
-	padding-top: 0px;
+/* 2. li 기준 잡기 */
+header ul li {
+    position: relative;
 }
 
+/* 3. 서브메뉴 숨기기 */
+header ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+/* 4. hover 시 보이기 */
+header ul li:hover ul {
+    display: block;
+}
+
+/* 5. 하이퍼링크 기본 색상 */
 ul li a {
 	text-decoration: none;
 	color: #000;
 }
 
+/* 6. 하이퍼링크 마우스오버 시 색상 */
 ul li a:hover {
 	color: #ccc;
 	cursor: pointer;
