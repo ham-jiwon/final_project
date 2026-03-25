@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- project contextPath 경로를 저장하는 변수 지정 -->
-<% String path = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
