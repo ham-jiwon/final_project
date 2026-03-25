@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% String path = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>CHoi House</title>
-<% String path = request.getContextPath(); %>
+    <link rel="stylesheet" href="<%=path%>/resources/css/common.css">
+	<link rel="stylesheet" href="<%=path%>/resources/css/header.css">     
+    <link rel="stylesheet" href="<%=path%>/resources/css/footer.css">
 <!-- project contextPath 경로를 저장하는 변수 지정 -->
 <li><a href="<%=path %>">영화</a></li>
 				<li><a href="<%=path %>/sendMail.jsp">영화관별</a></li>
