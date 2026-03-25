@@ -38,6 +38,6 @@ ul li a {
 }
 
 ul li a:hover {
-	color: #orange;
+	color: orange;
 	cursor: pointer;
 }
