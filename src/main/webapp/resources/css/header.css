@@ -41,6 +41,7 @@ header .main-nav > li {
     padding-bottom: 10px; /* 드롭다운과의 간격 */
 }
 
+
 /* 상위 메뉴 글자 스타일 (크고 굵게) */
 header .main-nav > li > a {
     text-decoration: none;
@@ -97,4 +98,5 @@ header .sub-nav a, header .sub-nav span {
     text-decoration: none;
     color: #666;
     font-size: 13px;
+
 }

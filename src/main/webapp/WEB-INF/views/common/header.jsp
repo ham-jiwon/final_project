@@ -8,9 +8,13 @@
 <meta charset="UTF-8">
 <title>CHoi House</title>
 
-<link rel="stylesheet" href="<%=path%>/resources/css/common.css">
-<link rel="stylesheet" href="<%=path%>/resources/css/header.css">     
-<link rel="stylesheet" href="<%=path%>/resources/css/footer.css">
+<% String path = request.getContextPath(); %>
+<!-- project contextPath 경로를 저장하는 변수 지정 -->
+<link href="<%=path %>/resources/css/header.css" rel="stylesheet" type="text/css" />
+<link href="<%=path %>/resources/css/footer.css" rel="stylesheet" type="text/css" />
+<link href="<%=path %>/resources/css/common.css" rel="stylesheet" type="text/css" />
+<link rel="icon" href="<%=request.getContextPath()%>/css/img/puppy.ico" type="image/x-icon">
+
 </head>
 <body>
 

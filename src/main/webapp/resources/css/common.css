@@ -1,6 +1,20 @@
 @charset "UTF-8";
 
-/* index.jsp */
+/* home.jsp */
+/* 블랙 테마를 위한 전역 설정입니다 */
+body{
+	background-color: #0b0b0b;
+	color: #ffffff;
+	margin: 0;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+.container{
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
 section {
 	min-height: 700px;
 	display: flex;
@@ -10,12 +24,18 @@ section {
 }
 
 section.main{
-	background-image:url(img/dog.jpg);
+	width: 100%;
+	height: 100vh;              /* 화면 꽉 채움 */
+	margin: 0;                 /* 여백 제거 */	
+	background-image:url(/cinema/resources/img/dog.png);
+	background-size:cover; /* background-size:contain; */
 	background-position: center;
-	/*background-repeat: no-repeat;*/	
-	/*background-size:cover;*/
-	padding:0;
-	margin:30px;
+	/* background-repeat: no-repeat; */	
+	position: relative;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 section.main h1{
