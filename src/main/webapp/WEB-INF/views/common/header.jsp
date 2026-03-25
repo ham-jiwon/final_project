@@ -12,7 +12,7 @@
 <link href="<%=path %>/resources/css/header.css" rel="stylesheet" type="text/css" />
 <link href="<%=path %>/resources/css/footer.css" rel="stylesheet" type="text/css" />
 <link href="<%=path %>/resources/css/common.css" rel="stylesheet" type="text/css" />
-<link rel="icon" href="<%=path%>/resources/css/img/puppy.ico" type="image/x-icon">
+<link rel="icon" href="<%=path%>/resources/img/puppy.ico" type="image/x-icon">
 
 </head>
 <body>
