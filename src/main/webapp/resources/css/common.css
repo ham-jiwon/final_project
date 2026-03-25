@@ -30,11 +30,12 @@ section.main{
 	
 	background-image:
 		    linear-gradient(to bottom,
-			rgba(0,0,0,0.8) 0%,
-			rgba(0,0,0,0.2) 30%,
-			rgba(0,0,0,0) 50%,
-			rgba(0,0,0,0.2) 70%,
-			rgba(0,0,0,0.8) 100%
+	        rgba(0,0,0,0.95) 0%,
+	        rgba(0,0,0,0.7) 20%,
+	        rgba(0,0,0,0.1) 45%,
+	        rgba(0,0,0,0.1) 55%,
+	        rgba(0,0,0,0.7) 80%,
+	        rgba(0,0,0,0.95) 100%
 	    ),
 		url(/cinema/resources/img/dog.png);	
 	background-size:cover; background-size:contain; 	
