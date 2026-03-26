@@ -55,9 +55,9 @@
             <li>
                 <a href="#">영화관별</a>
                 <ul>
-                    <li><a href="<%=path %>/mega">메가박스</a></li>
-                    <li><a href="<%=path %>/cgv">CGV</a></li>
-                    <li><a href="<%=path %>/lotte">롯데시네마</a></li>
+                    <li><a href="<%=path %>/theater/mega">메가박스</a></li>
+                    <li><a href="<%=path %>/theater/cgv">CGV</a></li>
+                    <li><a href="<%=path %>/theater/lotte">롯데시네마</a></li>
                 </ul>
             </li>
         </ul>
