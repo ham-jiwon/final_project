@@ -25,7 +25,8 @@ header {
 /* 3. 컨텐츠 중앙 정렬 */
 header > div {
     /* width: 1100px; */
-	width: calc(100% - 120px);
+	width: calc(100% - 150px);
+	min-width: 1100px;
 	margin: 0 auto;
     display: flex;
     justify-content: space-between; /* 박스 안 요소들을 양 끝으로 */
