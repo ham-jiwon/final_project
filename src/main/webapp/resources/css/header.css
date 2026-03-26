@@ -22,7 +22,7 @@ header {
 	color: #ffffff;
 }
 
-/* 3. 컨텐츠 중앙 정렬 */
+/* 3. 컨텐츠 정렬 */
 header > div {
     max-width: 1500px;   /* 중앙 컨텐츠 최대 폭 */
     margin: 0 auto;      /* 가운데 정렬 */
@@ -33,7 +33,7 @@ header > div {
 }
 
 
-/* 4. 왼쪽 메인 메뉴 (영화, 영화관별 등) */
+/* 4. 하단 메인 메뉴 (영화, 영화관별 등) */
 header .main-nav {
 	display: flex;
 	justify-content: flex-start;
@@ -57,7 +57,7 @@ header .main-nav > li > a {
     display: block;
 }
 
-/* 5. 드롭다운 하위 메뉴 (상위 메뉴보다 크게) */
+/* 5. 드롭다운 하위 메뉴 (상위 메뉴보다 작게) */
 header .main-nav > li > ul {
     display: none;
     position: absolute;
