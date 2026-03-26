@@ -24,7 +24,7 @@ header {
 
 /* 3. 컨텐츠 중앙 정렬 */
 header > div {
-    max-width: 1200px;   /* 중앙 컨텐츠 최대 폭 */
+    max-width: 1500px;   /* 중앙 컨텐츠 최대 폭 */
     margin: 0 auto;      /* 가운데 정렬 */
     padding: 0 10px;     /* 양쪽 여백 */
     
