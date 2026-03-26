@@ -112,6 +112,7 @@ header .main-nav > li > ul > li a:hover {
 header .sub-nav {
     display: flex;
     justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-left: auto;
     gap: 15px;
     list-style: none;
     padding-bottom: 10px;
