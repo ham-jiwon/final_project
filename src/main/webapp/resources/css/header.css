@@ -36,6 +36,7 @@ header > div {
 
 /* 4. 왼쪽 메인 메뉴 (영화, 영화관별 등) */
 header .main-nav {
+	display: flex;
 	justify-content: center;
 }
 
