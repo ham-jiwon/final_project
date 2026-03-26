@@ -7,7 +7,7 @@ public class MemberVO {
 	
 	private int num;
 	private String id;
-	private String pw;
+	private String pass;
 	private String name;
 	private String nickname;
 	private String phone;

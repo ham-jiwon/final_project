@@ -1,5 +1,9 @@
 package net.koreate.cinema.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,22 +16,37 @@ import net.koreate.cinema.vo.MemberVO;
 @RequestMapping("/member")
 public class MemberController {
 	
+	@Autowired
+	private MemberService service;
+	
 	@GetMapping("/join")
 	public String join() {
-		
 		return "member/join";
-	}
-	
-	@GetMapping("/login")
-	public String login() {
-		
-		return "member/login";
 	}
 	
 	@PostMapping("joinAction")
 	public String joinAction(MemberVO member) {
-		MemberService.insertMember(member);
-		return "redirect:/";
+		service.insertMember(member);
+		return "redirect:/member/login";
+	}
+	
+	
+	@GetMapping("/login")
+	public String login() {
+		return "member/login";
+	}
+	
+	@PostMapping("/loginAction")
+	public String loginAction(MemberVO member, HttpSession session) {
+		MemberVO loginResult = service.loginMember(member);
+		
+		if(loginResult != null) {
+			session.setAttribute("loginMember", loginResult);
+			return "redirect:/";
+		}else {
+			return "member/login";
+		}
+		
 	}
 	
 }//end calss
