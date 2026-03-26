@@ -3,11 +3,18 @@ package net.koreate.cinema.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import net.koreate.cinema.repositories.MemberDAO;
+
 import net.koreate.cinema.vo.MemberVO;
 
 @Service
 public class MemberService {
+
+	public static void insertMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	@Autowired
 	private MemberDAO memberDAO;
