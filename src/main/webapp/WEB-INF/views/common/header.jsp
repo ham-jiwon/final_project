@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CHoi House</title>
+<title>Cinema in Busan</title>
 
 <% String path = request.getContextPath(); %>
 <!-- project contextPath 경로를 저장하는 변수 지정 -->
 <link href="<%=path %>/resources/css/header.css" rel="stylesheet" type="text/css" />
 <link href="<%=path %>/resources/css/footer.css" rel="stylesheet" type="text/css" />
 <link href="<%=path %>/resources/css/common.css" rel="stylesheet" type="text/css" />
-<link rel="icon" href="<%=request.getContextPath()%>/css/img/puppy.ico" type="image/x-icon">
+<link rel="icon" href="<%=path%>/resources/img/puppy.ico" type="image/x-icon">
 
 </head>
 <body>
