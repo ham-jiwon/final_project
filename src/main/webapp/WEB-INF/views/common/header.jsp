@@ -67,10 +67,11 @@
         </ul>
                 
     </div>
-
-</header>
-
-	<!-- 홈페이지 로고 삽입 -->
+    
+   	<!-- 홈페이지 로고 삽입 -->
     <div class="logo">
         <img src="<%=path%>/resources/img/logo.png">
     </div>	
+
+</header>
+
