@@ -24,6 +24,24 @@ public class MemberController {
 		return "member/login";
 	}
 	
+	@GetMapping("/info")
+	public String info() {
+		
+		return "member/info";
+	}
+
+	@GetMapping("/logout")
+	public String logout() {
+		
+		return "member/logout";
+	}	
+	
+	@GetMapping("/memberList")
+	public String memberList() {
+		
+		return "member/memberList";
+	}	
+	
 	@PostMapping("joinAction")
 	public String joinAction(MemberVO member) {
 		MemberService.insertMember(member);
