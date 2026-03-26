@@ -22,7 +22,7 @@
     <!-- 상단 메뉴바 -->
 	<div>
 	
-	    <ul class="right-menu sub-nav"> <li><a href="<%=path %>">home</a></li>
+	    <ul class="sub-nav"> <li><a href="<%=path %>">home</a></li>
 	        <li><a href="<%=path %>/sendMail.jsp">SEND MAIL</a></li>
 	        <li><a href="<%=path %>/sendMailFile.jsp">SEND File MAIL</a></li>
 	
