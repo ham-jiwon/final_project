@@ -123,11 +123,11 @@ header .sub-nav a, header .sub-nav span {
 .logo {
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: 30px;
     transform: translateX(-50%);
     z-index: 999;
 }
 
 .logo img {
-    height: 50px;
+    height: 150px;
 }
