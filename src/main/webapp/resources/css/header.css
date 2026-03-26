@@ -43,6 +43,7 @@ header .main-nav {
 header .main-nav > li {
     position: relative;
     padding-bottom: 10px; /* 드롭다운과의 간격 */
+    display: inline-block;
 }
 
 
