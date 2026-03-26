@@ -101,7 +101,8 @@ section.main2{
 	gap: 15px;
 
 	text-align: center;
-	color: #4da6ff;
+	color: #57b3e0;
+	text-shadow: 0 0 3px rgba(87, 179, 224, 0.4);
 
 	position: absolute;
 	top: 50%;
