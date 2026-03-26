@@ -21,9 +21,6 @@
 
     <!-- 상단 메뉴바 -->
 	<div>
-	    <ul class="sub-nav"> <li><a href="#">공지사항</a></li>
-	        <li><a href="#">질문과답변</a></li>
-	    </ul>
 	
 	    <ul class="right-menu sub-nav"> <li><a href="<%=path %>">home</a></li>
 	        <li><a href="<%=path %>/sendMail.jsp">SEND MAIL</a></li>
