@@ -28,7 +28,6 @@ header > div {
 	width: calc(100% - 120px);
 	margin: 0 auto;
     display: flex;
-    justify-content: flex-end; /* 오른쪽 정렬 */
     align-items: flex-end; /* 메뉴 바닥선을 맞춤 */
     
     flex-wrap: wrap;
@@ -112,6 +111,7 @@ header .main-nav > li > ul > li a:hover {
 /* 6. 오른쪽 서브 메뉴 (로그인, 공지사항 등 - 작게 유지) */
 header .sub-nav {
     display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
     gap: 15px;
     list-style: none;
     padding-bottom: 10px;
