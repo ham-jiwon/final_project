@@ -69,9 +69,7 @@
     </div>
     
    	<!-- 홈페이지 로고 삽입 -->
-    <div class="logo">
-        <img src="<%=path%>/resources/img/logo.png">
-    </div>	
+    <div class="logo"></div>	
 
 </header>
 
