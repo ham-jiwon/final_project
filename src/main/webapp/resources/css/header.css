@@ -129,7 +129,7 @@ header .sub-nav a, header .sub-nav span {
     width: 200px;
     height: 150px;
     
-    background: url("<%=path%>/resources/img/logo.png") no-repeat center;
+    background: url("../img/logo.png") no-repeat center;
     background-size: contain;
     
     z-index: 999;
