@@ -35,7 +35,7 @@
 	        <li>
 	            <a href="<%=path %>/info.jsp">회원이름</a><span>님 방가방가</span>
 	        </li>
-	        <li><a href="<%=path %>/logout.jsp">로그아웃</a></li>
+	        <li><a href="<%=path %>/member/logout">로그아웃</a></li>
 	
 	        <li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
 	    </ul>
