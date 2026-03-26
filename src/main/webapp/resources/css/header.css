@@ -127,7 +127,7 @@ header .sub-nav a, header .sub-nav span {
     transform: translateX(-50%);
     
     width: 300px;
-    height: 120px;
+    height: 110px;
     
     background: url("../img/logo.png") no-repeat center;
     background-size: cover;
