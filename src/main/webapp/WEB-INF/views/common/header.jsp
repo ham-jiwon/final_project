@@ -46,8 +46,8 @@
             <li>
                 <a href="#">영화</a>
                 <ul>
-                    <li><a href="<%=path %>/sendMailFile.jsp">상영중</a></li>
-                    <li><a href="<%=path %>/sendMailFile.jsp">상영예정</a></li>
+                    <li><a href="<%=path %>/goingMov.jsp">상영중</a></li>
+                    <li><a href="<%=path %>/willGoMov.jsp">상영예정</a></li>
                 </ul>
             </li>
 
@@ -55,9 +55,9 @@
             <li>
                 <a href="#">영화관별</a>
                 <ul>
-                    <li><a href="<%=path %>/sendMailFile.jsp">메가박스</a></li>
-                    <li><a href="<%=path %>/sendMailFile.jsp">CGV</a></li>
-                    <li><a href="<%=path %>/sendMailFile.jsp">롯데시네마</a></li>
+                    <li><a href="<%=path %>/mega.jsp">메가박스</a></li>
+                    <li><a href="<%=path %>/cgv.jsp">CGV</a></li>
+                    <li><a href="<%=path %>/lotte.jsp">롯데시네마</a></li>
                 </ul>
             </li>
         </ul>
