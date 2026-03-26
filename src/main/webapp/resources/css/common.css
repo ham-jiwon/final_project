@@ -57,7 +57,8 @@ section.main2{
 	        rgba(0,0,0,0.2) 65%,
 	        rgba(0,0,0,0.5) 80%,
 	        rgba(0,0,0,0.7) 100%
-	    );	
+	    ),
+		url(/cinema/resources/img/gray00.png);
 	background-size:contain; /* background-size:cover; */ 	
 	background-position: center;	
 	background-repeat: no-repeat;	
@@ -100,7 +101,7 @@ section.main2{
 	gap: 15px;
 
 	text-align: center;
-	color: blue;
+	color: #4da6ff;
 
 	position: absolute;
 	top: 50%;
