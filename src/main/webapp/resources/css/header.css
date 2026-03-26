@@ -28,8 +28,9 @@ header > div {
     width: 100%;
     margin: 0 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* 메뉴 가운데 정렬 */
     align-items: flex-end; /* 메뉴 바닥선을 맞춤 */
+    gap: 40px;
 }
 
 /* 4. 왼쪽 메인 메뉴 (영화, 영화관별 등) */
@@ -45,7 +46,7 @@ header .main-nav > li {
 }
 
 
-/* 상위 메뉴 글자 스타일 (크고 굵게) */
+/* 하위 메뉴 글자 스타일 (크고 굵게) */
 header .main-nav > li > a {
     text-decoration: none;
     color: #fff;
@@ -54,7 +55,7 @@ header .main-nav > li > a {
     display: block;
 }
 
-/* 5. 드롭다운 하위 메뉴 (상위 메뉴보다 작게) */
+/* 5. 드롭다운 하위 메뉴 (상위 메뉴보다 크게) */
 header .main-nav > li > ul {
     display: none;
     position: absolute;
@@ -110,6 +111,14 @@ header .sub-nav {
     gap: 15px;
     list-style: none;
     padding-bottom: 10px;
+}
+
+.sub-nav:last-child {
+    margin-left: auto;   /* 오른쪽 메뉴만 오른쪽으로 밀기 */
+}
+
+.sub-nav:first-child {
+    margin-right: auto;   /* 왼쪽 메뉴 균형 잡기 */
 }
 
 header .sub-nav a, header .sub-nav span {
