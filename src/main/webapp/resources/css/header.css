@@ -33,11 +33,20 @@ header > div {
     gap: 40px;
 }
 
+header > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > div:last-child {
+    display: flex;
+    justify-content: center;
+}
+
 /* 4. 왼쪽 메인 메뉴 (영화, 영화관별 등) */
 header .main-nav {
-    display: flex;
-    gap: 40px;
-    list-style: none;
+	justify-content: center;
 }
 
 header .main-nav > li {
