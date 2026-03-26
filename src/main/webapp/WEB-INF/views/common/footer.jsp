@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!-- footer.jsp -->
 	<footer>
-		copyright &copy; since 1982.
+		copyright &copy; since 2026.
 	</footer>
 </body>
 </html>
