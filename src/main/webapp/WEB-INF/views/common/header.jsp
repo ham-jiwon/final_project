@@ -22,7 +22,7 @@
     <!-- 상단 메뉴바 -->
 	<div>
 	
-	    <ul class="sub-nav"> <li><a href="<%=path %>">home</a></li>
+	    <ul class="sub-nav"> <li><a href="<%=path %>">HOME</a></li>
 	
 	        <li><a href="<%=path %>/member/login">로그인</a></li>
 	        <li><a href="<%=path %>/member/join">회원가입</a></li>
@@ -33,7 +33,7 @@
 	        
 	        <li><a href="<%=path %>/logout.jsp">로그아웃</a></li>
 	
-	        <li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
+	        <li><a href="<%=path %>/memberList.jsp">관리자 모드</a></li>
 	    </ul>
 		    
     </div>
