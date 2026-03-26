@@ -73,6 +73,7 @@ CREATE TABLE schedule (
 ALTER TABLE final_movie ADD poster VARCHAR2(300);
 
 SELECT * FROM final_movie;
+SELECT * FROM final_member;
 
 
 

@@ -16,7 +16,7 @@
 		<tr>
 			<td>비밀번호</td>
 			<td>
-				<input type="password" name="pw" data-msg="비밀번호" placeholder="INSERT PW HERE" />
+				<input type="password" name="pass" data-msg="비밀번호" placeholder="INSERT PW HERE" />
 			</td>
 		</tr>
 		<tr>
