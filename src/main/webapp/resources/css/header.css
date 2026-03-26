@@ -120,10 +120,10 @@ header .sub-nav a, header .sub-nav span {
 
 /* 7. 홈페이지 logo 수정 css */
 .logo {
-    position: absolute;
+    position: fixed;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 80px;
+    transform: translateX(-50%);
     z-index: 999;
 }
 
