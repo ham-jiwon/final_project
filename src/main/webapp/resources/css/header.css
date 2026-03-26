@@ -134,7 +134,7 @@ header .sub-nav a, header .sub-nav span {
     width: 300px;
     height: 110px;
     
-    background: url("../img/logo.gif") no-repeat center;
+    background: url("../img/logo2.gif") no-repeat center;
     background-size: contain; /* background-size: cover; */
     
     z-index: 999;
