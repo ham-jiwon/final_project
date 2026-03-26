@@ -40,6 +40,11 @@
 	        <li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
 	    </ul>
 	</div>
+	
+	<!-- 홈페이지 로고 삽입 -->
+    <div class="logo">
+        <img src="<%=path%>/resources/img/logo.png">
+    </div>	
     
     <!-- 하단 드롭다운 메뉴 -->
     <div>
