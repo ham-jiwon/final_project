@@ -39,12 +39,7 @@
 	
 	        <li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
 	    </ul>
-	
-		<!-- 홈페이지 로고 삽입 -->
-	    <div class="logo">
-	        <img src="<%=path%>/resources/img/logo.png">
-	    </div>	
-	    
+		    
     </div>
     
     <!-- 하단 드롭다운 메뉴 -->
@@ -73,5 +68,9 @@
                 
     </div>
 
-
 </header>
+
+	<!-- 홈페이지 로고 삽입 -->
+    <div class="logo">
+        <img src="<%=path%>/resources/img/logo.png">
+    </div>	
