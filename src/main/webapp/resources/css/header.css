@@ -39,6 +39,7 @@ header .main-nav {
 	display: flex;
 	justify-content: center;
 	margin-top: 60px;
+	gap: 40px;
 }
 
 header .main-nav > li {
