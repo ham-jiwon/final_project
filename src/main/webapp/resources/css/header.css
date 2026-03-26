@@ -135,7 +135,7 @@ header .sub-nav a, header .sub-nav span {
 .logo {
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 10px;
     transform: translateX(-50%);
     
     width: 300px;
