@@ -10,7 +10,7 @@
 	    <div class="movie-card">
 	        <img src="/cinema/resources/img/movies/cgv/0404/gundam.jpg" />
 	        <div class="overlay">
-	            <p>영화 제목 ${i}</p>
+	            <p>영화 줄거리 ${i}</p>
 	        </div>
 	    </div>
 	</c:forEach>
