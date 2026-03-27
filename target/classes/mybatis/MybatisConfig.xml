@@ -14,4 +14,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/mappers/MemberMapper.xml"/>
 	</mappers>
 	
+	<mappers>
+	    <mapper resource="mybatis/mappers/MovieMapper.xml"/>
+	</mappers>	
+	
 </configuration>
