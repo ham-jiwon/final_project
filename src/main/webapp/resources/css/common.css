@@ -175,3 +175,49 @@ table tr td input[type='number'] {
 	padding: 10px;
 	font-size: 14px;
 }
+
+/* 그리드 게시판 css 설정 */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 30px;
+}
+
+.movie-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+/* 어두워지는 효과 */
+.movie-card:hover img {
+    filter: brightness(40%);
+}
+
+/* 오버레이 텍스트 */
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    opacity: 0;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    
+    transition: 0.3s;
+}
+
+.movie-card:hover .overlay {
+    opacity: 1;
+}
