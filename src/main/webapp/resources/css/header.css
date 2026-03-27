@@ -20,6 +20,8 @@ header {
     padding: 20px 0;
 	background-color: #0b0b0b;
 	color: #ffffff;
+	
+	height: 100px; /* 헤더 높이 고정 */
 }
 
 /* 3. 컨텐츠 정렬 */
