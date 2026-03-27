@@ -42,11 +42,11 @@ public class MemberController {
 		return "member/info";
 	}
 
-	@GetMapping("/logout")
-	public String logout() {
-		
-		return "member/logout";
-	}	
+	/*
+	 * @GetMapping("/logout") public String logout() {
+	 * 
+	 * return "member/logout"; }
+	 */	
 	
 	@GetMapping("/memberList")
 	public String memberList() {
