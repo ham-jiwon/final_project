@@ -24,7 +24,7 @@
     <!-- 상단 메뉴바 -->
 	<div>
 	
-	    <ul class="sub-nav"> <li><a href="<%=path %>">HOME</a></li>
+	    <ul class="sub-nav">
 	
 	        <li><a href="<%=path %>/member/login">로그인</a></li>
 	        <li><a href="<%=path %>/member/join">회원가입</a></li>
@@ -67,7 +67,7 @@
     </div>
     
    	<!-- 홈페이지 로고 삽입 -->
-    <div class="logo"></div>	
+    <a href="<%=path %>"><div class="logo"></div></a>	
 
 </header>
 
