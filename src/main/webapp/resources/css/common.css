@@ -204,6 +204,7 @@ table tr td input[type='number'] {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
  
+	width: 100%; 
     max-width: 1200px;   /* 최대 너비 */
     margin: 0 auto;      /* 중앙 정렬 */
 }
