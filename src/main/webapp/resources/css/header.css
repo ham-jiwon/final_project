@@ -39,7 +39,7 @@ header > div {
 header .main-nav {
 	display: flex;
 	justify-content: flex-start;
-	margin-top: 30px;
+	margin-top: 50px;
 	gap: 40px;
 }
 
@@ -143,5 +143,5 @@ header .sub-nav a, header .sub-nav span {
 }
 
 .logo img {
-    height: 150px;
+    height: auto;
 }
