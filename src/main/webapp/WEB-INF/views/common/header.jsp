@@ -12,7 +12,7 @@
 <link href="<%=path %>/resources/css/header.css" rel="stylesheet" type="text/css" />
 <link href="<%=path %>/resources/css/footer.css" rel="stylesheet" type="text/css" />
 <link href="<%=path %>/resources/css/common.css" rel="stylesheet" type="text/css" />
-<link rel="icon" href="<%=path%>/resources/img/puppy.ico" type="image/x-icon">
+<link rel="icon" href="<%=path%>/resources/img/film.ico" type="image/x-icon">
 
 </head>
 <body>
@@ -30,7 +30,7 @@
 	        <li>
 	            <a href="<%=path %>/member/info">회원이름</a><span>님 환영합니다.</span>
 	        </li>
-	        
+
 	        <li><a href="<%=path %>/member/logout">로그아웃</a></li>
 	
 	        <li><a href="<%=path %>/member/memberList">관리자 모드</a></li>
