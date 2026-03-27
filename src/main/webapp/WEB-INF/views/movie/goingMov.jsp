@@ -5,9 +5,9 @@
 
 <div class="container">
 
-	<div class="text-box2">
+<!-- 	<div class="text-box2">
 		<h3>여기는 상영중인 영화 페이지입니다.</h3>
-	</div>
+	</div> -->
 	
 	<div class="movie-grid">
 		<c:forEach var="i" begin="1" end="8">
