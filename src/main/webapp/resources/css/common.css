@@ -31,7 +31,7 @@ section {
 section.content {
     min-height: 700px;
     display: block;
-    padding: 30px;
+    padding: 80px 20px;
     
 	background-image:
 		    linear-gradient(to bottom,
