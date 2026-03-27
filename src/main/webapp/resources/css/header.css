@@ -15,7 +15,7 @@ body {
 /* 2. 헤더 수평선 (화면 끝까지) */
 header {
 	position: relative;
-	min-height: 165px; /* 헤더 최소 높이 */
+	min-height: 170px; /* 헤더 최소 높이 */
     width: 100%;
 	border-bottom: 2px solid #ccc; /* 상단 라인을 조금 더 두껍게 강조 */    
     padding: 20px 0;
