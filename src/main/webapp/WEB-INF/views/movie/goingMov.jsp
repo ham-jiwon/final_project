@@ -5,7 +5,7 @@
 
 <div class="container">
 
- 	<div>
+ 	<div class="text-box2">
 		<h3>여기는 상영중인 영화 페이지입니다.</h3>
 	</div>
 	

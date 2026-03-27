@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="WEB-INF/views/common/header.jsp" %>
 <section class="content">
-	<div class="text-box2">
+<!-- 	<div class="text-box2">
 		<h3>여기는 상영중인 영화 페이지입니다.</h3>
-	</div>
+	</div> -->
 	<c:forEach var="i" begin="1" end="8">
 	    <div class="movie-card">
 	        <img src="/cinema/resources/img/movies/cgv/0404/gundam.jpg" />
