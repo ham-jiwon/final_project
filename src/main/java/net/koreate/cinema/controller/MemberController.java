@@ -58,7 +58,7 @@ public class MemberController {
 			session.setAttribute("loginMember", loginResult);
 			return "redirect:/";
 		}else {
-			return "member/login";
+			return "redirect:/member/login?fail=true";
 		}
 
 	}
@@ -67,7 +67,7 @@ public class MemberController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session){
 		session.invalidate();
-		return "replace:/";
+		return "redirect:/";
 	}
 	
 	

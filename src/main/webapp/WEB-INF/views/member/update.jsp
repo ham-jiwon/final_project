@@ -2,27 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp" %>
 <!DOCTYPE html>
-<form action="<%=path %>/member/joinAction" method="POST">
+<form action="<%=path %>/member/updateAction" method="POST">
 	<table>
 		<tr>
-			<th colspan="2"><h1>회원가입</h1></th>
-		</tr>
-		<tr>
-			<td>아이디</td>
-			<td>
-				<input type="text" name="id" data-msg="아이디" placeholder="INSERT ID HERE" autofocus/>
-			</td>
+			<th colspan="2"><h1>회원정보 수정</h1></th>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
 			<td>
 				<input type="password" name="pass" data-msg="비밀번호" placeholder="INSERT PW HERE" />
-			</td>
-		</tr>
-		<tr>
-			<td>비밀번호 확인</td>
-			<td>
-				<input type="password" name="passAgaion" data-msg="비밀번호 확인" placeholder="INSERT PW HERE AGAIN" />
 			</td>
 		</tr>
 		<tr>
