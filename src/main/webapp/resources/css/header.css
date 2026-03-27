@@ -14,6 +14,7 @@ body {
 
 /* 2. 헤더 수평선 (화면 끝까지) */
 header {
+	position: relative;
     width: 100%;
 	border-bottom: 2px solid #ccc; /* 상단 라인을 조금 더 두껍게 강조 */    
     padding: 20px 0;
@@ -21,29 +22,33 @@ header {
 	color: #ffffff;
 }
 
-/* 3. 컨텐츠 중앙 정렬 */
+/* 3. 컨텐츠 정렬 */
 header > div {
-    width: 1100px;
-    margin: 0 auto;
+    max-width: 1500px;   /* 중앙 컨텐츠 최대 폭 */
+    margin: 0 auto;      /* 가운데 정렬 */
+    padding: 0 10px;     /* 양쪽 여백 */
+    
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* 메뉴 바닥선을 맞춤 */
+    align-items: flex-end;
 }
 
-/* 4. 왼쪽 메인 메뉴 (영화, 영화관별 등) */
+
+/* 4. 하단 메인 메뉴 (영화, 영화관별 등) */
 header .main-nav {
-    display: flex;
-    gap: 40px;
-    list-style: none;
+	display: flex;
+	justify-content: flex-start;
+	margin-top: 30px;
+	gap: 40px;
 }
 
 header .main-nav > li {
     position: relative;
     padding-bottom: 10px; /* 드롭다운과의 간격 */
+    display: inline-block;
 }
 
 
-/* 상위 메뉴 글자 스타일 (크고 굵게) */
+/* 하위 메뉴 글자 스타일 (크고 굵게) */
 header .main-nav > li > a {
     text-decoration: none;
     color: #fff;
@@ -105,6 +110,8 @@ header .main-nav > li > ul > li a:hover {
 /* 6. 오른쪽 서브 메뉴 (로그인, 공지사항 등 - 작게 유지) */
 header .sub-nav {
     display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-left: auto;
     gap: 15px;
     list-style: none;
     padding-bottom: 10px;
@@ -115,4 +122,24 @@ header .sub-nav a, header .sub-nav span {
     color: #bbb;
     font-size: 13px;
 
+}
+
+/* 7. 홈페이지 logo 수정 css */
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    transform: translateX(-50%);
+    
+    width: 300px;
+    height: 110px;
+    
+    background: url("../img/logo2.gif") no-repeat center;
+    background-size: contain; /* background-size: cover; */
+    
+    z-index: 999;
+}
+
+.logo img {
+    height: 150px;
 }

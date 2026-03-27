@@ -21,25 +21,22 @@
 
     <!-- 상단 메뉴바 -->
 	<div>
-	    <ul class="sub-nav"> <li><a href="#">공지사항</a></li>
-	        <li><a href="#">질문과답변</a></li>
-	    </ul>
 	
-	    <ul class="right-menu sub-nav"> <li><a href="<%=path %>">home</a></li>
-	        <li><a href="<%=path %>/sendMail.jsp">SEND MAIL</a></li>
-	        <li><a href="<%=path %>/sendMailFile.jsp">SEND File MAIL</a></li>
+	    <ul class="sub-nav"> <li><a href="<%=path %>">HOME</a></li>
 	
 	        <li><a href="<%=path %>/member/login">로그인</a></li>
 	        <li><a href="<%=path %>/member/join">회원가입</a></li>
 	
 	        <li>
-	            <a href="<%=path %>/info.jsp">회원이름</a><span>님 방가방가</span>
+	            <a href="<%=path %>/member/info">회원이름</a><span>님 환영합니다.</span>
 	        </li>
+
 	        <li><a href="<%=path %>/member/logout">로그아웃</a></li>
 	
-	        <li><a href="<%=path %>/memberList.jsp">관리자 페이지</a></li>
+	        <li><a href="<%=path %>/member/memberList">관리자 모드</a></li>
 	    </ul>
-	</div>
+		    
+    </div>
     
     <!-- 하단 드롭다운 메뉴 -->
     <div>
@@ -49,8 +46,8 @@
             <li>
                 <a href="#">영화</a>
                 <ul>
-                    <li><a href="<%=path %>/sendMailFile.jsp">상영중</a></li>
-                    <li><a href="<%=path %>/sendMailFile.jsp">상영예정</a></li>
+                    <li><a href="<%=path %>/movie/goingMov">상영중</a></li>
+                    <li><a href="<%=path %>/movie/willGoMov">상영예정</a></li>
                 </ul>
             </li>
 
@@ -58,14 +55,17 @@
             <li>
                 <a href="#">영화관별</a>
                 <ul>
-                    <li><a href="<%=path %>/sendMailFile.jsp">메가박스</a></li>
-                    <li><a href="<%=path %>/sendMailFile.jsp">CGV</a></li>
-                    <li><a href="<%=path %>/sendMailFile.jsp">롯데시네마</a></li>
+                    <li><a href="<%=path %>/theater/mega">메가박스</a></li>
+                    <li><a href="<%=path %>/theater/cgv">CGV</a></li>
+                    <li><a href="<%=path %>/theater/lotte">롯데시네마</a></li>
                 </ul>
             </li>
         </ul>
                 
     </div>
-
+    
+   	<!-- 홈페이지 로고 삽입 -->
+    <div class="logo"></div>	
 
 </header>
+

@@ -35,6 +35,25 @@ public class MemberController {
 		return "member/login";
 	}
 	
+
+	@GetMapping("/info")
+	public String info() {
+		
+		return "member/info";
+	}
+
+	@GetMapping("/logout")
+	public String logout() {
+		
+		return "member/logout";
+	}	
+	
+	@GetMapping("/memberList")
+	public String memberList() {
+		
+		return "member/memberList";
+	}
+
 	@PostMapping("/loginAction")
 	public String loginAction(MemberVO member, HttpSession session) {
 		MemberVO loginResult = service.loginMember(member);
@@ -45,6 +64,7 @@ public class MemberController {
 		}else {
 			return "member/login";
 		}
+
 	}
 
 	
