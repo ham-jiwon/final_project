@@ -29,6 +29,7 @@ section {
 }
 
 section.content {
+	width: 100%;
     min-height: 700px;
     display: block;
     padding: 80px 20px;
