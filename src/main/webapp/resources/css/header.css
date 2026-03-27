@@ -38,7 +38,7 @@ header > div {
 header .main-nav {
 	display: flex;
 	justify-content: flex-start;
-	margin-top: 30px;
+	margin-top: 40px;
 	gap: 40px;
 }
 
