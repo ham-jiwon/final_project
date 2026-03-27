@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <section class="content">
+
+<div class="container">
+
 	<div class="movie-grid">
 	<c:forEach var="i" begin="1" end="8">
 	    <div class="movie-card">
@@ -11,4 +14,7 @@
 	    </div>
 	</c:forEach>
 	</div>
+	
+</div>	
+	
 </section>
