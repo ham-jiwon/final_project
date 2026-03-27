@@ -132,7 +132,7 @@ section.main2{
 	color: #57b3e0;
 	text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 
-	position: absolute;
+	position: static;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
