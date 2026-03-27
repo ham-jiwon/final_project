@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
+<section class="content">
+	<div class="movie-grid">
+	<c:forEach var="i" begin="1" end="8">
+	    <div class="movie-card">
+	        <img src="/cinema/resources/img/movies/cgv/0404/gundam.jpg" />
+	        <div class="overlay">
+	            <p>영화 제목 ${i}</p>
+	        </div>
+	    </div>
+	</c:forEach>
+	</div>
+</section>
