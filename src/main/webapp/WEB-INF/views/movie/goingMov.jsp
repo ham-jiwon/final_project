@@ -4,11 +4,6 @@
 <section class="content">
 	<div class="text-box2">
 		<h3>여기는 상영중인 영화 페이지입니다.</h3>
-		<%-- <c:forEach var="m" items="${list}">
-		    ${m.title} <br>
-		    ${m.director} <br>
-		    ------------------<br>
-		</c:forEach> --%>
 	</div>
 	<c:forEach var="i" begin="1" end="8">
 	    <div class="movie-card">
