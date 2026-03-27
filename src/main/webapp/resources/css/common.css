@@ -8,8 +8,8 @@ html, body {
 }
 
 body{
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     
 	background-color: #0b0b0b;
 	color: #ffffff;
@@ -18,7 +18,7 @@ body{
 }
 
 .container{
-
+	width: 100%;
 }
 
 section {
@@ -26,7 +26,7 @@ section {
 }
 
 section.content {
-	width: 100%;
+	
     min-height: 700px;
     display: block;
     padding: 80px 20px;
