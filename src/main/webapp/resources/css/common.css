@@ -203,7 +203,9 @@ table tr td input[type='number'] {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    padding: 30px;
+ 
+    max-width: 1200px;   /* 최대 너비 */
+    margin: 0 auto;      /* 중앙 정렬 */
 }
 
 .movie-card {
