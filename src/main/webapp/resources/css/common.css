@@ -17,15 +17,20 @@ body{
 }
 
 section {
-	min-height: 700px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 30px;
+	/* flex-direction: column; */
+}
+
+section.content {
+    min-height: auto;
+    display: block;
+    padding: 30px;
 }
 
 section.main{
+	min-height: 700px;
+	display: flex;
+	align-items: center;
+	justify-content: center;	
 	margin: 0px;                 /* 여백 제거 */
 	padding: 0px;				 /* 내부 여백 제거 */	
 	position: relative;
