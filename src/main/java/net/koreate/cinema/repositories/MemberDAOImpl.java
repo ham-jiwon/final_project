@@ -21,6 +21,12 @@ public class MemberDAOImpl implements MemberDAO {
 		int result = session.insert("MemberMapper.insertMember", member);
 		return result;
 	}
+	
+	@Override
+	public int idCheck(String id) {
+		int result = session.selectOne("MemberMapper.idCheck", id);
+		return result;
+	}
 
 	@Override
 	public MemberVO readMember(String memberid) {

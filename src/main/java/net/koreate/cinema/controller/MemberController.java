@@ -25,6 +25,10 @@ public class MemberController {
 	
 	@PostMapping("joinAction")
 	public String joinAction(MemberVO member) {
+		int idCheck = service.idCheck(member.getId());
+		if(idCheck > 0) {
+			return "redirect:/member/join?fail=true"; // 아이디 중복이면 다시
+		}
 		service.insertMember(member);
 		return "redirect:/member/login";
 	}
