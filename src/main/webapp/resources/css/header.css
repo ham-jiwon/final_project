@@ -15,14 +15,12 @@ body {
 /* 2. 헤더 수평선 (화면 끝까지) */
 header {
 	position: relative;
-	min-height: 150px;
+	min-height: 165px; /* 헤더 최소 높이 */
     width: 100%;
 	border-bottom: 2px solid #ccc; /* 상단 라인을 조금 더 두껍게 강조 */    
     padding: 20px 0;
 	background-color: #0b0b0b;
 	color: #ffffff;
-	
-	height: 150px; /* 헤더 높이 고정 */
 }
 
 /* 3. 컨텐츠 정렬 */
