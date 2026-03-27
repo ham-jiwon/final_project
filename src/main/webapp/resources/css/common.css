@@ -35,7 +35,6 @@ section.content {
 }
 
 section.main{
-	flex: 1;
 	min-height: 700px;
 	display: flex;
 	align-items: center;
