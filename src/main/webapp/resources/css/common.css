@@ -217,7 +217,7 @@ table tr td input[type='number'] {
 
 /* 민감한 css (되도록 수정 금지) */
 .movie-card img {
-    width: 100%;
+    /* width: 100%; */ /* 사용 금지 */
     height: 250px;   /* 높이 고정 */
     object-fit: cover;
 }

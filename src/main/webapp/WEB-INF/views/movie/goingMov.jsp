@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp" %>
 <section class="content">
+
+<div class="container">
+
 	<div class="text-box2">
 		<h3>여기는 상영중인 영화 페이지입니다.</h3>
 	</div>
@@ -16,6 +19,9 @@
 		    </div>
 		</c:forEach>
 	</div>
+	
+</div>	
+	
 </section>
 
 
