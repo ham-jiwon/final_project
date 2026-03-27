@@ -10,14 +10,14 @@
 		    ------------------<br>
 		</c:forEach> --%>
 	</div>
-		<c:forEach var="i" begin="1" end="8">
+	<c:forEach var="i" begin="1" end="8">
 	    <div class="movie-card">
 	        <img src="/cinema/resources/img/dog.png" />
 	        <div class="overlay">
 	            <p>영화 제목 ${i}</p>
 	        </div>
 	    </div>
-		</c:forEach>
+	</c:forEach>
 </section>
 
 
