@@ -42,15 +42,15 @@ public class MemberController {
 		return "member/info";
 	}
 
-<<<<<<< HEAD
+
 	/*
 	 * @GetMapping("/logout") public String logout() {
 	 * 
 	 * return "member/logout"; }
 	 */	
-=======
 
->>>>>>> branch 'develop' of https://github.com/ham-jiwon/final_project.git
+
+
 	
 	@GetMapping("/memberList")
 	public String memberList() {
