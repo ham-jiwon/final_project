@@ -25,12 +25,11 @@ body{
 }
 
 section {
-	min-height: 700px;
 	/* flex-direction: column; */
 }
 
 section.content {
-    min-height: auto;
+    min-height: 700px;
     display: block;
     padding: 30px;
 }
