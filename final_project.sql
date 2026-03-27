@@ -75,6 +75,7 @@ ALTER TABLE final_movie ADD poster VARCHAR2(300);
 SELECT * FROM final_movie;
 SELECT * FROM final_member;
 
+ALTER TABLE final_movie ADD (poster CLOB);
 
 
 -- 데이터 삽입 (테이블 생성 후 관리자 계정 추가)
@@ -234,6 +235,201 @@ SELECT title, author, content, category
 FROM board_team
 WHERE category = 'NOTICE';
 
+--필요 시 영화 db 삭제--
+DROP TABLE final_movie CASCADE CONSTRAINTS PURGE;
+
+--영화 db 조회--
+SELECT * FROM final_movie;
+
+--영화 db 최신 개봉일 순으로 조회
+SELECT * FROM final_movie ORDER BY release_date DESC;
+
+--영화 db 포스터 이미지 경로만 수정하는 sql--
+UPDATE final_movie 
+SET poster = '변경할 경로' -- 예시)'/resources/img/movies/cgv/0408/we_live_in_time.jpg'
+WHERE title = '위 리브 인 타임';
+
+--영화 db등록--
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '위 리브 인 타임', 
+    '존 크로울리', 
+    '멜로/로맨스, 드라마', 
+    '2026-04-08', 
+    15,
+    '본인의 레스토랑 오픈을 준비하며 새로운 도약을 꿈꾸는 셰프 ‘알무트’. 
+	최근 이혼을 하면서 삶의 한 챕터를 끝낸 ‘토비아스’. 예기치 못한 만남을 계기로 두 사람은 서로의 삶을 변화시키는 잊지 못할 10년을 보낸다. 
+	우리의 사랑은 함께한 시간에 영원히 남는다.',
+    108,
+    'we_live_in_time.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '기동전사 건담 철혈의 오펀스 우르드 헌트', 
+    '나가이 타츠유키', 
+    'sf', 
+    '2026-04-04', 
+    12,
+    '“축하드립니다. 당신은 ‘우르드 헌트’의 참가 자격을 얻었습니다.” 
+    화성과의 개척 경쟁에서 패배하고 죄인들의 유배지로 전락한 변방 행성, 
+    금성. 그곳의 라도니차 콜로니에서 나고 자란 소년 위스타리오 아팜은 척박한 고향의 현실을 바꾸고 싶다는 열망을 품고 살아간다.',
+    78,
+    'gundam.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '런닝맨 라이트&쉐도우', 
+    '윤준상', 
+    '?', 
+    '2026-04-11', 
+    0,
+    '세상을 지키던 히어로가 다크 런닝맨이 되었다?! 수차례에 걸쳐 세상을 구한 런닝맨들은 트리시티의 대스타로 절대적인 지지를 받고 있다. 
+    그러던 어느 날 런닝맨들이 돌연 위험한 악당이 되어 시민들을 공격하기 시작하는데… ',
+    81,
+    'runningman.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '로마의 휴일', 
+    '윌리엄 와일러', 
+    '멜로/로맨스, 드라마, 코미디', 
+    '2026-04-08', 
+    12,
+    '유럽 순방 중 로마를 방문한 공주 ‘앤’. 
+    끝없는 일정에 지쳐버린 그녀는 한밤중 몰래 침실을 빠져나와 처음으로 자유롭게 로마의 거리를 거닌다.',
+    118,
+    'roman_holiday.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '티파니에서 아침을', 
+    '블레이크 에드워즈', 
+    '멜로/로맨스,드라마', 
+    '2026-04-08', 
+    12,
+    '뉴욕 맨해튼에서 자유로운 삶을 살아가는 여성 ‘홀리 골라이틀리’(오드리 헵번)는 화려한 사교 생활을 즐기며 부유한 삶을 동경한다.',
+    115,
+    'tiffanys.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '리바운드', 
+    '장항준', 
+    '드라마', 
+    '2026-04-05', 
+    12,
+    '농구선수 출신 공익근무요원 양현은 해체 위기에 놓인 부산중앙고 농구부의 신임 코치로 발탁된다.',
+    122,
+    'rebound.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '리바운드', 
+    '장항준', 
+    '드라마', 
+    '2026-04-05', 
+    12,
+    '농구선수 출신 공익근무요원 양현은 해체 위기에 놓인 부산중앙고 농구부의 신임 코치로 발탁된다.',
+    122,
+    'rebound.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '크라임101', 
+    '바트 레이튼', 
+    '범죄,드라마,스릴러', 
+    '2026-04-08', 
+    12,
+    '흔적도, 증거도 없다! 101번 국도를 따라 흔적도 없이 사라지는 보석들. 전설적인 절도범 ‘데이비스’(크리스 헴스워스)는 자신만의 규칙 아래 완벽한 범죄를 설계한다.',
+    140,
+    'Crime_101.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '살목지', 
+    '이상민', 
+    '공포,스릴러', 
+    '2026-04-08', 
+    15,
+    '기이한 소문이 끊이지 않는 저수지 살목지의 로드뷰 화면에 촬영한 적 없는 정체불명의 형체가 포착된다.
+     오늘 안에 반드시 재촬영을 끝내야 하는 상황 속에 살목지로 향한 PD ‘수인’(김혜윤)과 촬영팀.',
+    140,
+    'Whispering_Water.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '그대들은 어떻게 살것인가', 
+    '미야자키 하야오', 
+    '다큐멘터리', 
+    '2026-04-15', 
+    12,
+    '인생이 담긴 마지막 작품을 완성하기 위한 미야자키 하야오의 고뇌와 갈등, 긴 세월을 함께한 동료들과 예기치 못한 이별까지…',
+    120,
+    'Hayao_Miyzaki_and_the_Heron.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '하이큐 쓰레기장의 결전', 
+    '미츠나가 스스무', 
+    '스포츠', 
+    '2026-04-15', 
+    0,
+    '봄철 고교 배구대회 1회전과 2회전에서 우승 후보를 차례로 꺾은 카라스노 고등학교는 마침내 3회전에서 인연의 라이벌 네코마 고등학교와 맞붙게 된다.',
+    85,
+    'High_Q.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '마녀 배달부 키키', 
+    '미야자키 하야오', 
+    '드라마,가족,판타지',
+    '2026-04-15', 
+    0,
+    '"가끔 지칠 때도 있지만, 저는 잘 지내요" 13살이 된 초보 마녀 키키는 마녀의 전통에 따라 검은 고양이 지지와 함께 낯선 바닷가 마을로 떠난다.',
+    102,
+    'Kikis_Delivery_Service.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '내 이름은', 
+    '정지영', 
+    '드라마',
+    '2026-04-15', 
+    0,
+    '지독하게 아픈 봄이었수다, 우리 어멍의 1949년은” 가슴에 묻은 78년의 약속, 이제야 부릅니다. 가장 아픈 비밀에서 가장 찬란한 진실이 된 ‘내 이름은',
+    113,
+    'My_Name.jpg'
+);
+
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+VALUES (
+    '침묵은 친구', 
+    '일디코 엔예디', 
+    '드라마',
+    '2026-04-15', 
+    15,
+    '독일 대학의 한 식물원에는 1832년부터 인간을 바라보며 뿌리내린 장엄한 한 그루의 은행나무가 서있다.',
+    113,
+    'Silent_Friend_jsp'
+);
+
+
+
+
+
+commit
 
 
 
