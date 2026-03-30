@@ -5,9 +5,9 @@
 <div class="container">
 
 	<div class="movie-grid">
-	<c:forEach var="i" begin="1" end="8">
+	<c:forEach var="m" items="${list}">
 	    <div class="movie-card">
-	        <img src="/cinema/resources/img/movies/gundam.jpg" />
+	        <img src="${pageContext.request.contextPath}${m.poster}" />
 	        <div class="overlay">
 	            <p>영화 줄거리 ${i}</p>
 	        </div>
