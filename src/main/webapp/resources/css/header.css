@@ -20,7 +20,7 @@ header {
 	min-height: 100px; /* 헤더 최소 높이 */
     width: 100%;
 	border-bottom: 2px solid #ccc; /* 상단 라인을 조금 더 두껍게 강조 */    
-    padding: 20px 0;
+    padding: 0;
 	background-color: #0b0b0b;
 	color: #ffffff;
 }
@@ -48,9 +48,13 @@ header .main-nav {
 }
 
 header .main-nav > li {
-    position: relative;
+    position: absolute;
+    left: 40px;
+    bottom: 10px;   /* ⭐ 경계선쪽 */
+    
     padding-bottom: 10px; /* 드롭다운과의 간격 */
-    display: inline-block;
+    display: flex;
+    gap: 40px;
 }
 
 
@@ -117,7 +121,7 @@ header .main-nav > li > ul > li a:hover {
 header .sub-nav {
     position: absolute;
     right: 40px;
-    top: 50%;
+    top: 10px; /* 위쪽 붙이기 */
     transform: translateY(-50%);
 
     display: flex;
@@ -136,7 +140,7 @@ header .sub-nav a, header .sub-nav span {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -40%);  /* 핵심 */
+    transform: translate(-50%, -50%);  /* 핵심 */
 }
 
 .logo img {
