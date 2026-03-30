@@ -9,7 +9,7 @@
 	    <div class="movie-card">
 	        <img src="${pageContext.request.contextPath}${m.poster}" />
 	        <div class="overlay">
-	            <p>영화 줄거리 ${i}</p>
+	            <p>${m.story}</p>
 	        </div>
 	    </div>
 	</c:forEach>
