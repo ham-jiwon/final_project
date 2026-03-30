@@ -6,6 +6,10 @@
 
 <div class="container">
 
+	<c:forEach var="m" items="${list}">
+    <p>${m.title}</p>
+	</c:forEach>
+
 	<div class="movie-grid">
 	<%-- <c:forEach var="m" items="${list}"> --%>
 	    <div class="movie-card">
