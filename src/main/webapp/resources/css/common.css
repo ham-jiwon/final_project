@@ -237,7 +237,7 @@ table tr td input[type='number'] {
 
 /* 오버레이 텍스트 */
 .overlay {
-	/* padding: 10px; */
+	line-height: 1.4;   /* 줄 간격 */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -245,7 +245,7 @@ table tr td input[type='number'] {
     
     opacity: 0;
     color: white;
-    font-size: 18px;
+    /* font-size: 18px; */
     text-align: center;
     
     transition: 0.3s;
@@ -257,7 +257,7 @@ table tr td input[type='number'] {
 
 .story {
     font-size: 16px;
-    margin-bottom: 48px;   /* ☆ 핵심 */
+    margin-bottom: 6px;   /* ☆ 핵심 */
 }
 
 .title {
