@@ -147,10 +147,11 @@ header .sub-nav a, header .sub-nav span {
     top: 50%;
     transform: translate(-50%, -50%);  /* 핵심 */
     
-    height: 100px;        /* ⭐ 원본보다 크게 */
-    display: block;    
+    height: 60px;        /* ⭐ 보여줄 높이 */
+    overflow: hidden;    /* ⭐ 잘라내기 */    
 }
 
 .logo img {
-    height: 70px;   /* ⭐ 너무 크면 레이아웃 깨짐 */
+    height: 100px;   /* ⭐ 원본보다 크게 */
+    display: block;
 }
