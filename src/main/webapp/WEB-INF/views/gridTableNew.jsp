@@ -7,17 +7,14 @@
 <div class="container">
 
 	<div class="movie-grid">
-	<c:forEach var="m" items="${list}">
+	<%-- <c:forEach var="m" items="${list}"> --%>
 	    <div class="movie-card">
-	        <img src="${empty m.poster 
-					 ? pageContext.request.contextPath + '/resources/img/default.png' 
-					 : pageContext.request.contextPath + m.poster}" 
-		     />
+	        <img src="${pageContext.request.contextPath}/resources/img/default.png" />
 	        <div class="overlay">
 	            <p>제목 : ${m.title}</p>
 	        </div>
 	    </div>
-	</c:forEach>
+	<%-- </c:forEach> --%>
 	</div>
 	
 </div>	
