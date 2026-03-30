@@ -41,6 +41,7 @@ header .main-nav {
 	display: flex;
 	justify-content: flex-start;
 	margin-top: 40px;
+	margin-left: 0;
 	gap: 40px;
 }
 
