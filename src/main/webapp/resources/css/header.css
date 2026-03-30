@@ -131,7 +131,7 @@ header .sub-nav a, header .sub-nav span {
 /* 7. 홈페이지 logo 수정 css */
 .logo {
  	position: absolute;
-    left: 40px;   /* 원하는 위치 */
+    left: 400px;   /* 원하는 위치 */
 
     top: 50%;
     transform: translateY(-50%);
@@ -141,5 +141,5 @@ header .sub-nav a, header .sub-nav span {
 }
 
 .logo img {
-   height: 50px;
+   height: 150px;
 }
