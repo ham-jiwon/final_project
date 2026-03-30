@@ -130,16 +130,14 @@ header .sub-nav a, header .sub-nav span {
 
 /* 7. 홈페이지 logo 수정 css */
 .logo {
- 	position: absolute;
-    left: 400px;   /* 원하는 위치 */
-
-    top: 50%;
-    transform: translateY(-50%);
-	display: block;
+    position: absolute;
+    left: 20px;   /* 고정값 최소화 */
+    top: 20px;    /* 위쪽 기준으로 잡기 */
     
-    z-index: 999;
+    transform: none;  /* 제거 */
 }
 
 .logo img {
-   height: 150px;
+    height: 60px;   /* ⭐ 너무 크면 레이아웃 깨짐 */
+    display: block;
 }
