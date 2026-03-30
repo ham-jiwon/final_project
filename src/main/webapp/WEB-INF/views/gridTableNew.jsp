@@ -11,25 +11,20 @@
 	<c:forEach var="m" items="${list}">
 	    <div class="movie-card">
 	    
-			<c:forEach var="m" items="${list}">
-			    <div class="movie-card">
 			        <img 
 			            src="${pageContext.request.contextPath}/resources/img/movies/${m.poster}" 
 			            onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/resources/img/default.png';"
 			        />
+			        
 			        <div class="overlay">
 			            <p>제목 : ${m.title}</p>
 			        </div>
+			        
 			    </div>
 			</c:forEach>
-	        <div class="overlay">
-	            <p>제목 : ${m.title}</p>
-	        </div>
-	        
-	    </div>
-	</c:forEach>
-	</div>
-	
+			
+	</div>     
+    
 </div>	
 	
 </section>
