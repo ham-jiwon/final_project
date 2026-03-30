@@ -25,7 +25,8 @@
 	 -->
 	<bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds"/>
-		<property name="configLocation" value="classpath:/mybatis/MybatisConfig.xml"/>
+		<!-- 중복되는 요소 주석처리 -->
+		<!-- <property name="configLocation" value="classpath:/mybatis/MybatisConfig.xml"/> -->
 	</bean>
 	
 	<!-- 
