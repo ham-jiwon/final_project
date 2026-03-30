@@ -38,11 +38,13 @@ header > div {
 
 /* 4. 하단 메인 메뉴 (영화, 영화관별 등) */
 header .main-nav {
-	display: flex;
-	justify-content: flex-start;
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
 
-	margin-left: 0;
-	gap: 40px;
+    display: flex;
+    gap: 40px;
 }
 
 header .main-nav > li {
@@ -113,13 +115,13 @@ header .main-nav > li > ul > li a:hover {
 
 /* 6. 오른쪽 서브 메뉴 (로그인, 공지사항 등 - 작게 유지) */
 header .sub-nav {
-    display: flex;
-    justify-content: flex-end; /* 오른쪽 정렬 */
-    margin-left: auto;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
 
+    display: flex;
     gap: 15px;
-    list-style: none;
-    padding-bottom: 10px;
 }
 
 header .sub-nav a, header .sub-nav span {
@@ -132,13 +134,11 @@ header .sub-nav a, header .sub-nav span {
 /* 7. 홈페이지 logo 수정 css */
 .logo {
     position: absolute;
-    left: 20px;   /* 고정값 최소화 */
-    top: 20px;    /* 위쪽 기준으로 잡기 */
-    
-    transform: none;  /* 제거 */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);  /* 핵심 */
 }
 
 .logo img {
     height: 60px;   /* ⭐ 너무 크면 레이아웃 깨짐 */
-    display: block;
 }
