@@ -21,6 +21,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="net.koreate.cinema.controller" />
+	<context:component-scan base-package="net.koreate.cinema" />
 	
 </beans:beans>

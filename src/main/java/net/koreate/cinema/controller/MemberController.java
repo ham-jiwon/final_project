@@ -47,6 +47,14 @@ public class MemberController {
 	}
 
 
+	/*
+	 * @GetMapping("/logout") public String logout() {
+	 * 
+	 * return "member/logout"; }
+	 */	
+
+
+
 	
 	@GetMapping("/memberList")
 	public String memberList() {

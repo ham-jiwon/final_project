@@ -2,7 +2,15 @@
 
 /* home.jsp */
 /* 블랙 테마를 위한 전역 설정입니다 */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body{
+    /* display: flex; */
+    /* flex-direction: column; */
+    
 	background-color: #0b0b0b;
 	color: #ffffff;
 	margin: 0 auto; /* 전체(body) 프레임을 가운데로 정렬 */
@@ -11,21 +19,40 @@ body{
 
 .container{
 	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
-	position: relative;
+    max-width: 1200px;
+    margin: 0 auto;	
 }
 
 section {
-	min-height: 700px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 30px;
+	/* flex-direction: column; */
+}
+
+section.content {
+	
+    min-height: 700px;
+    display: block;
+    padding: 80px 20px;
+    
+	background-image:
+		    linear-gradient(to bottom,
+	        rgba(0,0,0,0.7) 0%,
+	        rgba(0,0,0,0.5) 20%,
+	        rgba(0,0,0,0.2) 35%,
+	        rgba(0,0,0,0.2) 65%,
+	        rgba(0,0,0,0.5) 80%,
+	        rgba(0,0,0,0.7) 100%
+	    ),
+		url(/cinema/resources/img/gray00.png);
+	background-size:contain; /* background-size:cover; */ 	
+	background-position: center;	
+	background-repeat: no-repeat;    
 }
 
 section.main{
+	min-height: 700px;
+	display: flex;
+	align-items: center;
+	justify-content: center;	
 	margin: 0px;                 /* 여백 제거 */
 	padding: 0px;				 /* 내부 여백 제거 */	
 	position: relative;
@@ -93,22 +120,29 @@ section.main2{
 
 /* 세부페이지 글상자 */
 .text-box2{
-	max-width: 600px;     /* 너비 설정 */
-	width: 90%;
-	margin: 0 auto;
+    width: 100%;
+    text-align: center;
 
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
+    margin-bottom: 40px;  /* grid랑 간격 */
 
 	text-align: center;
 	color: #57b3e0;
 	text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+	
+	animation: fadeOut 4s forwards;
+}
 
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+/* 애니메이션 */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    70% {   /* 3초 동안 유지 느낌 */
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 /* 마우스 오버 시 글상자 표시 */
@@ -169,4 +203,53 @@ table tr td input[type='number'] {
 	border: none;
 	padding: 10px;
 	font-size: 14px;
+}
+
+/* 그리드 게시판 css 설정 */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+ 
+	width: 100%; 
+    max-width: 1200px;   /* 최대 너비 */
+    margin: 0 auto;      /* 중앙 정렬 */
+}
+
+.movie-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* 민감한 css (되도록 수정 금지) */
+.movie-card img {
+    width: 100%; /* 필수 */
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;     /* 추가 (inline 문제 방지) */
+}
+
+/* 어두워지는 효과 */
+.movie-card:hover img {
+    filter: brightness(40%);
+}
+
+/* 오버레이 텍스트 */
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    opacity: 0;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    
+    transition: 0.3s;
+}
+
+.movie-card:hover .overlay {
+    opacity: 1;
 }
