@@ -246,7 +246,7 @@ SELECT * FROM final_movie ORDER BY release_date DESC;
 
 --영화 db 포스터 이미지 경로만 수정하는 sql--
 UPDATE final_movie 
-SET poster = '변경할 경로' -- 예시)'/resources/img/movies/cgv/0408/we_live_in_time.jpg'
+SET poster = '/resources/img/movies/we_live_in_time.jpg' -- 예시)'/resources/img/movies/we_live_in_time.jpg'
 WHERE title = '위 리브 인 타임';
 
 --영화 db등록--
