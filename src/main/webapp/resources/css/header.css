@@ -14,7 +14,9 @@ body {
 
 /* 2. 헤더 수평선 (화면 끝까지) */
 header {
-	position: relative;
+	position: relative;   /* ☆ 기준점 */
+	display: flex;
+	
 	min-height: 170px; /* 헤더 최소 높이 */
     width: 100%;
 	border-bottom: 2px solid #ccc; /* 상단 라인을 조금 더 두껍게 강조 */    
@@ -128,14 +130,16 @@ header .sub-nav a, header .sub-nav span {
 
 /* 7. 홈페이지 logo 수정 css */
 .logo {
-	height: 60px;       /* 보여줄 높이 */
+ 	position: absolute;
+    left: 40px;   /* 원하는 위치 */
 
+    top: 50%;
+    transform: translateY(-50%);
+	display: block;
     
     z-index: 999;
 }
 
 .logo img {
-	width: auto;
-    height: 100px;      /* 원본보다 크게 */
-    object-fit: cover;
+   height: 50px;
 }
