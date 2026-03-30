@@ -25,7 +25,8 @@
 	
 	            <%-- 파일명만 있을 때 --%>
 	            <c:otherwise>
-	            	<img src="${pageContext.request.contextPath}/resources/img/movies/${m.poster}" />
+	            	<img src="${pageContext.request.contextPath}/resources/img/movies/${m.poster}"
+	            		 onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/resources/img/default.png';" />
 	            </c:otherwise>
 
             </c:choose>
