@@ -129,8 +129,7 @@ header .sub-nav a, header .sub-nav span {
 /* 7. 홈페이지 logo 수정 css */
 .logo {
 	height: 60px;       /* 보여줄 높이 */
-    background: url("../img/logo2.gif") no-repeat center;
-	background-size: auto 100px;
+
     
     z-index: 999;
 }
