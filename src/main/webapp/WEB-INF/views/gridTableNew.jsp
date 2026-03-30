@@ -13,17 +13,17 @@
 	    
 	    	<c:choose>
 	    
-	            <!-- poster 없을 때 -->
+	            <%-- poster 없을 때 --%>
 	            <c:when test="${empty m.poster}">
 	            	<img src="${pageContext.request.contextPath}/resources/img/default.png" />
 	            </c:when>
 	
-	            <!-- null 아닐 때만 검사 -->
+	            <%-- null 아닐 때만 검사 --%>
 	            <c:when test="${not empty m.poster and fn:startsWith(m.poster, '/resources')}">
 	            	<img src="${pageContext.request.contextPath}${m.poster}" />
 	            </c:when>
 	
-	            <!-- 파일명만 있을 때 -->
+	            <%-- 파일명만 있을 때 --%>
 	            <c:otherwise>
 	            	<img src="${pageContext.request.contextPath}/resources/img/movies/${m.poster}" />
 	            </c:otherwise>
