@@ -128,20 +128,16 @@ header .sub-nav a, header .sub-nav span {
 
 /* 7. 홈페이지 logo 수정 css */
 .logo {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    
-    width: 450px;
-    height: 165px;
+	height: 60px;       /* 보여줄 높이 */
+	overflow: hidden;
     
     background: url("../img/logo2.gif") no-repeat center;
-    background-size: contain; /* background-size: cover; */
     
     z-index: 999;
 }
 
 .logo img {
-    height: auto;
+	width: auto;
+    height: 100px;      /* 원본보다 크게 */
+    object-fit: cover;
 }
