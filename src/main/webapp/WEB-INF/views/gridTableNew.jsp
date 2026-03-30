@@ -7,9 +7,12 @@
 	<div class="movie-grid">
 	<c:forEach var="m" items="${list}">
 	    <div class="movie-card">
-	        <img src="${pageContext.request.contextPath}${m.poster}" />
+	        <img src="${empty m.poster 
+					 ? pageContext.request.contextPath + '/resources/img/default.png' 
+					 : pageContext.request.contextPath + m.poster}" 
+		     />
 	        <div class="overlay">
-	            <p>${m.story}</p>
+	            <p>제목 : ${m.title}</p>
 	        </div>
 	    </div>
 	</c:forEach>
