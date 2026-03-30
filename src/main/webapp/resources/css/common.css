@@ -42,7 +42,7 @@ section.content {
     min-height: 700px;
     padding: 80px 0;
     background-image: url("/cinema/resources/img/mainbh-01.png"); /* 밤하늘의 별 배경 */
-    background-color: black;   /* 양옆 검정 */
+    background-color: rgba(0, 0, 0, 0.6);   /* 양옆 검정 */
 }
 
 section.main{
