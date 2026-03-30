@@ -38,7 +38,6 @@ header > div {
 
 /* 4. 하단 메인 메뉴 (영화, 영화관별 등) */
 header .main-nav {
- 	list-style: none;
     position: absolute;
     left: 40px;
     bottom: 10px;
@@ -121,12 +120,17 @@ header .main-nav > li > ul > li a:hover {
 header .sub-nav {
     position: absolute;
     right: 40px;
-    top: 10px; /* 위쪽 붙이기 */
-    transform: translateY(-50%);
+    top: 15px;   /* 그냥 고정 */
 
     display: flex;
+    align-items: center;   /* 세로 정렬 */
     gap: 15px;
-    margin: 0;   /* 기존 margin 제거 */
+
+    margin: 0;
+}
+
+header .sub-nav > li {
+    list-style: none;
 }
 
 header .sub-nav a, header .sub-nav span {
