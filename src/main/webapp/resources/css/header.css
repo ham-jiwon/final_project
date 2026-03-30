@@ -39,8 +39,8 @@ header > div {
 /* 4. 하단 메인 메뉴 (영화, 영화관별 등) */
 header .main-nav {
     position: absolute;
-    left: 160px;
-    bottom: 10px;
+    left: 240px;
+    bottom: 15px;
 
     display: flex;
     flex-direction: row;   /* 가로 강제 */
@@ -119,7 +119,7 @@ header .main-nav > li > ul > li a:hover {
 /* 6. 오른쪽 서브 메뉴 (로그인, 공지사항 등 - 작게 유지) */
 header .sub-nav {
     position: absolute;
-    right: 160px;
+    right: 240px;
     top: 15px;   /* 그냥 고정 */
 
     display: flex;
