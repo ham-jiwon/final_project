@@ -28,24 +28,23 @@ section {
 }
 
 section.content {
-	
     min-height: 700px;
-    display: block;
     padding: 80px 20px;
-    
-	background-image:
-		    linear-gradient(to bottom,
-	        rgba(0,0,0,0.7) 0%,
-	        rgba(0,0,0,0.5) 20%,
-	        rgba(0,0,0,0.2) 35%,
-	        rgba(0,0,0,0.2) 65%,
-	        rgba(0,0,0,0.5) 80%,
-	        rgba(0,0,0,0.7) 100%
-	    ),
-		url(/cinema/resources/img/gray00.png);
-	background-size:contain; /* background-size:cover; */ 	
-	background-position: center;	
-	background-repeat: repeat-y;   /* 세로 반복 */ /* background-repeat: no-repeat; */ 
+
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0,0,0,0.7) 0%,
+            rgba(0,0,0,0.5) 20%,
+            rgba(0,0,0,0.2) 35%,
+            rgba(0,0,0,0.2) 65%,
+            rgba(0,0,0,0.5) 80%,
+            rgba(0,0,0,0.7) 100%
+        ),
+        url(/cinema/resources/img/gray00.png);
+
+    background-size: 100% auto;   /* ⭐ 핵심 */
+    background-repeat: repeat-y;  /* 세로 반복 */
+    background-position: top center;
 }
 
 section.main{
