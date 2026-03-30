@@ -72,7 +72,7 @@
     </div>
     
    	<!-- 홈페이지 로고 삽입 -->
-    <a href="<%=path %>"><div class="logo"></div></a>	
+    <a href="<%=path %>"><span class="logo"></span></a>	
 
 </header>
 
