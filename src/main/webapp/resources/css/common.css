@@ -237,7 +237,7 @@ table tr td input[type='number'] {
 
 /* 오버레이 텍스트 */
 .overlay {
-	padding: 10px;
+	/* padding: 10px; */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -253,4 +253,14 @@ table tr td input[type='number'] {
 
 .movie-card:hover .overlay {
     opacity: 1;
+}
+
+.story {
+    font-size: 12px;
+    margin-bottom: 8px;   /* ⭐ 핵심 */
+}
+
+.title {
+    font-size: 14px;
+    font-weight: bold;
 }
