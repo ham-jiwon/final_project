@@ -40,11 +40,12 @@ header > div {
 header .main-nav {
     position: absolute;
     left: 40px;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 0;        /* ⭐ 경계선에 딱 붙이기 */
 
     display: flex;
     gap: 40px;
+    
+    margin: 0;
 }
 
 header .main-nav > li {
@@ -126,6 +127,7 @@ header .sub-nav {
 
     display: flex;
     gap: 15px;
+    margin: 0;   /* 기존 margin 제거 */
 }
 
 header .sub-nav a, header .sub-nav span {
