@@ -24,7 +24,11 @@ public class MemberController {
 	}
 	
 	@PostMapping("joinAction")
-	public String joinAction(MemberVO member) {
+	public String joinAction(MemberVO member, String passAgain) {
+		if(!member.getPass().equals(passAgain)) {
+			return "redirect:/member/join?pwFail=true";
+		}
+		
 		int idCheck = service.idCheck(member.getId());
 		if(idCheck > 0) {
 			return "redirect:/member/join?fail=true"; // 아이디 중복이면 다시
@@ -45,15 +49,55 @@ public class MemberController {
 		
 		return "member/info";
 	}
+	
+	@GetMapping("/passConfirm")
+	public String passConfirm() {
+		return "member/passConfirm";
+	}//end update
 
-
-	/*
-	 * @GetMapping("/logout") public String logout() {
-	 * 
-	 * return "member/logout"; }
-	 */	
-
-
+	@PostMapping("/update")
+	public String update(String pass, String passAgain, HttpSession session) {
+		if(!pass.equals(passAgain)) {
+			return "redirect:/member/info?passAgainFail=true";
+		}else {
+			MemberVO loginMember = (MemberVO)session.getAttribute("loginMember");
+			
+			if(loginMember.getPass().equals(pass)){
+				return "member/update";
+			}
+			return "redirect:/member/info?passAgainFail=true";			
+		}
+	}//end update
+	
+	@PostMapping("/updateAction")
+	public String updateAction(MemberVO member, HttpSession session) {
+		int result = service.updateMember(member);
+		if(result == 1) {
+			session.setAttribute("loginMember", member);
+			return "redirect:/member/info";
+		}else {
+			return "redirect:/member/update?updateFail=true";
+		}
+	}//end updateAction
+	
+	
+	@PostMapping("/remove")
+	public String remove(String pass, String passAgain, HttpSession session) {
+		MemberVO loginMember = (MemberVO)session.getAttribute("loginMember");
+		if(!pass.equals(passAgain)) {
+			return "redirect:/member/info?passAgainFail=true";
+		}else {
+			if(loginMember.getPass().equals(pass)){
+				int result = service.removeMember(loginMember.getNum());
+				if(result < 1) {
+					return "redirect:/member/info?removeFail=true";
+				}
+				return "/";
+			}
+			return "redirect:/member/info?passAgainFail=true";
+		}
+	}//end remove
+	
 
 	
 	@GetMapping("/memberList")
@@ -61,6 +105,8 @@ public class MemberController {
 		
 		return "member/memberList";
 	}
+	
+	
 
 	@PostMapping("/loginAction")
 	public String loginAction(MemberVO member, HttpSession session) {
