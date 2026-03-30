@@ -18,9 +18,20 @@ body{
 }
 
 .container{
-	width: 100%;
-    width: 1200px;
-    margin: 0 auto;	
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0,0,0,0.7) 0%,
+            rgba(0,0,0,0.2) 50%,
+            rgba(0,0,0,0.7) 100%
+        ),
+        url("/cinema/resources/img/gray00.png");
+
+    background-size: 100% auto;
+    background-repeat: repeat-y;
 }
 
 section {
@@ -29,22 +40,8 @@ section {
 
 section.content {
     min-height: 700px;
-    padding: 80px 20px;
-
-    background-image:
-        linear-gradient(to bottom,
-            rgba(0,0,0,0.7) 0%,
-            rgba(0,0,0,0.5) 20%,
-            rgba(0,0,0,0.2) 35%,
-            rgba(0,0,0,0.2) 65%,
-            rgba(0,0,0,0.5) 80%,
-            rgba(0,0,0,0.7) 100%
-        ),
-        url(/cinema/resources/img/gray00.png);
-
-    background-size: 100% auto;   /* ⭐ 핵심 */
-    background-repeat: repeat-y;  /* 세로 반복 */
-    background-position: top center;
+    padding: 80px 0;
+    background-color: black;   /* 양옆 검정 */
 }
 
 section.main{
