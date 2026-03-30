@@ -30,5 +30,15 @@ public class MemberService {
 		return memberDAO.readMemberWithPass(member.getId(), member.getPass());
 		
 	}
+	
+	public int updateMember(MemberVO member) {
+		int result = memberDAO.updateMember(member);
+		return result;
+	}
+	
+	public int removeMember(int num) {
+		int result = memberDAO.removeMember(num);
+		return result;
+	}//end removeeMember()
 
 }
