@@ -237,6 +237,7 @@ table tr td input[type='number'] {
 
 /* 오버레이 텍스트 */
 .overlay {
+	padding: 10px;
 	line-height: 1.4;   /* 줄 간격 */
     position: absolute;
     top: 0;
