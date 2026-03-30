@@ -146,6 +146,9 @@ header .sub-nav a, header .sub-nav span {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);  /* 핵심 */
+    
+    height: 100px;        /* ⭐ 원본보다 크게 */
+    display: block;    
 }
 
 .logo img {
