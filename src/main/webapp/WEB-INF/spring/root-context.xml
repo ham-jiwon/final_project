@@ -25,9 +25,7 @@
 	 -->
 	<bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds"/>
-		<!-- 중복되는 요소 주석처리 -->
-		<!-- <property name="configLocation" value="classpath:/mybatis/MybatisConfig.xml"/> -->
-		<property name="mapperLocations" value="classpath:mybatis/mappers/*.xml"/>
+		<property name="configLocation" value="classpath:/mybatis/MybatisConfig.xml"/>
 	</bean>
 	
 	<!-- 
