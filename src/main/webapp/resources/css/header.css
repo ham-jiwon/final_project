@@ -17,7 +17,7 @@ header {
 	position: relative;   /* ☆ 기준점 */
 	display: flex;
 	
-	min-height: 170px; /* 헤더 최소 높이 */
+	min-height: 80px; /* 헤더 최소 높이 */
     width: 100%;
 	border-bottom: 2px solid #ccc; /* 상단 라인을 조금 더 두껍게 강조 */    
     padding: 20px 0;
@@ -32,7 +32,7 @@ header > div {
     padding: 0 10px;     /* 양쪽 여백 */
     
     display: flex;
-    align-items: flex-start;   /* ⭐ 위쪽 정렬 */
+    align-items: center;
 }
 
 
