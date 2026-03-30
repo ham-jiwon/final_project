@@ -17,6 +17,9 @@
 			        />
 			        
 			        <div class="overlay">
+			        	<p class="story">
+						    ${fn:substring(m.story, 0, 50)}...
+						</p>
 			            <p>제목 : ${m.title}</p>
 			        </div>
 			        
