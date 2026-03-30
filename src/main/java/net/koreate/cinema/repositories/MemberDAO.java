@@ -12,6 +12,13 @@ public interface MemberDAO {
 	 */
 	int insertMember(MemberVO member);
 
+	/**
+	 * 
+	 * @param id - 회원가입 시 아이디를 받아서 DB에 중복 아이디가 있는지 확인
+	 * @return - 0이면 사용 가능, 1이면 중복
+	 */
+	int idCheck(String id);
+	
 	
 	/**
 	 * @param memberid  - 검색할 사용자 아이디 문자열

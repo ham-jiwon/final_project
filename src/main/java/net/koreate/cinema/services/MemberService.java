@@ -20,6 +20,12 @@ public class MemberService {
 		memberDAO.insertMember(member);
 	}
 	
+	public int idCheck(String id){
+		int result = memberDAO.idCheck(id);
+		return result;
+	}
+	
+	
 	public MemberVO loginMember(MemberVO member) {
 		return memberDAO.readMemberWithPass(member.getId(), member.getPass());
 		

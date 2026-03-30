@@ -11,4 +11,6 @@
 	</div>
 	</section>
 
+<%@ include file="/WEB-INF/views/gridTableNew.jsp" %>
+
 <%@ include file="common/footer.jsp" %>

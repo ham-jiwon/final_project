@@ -1,8 +1,10 @@
+<%@page import="net.koreate.cinema.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- jstl 추가 -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!-- project contextPath 경로를 저장하는 변수 지정 -->
+<% MemberVO loginMember =  (MemberVO)session.getAttribute("loginMember"); %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +12,7 @@
 <title>Cinema in Busan</title>
 
 <% String path = request.getContextPath(); %>
+<script src="<%=path%>/resources/js/inputCheck.js"></script>
 <!-- project contextPath 경로를 저장하는 변수 지정 -->
 <link href="<%=path %>/resources/css/header.css" rel="stylesheet" type="text/css" />
 <link href="<%=path %>/resources/css/footer.css" rel="stylesheet" type="text/css" />
@@ -24,20 +27,22 @@
     <!-- 상단 메뉴바 -->
 	<div>
 	
-	    <ul class="sub-nav"> <li><a href="<%=path %>">HOME</a></li>
+	    <ul class="sub-nav">
 	
+	<%if(loginMember == null){ %>
 	        <li><a href="<%=path %>/member/login">로그인</a></li>
 	        <li><a href="<%=path %>/member/join">회원가입</a></li>
-	
+	<%}else{ %>	        
 	        <li>
-	            <a href="<%=path %>/member/info">회원이름</a><span>님 환영합니다.</span>
+	            <a href="<%=path %>/member/info"><%=loginMember.getNickname() %></a><span>님 환영합니다.</span>
 	        </li>
 
 	        <li><a href="<%=path %>/member/logout">로그아웃</a></li>
-	
+		<%if(loginMember.getId().equals("admin")){ %>
 	        <li><a href="<%=path %>/member/memberList">관리자 모드</a></li>
+	    <%} %>
+	<%} %>		    
 	    </ul>
-		    
     </div>
     
     <!-- 하단 드롭다운 메뉴 -->
@@ -67,7 +72,7 @@
     </div>
     
    	<!-- 홈페이지 로고 삽입 -->
-    <div class="logo"></div>	
+    <a href="<%=path %>"><div class="logo"></div></a>	
 
 </header>
 
