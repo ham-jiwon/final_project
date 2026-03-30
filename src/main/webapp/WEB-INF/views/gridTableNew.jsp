@@ -22,8 +22,8 @@
 	            	<img src="${pageContext.request.contextPath}/resources/img/default.png" />
 	            </c:when>
 	
-	            <!-- 이미 /resources로 시작하면 그대로 -->
-	            <c:when test="${fn:startsWith(m.poster, '/resources')}">
+	            <!-- null 아닐 때만 검사 -->
+	            <c:when test="${not empty m.poster and fn:startsWith(m.poster, '/resources')}">
 	            	<img src="${pageContext.request.contextPath}${m.poster}" />
 	            </c:when>
 	
