@@ -256,11 +256,11 @@ table tr td input[type='number'] {
 }
 
 .story {
-    font-size: 12px;
+    font-size: 16px;
     margin-bottom: 8px;   /* ⭐ 핵심 */
 }
 
 .title {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
 }
