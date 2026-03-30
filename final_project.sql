@@ -425,10 +425,6 @@ VALUES (
     '/resources/img/movies/Silent_Friend_jsp'
 );
 
-
-
-
-
 commit
 
 
