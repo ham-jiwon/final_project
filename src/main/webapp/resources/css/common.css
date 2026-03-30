@@ -45,7 +45,7 @@ section.content {
 		url(/cinema/resources/img/gray00.png);
 	background-size:contain; /* background-size:cover; */ 	
 	background-position: center;	
-	background-repeat: no-repeat;    
+	background-repeat: repeat-y;   /* 세로 반복 */ /* background-repeat: no-repeat; */ 
 }
 
 section.main{
@@ -209,7 +209,7 @@ table tr td input[type='number'] {
 .movie-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 30px;
  
 	width: 100%; 
     max-width: 1200px;   /* 최대 너비 */
