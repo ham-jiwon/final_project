@@ -72,7 +72,8 @@
     </div>
     
    	<!-- 홈페이지 로고 삽입 -->
-    <a href="<%=path %>"><span class="logo"></span></a>	
-
+   	<div class="logo">
+    <a href="<%=path %>"><img src="${pageContext.request.contextPath}/resources/img/logo2.gif"></a>	
+	</div>
 </header>
 
