@@ -38,24 +38,23 @@ header > div {
 
 /* 4. 하단 메인 메뉴 (영화, 영화관별 등) */
 header .main-nav {
+ 	list-style: none;
     position: absolute;
     left: 40px;
-    bottom: 0;        /* ⭐ 경계선에 딱 붙이기 */
+    bottom: 10px;
 
     display: flex;
+    flex-direction: row;   /* 가로 강제 */
+    align-items: center;
     gap: 40px;
-    
+
     margin: 0;
+    padding: 0;
 }
 
 header .main-nav > li {
-    position: absolute;
-    left: 40px;
-    bottom: 10px;   /* ⭐ 경계선쪽 */
-    
-    padding-bottom: 10px; /* 드롭다운과의 간격 */
-    display: flex;
-    gap: 40px;
+    list-style: none;
+    display: block;   /* ⭐ inline-block 제거 */
 }
 
 
