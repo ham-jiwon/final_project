@@ -40,7 +40,7 @@ header > div {
 header .main-nav {
 	display: flex;
 	justify-content: flex-start;
-	margin-top: 40px;
+
 	margin-left: 0;
 	gap: 40px;
 }
@@ -116,7 +116,7 @@ header .sub-nav {
     display: flex;
     justify-content: flex-end; /* 오른쪽 정렬 */
     margin-left: auto;
-    margin-top: 15px;
+
     gap: 15px;
     list-style: none;
     padding-bottom: 10px;
