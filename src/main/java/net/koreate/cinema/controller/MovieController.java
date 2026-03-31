@@ -40,14 +40,14 @@ public class MovieController {
         return "movie/willGoMov";
 	}
 	
-	@GetMapping("/movie/detail")
+	@GetMapping("/movieDetail")
 	public String movieDetail(@RequestParam("code") int code, Model model) {
 	    
 		MovieVO movie = service.read(code);
 		
 	    model.addAttribute("movie", movie);
 	    
-	    return "movie/detail";
+	    return "movie/movieDetail";
 	}
 	
 }

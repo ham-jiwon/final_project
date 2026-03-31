@@ -276,3 +276,90 @@ table tr td input[type='number'] {
     font-size: 24px;
     font-weight: bold;
 }
+
+/* 상세페이지 css 설정 */
+/* 상단 (포스터 + 정보) */
+.detail-top {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* 포스터 */
+.poster {
+    text-align: center;  /* 핵심 */
+}
+
+.poster img {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* 정보 영역 */
+.info {
+    flex: 1;
+}
+
+.info h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* ☆ 구분선 */
+.info h2::after {
+    content: "";
+    display: block;
+    width: auto;                 /* 길이 조절 */
+    height: 2px;
+    background-color: #fff;      /* 제목 색이랑 동일 */
+    margin-top: 10px;
+}
+
+.info p {
+    margin-bottom: 10px;
+}
+
+/* 줄거리 (하단 핵심) */
+.story {
+    margin-top: 25px;
+    padding: 20px;
+    
+    line-height: 1.8;
+    color: #ddd;
+}
+
+.story-box {
+    background-color: rgba(50, 50, 50, 0.6);  /* ☆ 반투명 어두운 회색 */
+    border-radius: 10px;		
+}
+
+/* 버튼 */
+.btn-area {
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;      /* a 태그도 버튼처럼 */
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #444;
+    color: white;
+    font-size: 14px;           /* 폰트 통일 */
+    text-decoration: none;     /* ☆ 밑줄 제거 핵심 */
+    cursor: pointer;
+}
+
+/* hover */
+.btn:hover {
+    background-color: #666;
+}
+
+/* 비활성 버튼 */
+.btn.disabled {
+    background-color: #777;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
