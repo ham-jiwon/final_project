@@ -75,7 +75,10 @@ ALTER TABLE final_movie ADD poster VARCHAR2(300);
 SELECT * FROM final_movie;
 SELECT * FROM final_member;
 
-ALTER TABLE final_movie ADD (poster CLOB);
+--기존 칼럼 삭제 sql
+ALTER TABLE final_movie DROP COLUMN poster;
+-- VARCHAR2(300)을 추가하기 전에 CLOB으로 추가하던지 아니면 poster 칼럼을 삭제 후 추가
+ALTER TABLE final_movie ADD poster CLOB;
 
 
 -- 데이터 삽입 (테이블 생성 후 관리자 계정 추가)
@@ -246,7 +249,11 @@ SELECT * FROM final_movie ORDER BY release_date DESC;
 
 --영화 db 포스터 이미지 경로만 수정하는 sql--
 UPDATE final_movie 
-SET poster = '변경할 경로' -- 예시)'/resources/img/movies/we_live_in_time.jpg'
+
+SET poster = '/resources/img/movies/we_live_in_time.jpg' -- 예시)'/resources/img/movies/we_live_in_time.jpg'
+
+
+
 WHERE title = '위 리브 인 타임';
 
 --영화 db등록--

@@ -1,5 +1,7 @@
 package net.koreate.cinema.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.koreate.cinema.services.MovieService;
+import net.koreate.cinema.vo.MovieVO;
 
 @Controller
 @RequestMapping("/movie")
@@ -19,7 +22,12 @@ public class MovieController {
 	@GetMapping("/goingMov")
 	public String goingMov(Model model) {
 		
-        model.addAttribute("list", service.list());
+		System.out.println("Controller 진입");
+		
+		List<MovieVO> list = service.list();
+		
+        model.addAttribute("list", list);
+        System.out.println("list: " + list);
 
         return "movie/goingMov";
 	}
