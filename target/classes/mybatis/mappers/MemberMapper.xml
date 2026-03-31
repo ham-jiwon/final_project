@@ -15,4 +15,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="idCheck" parameterType="String" resultType="int">
 		SELECT COUNT(*) FROM final_member WHERE id = #{id}
 	</select>
+	
+	<update id="updateMember" parameterType="net.koreate.cinema.vo.MemberVO">
+		UPDATE final_member 
+		SET pass=#{pass}, name=#{name}, nickname=#{nickname}, phone=#{phone}, email=#{email}, gender=#{gender}, age=#{age}
+		WHERE id=#{id}
+	</update>
+	
+	<delete id="remoberMember" parameterType="int">
+		DELETE FROM final_member WHERE num = #{num}
+	</delete>
 </mapper>

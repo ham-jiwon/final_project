@@ -14,4 +14,5 @@ public class MovieVO {
     private int age_limit;
     private String story;
     private int running_time;
+    private String poster; 
 }

@@ -18,9 +18,21 @@ body{
 }
 
 .container{
-	width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;	
+	min-height: 700px;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 20px 20px;
+
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0,0,0,0.7) 0%,
+            rgba(0,0,0,0.2) 50%,
+            rgba(0,0,0,0.7) 100%
+        ),
+        url("/cinema/resources/img/gray00.png");
+
+    background-size: 100% auto;
+    background-repeat: repeat-y;
 }
 
 section {
@@ -28,24 +40,16 @@ section {
 }
 
 section.content {
-	
     min-height: 700px;
-    display: block;
-    padding: 80px 20px;
-    
-	background-image:
-		    linear-gradient(to bottom,
-	        rgba(0,0,0,0.7) 0%,
-	        rgba(0,0,0,0.5) 20%,
-	        rgba(0,0,0,0.2) 35%,
-	        rgba(0,0,0,0.2) 65%,
-	        rgba(0,0,0,0.5) 80%,
-	        rgba(0,0,0,0.7) 100%
-	    ),
-		url(/cinema/resources/img/gray00.png);
-	background-size:contain; /* background-size:cover; */ 	
-	background-position: center;	
-	background-repeat: no-repeat;    
+    padding: 80px 0;
+    background-image: 
+        linear-gradient(to bottom,
+            rgba(0,0,0,0.7) 0%,
+            rgba(0,0,0,0.2) 50%,
+            rgba(0,0,0,0.7) 100%
+        ),    	
+    	url("/cinema/resources/img/mainbg-01.png"); /* 밤하늘의 별 배경 */
+    background-color: rgba(0, 0, 0, 0.6);   /* 양옆 검정 */
 }
 
 section.main{
@@ -209,7 +213,7 @@ table tr td input[type='number'] {
 .movie-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 30px;
  
 	width: 100%; 
     max-width: 1200px;   /* 최대 너비 */
@@ -237,14 +241,23 @@ table tr td input[type='number'] {
 
 /* 오버레이 텍스트 */
 .overlay {
+	padding: 10px;
+	line-height: 1.4;   /* 줄 간격 */
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;   /* 세로 가운데 */
+    align-items: center;       /* 가로 가운데 */        
     
     opacity: 0;
     color: white;
-    font-size: 18px;
+    /* font-size: 18px; */
     text-align: center;
     
     transition: 0.3s;
@@ -252,4 +265,14 @@ table tr td input[type='number'] {
 
 .movie-card:hover .overlay {
     opacity: 1;
+}
+
+.story {
+    font-size: 16px;
+    margin-bottom: 72px;   /* ☆ 핵심 */
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
 }

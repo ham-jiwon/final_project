@@ -5,6 +5,9 @@
 <c:if test="${param.fail == 'true' }">
 	<script>alert("이미 존재하는 아이디입니다.")</script>
 </c:if>
+<c:if test="${param.pwFail == 'true' }">
+	<script>alert("비밀번호를 다시 확인해주세요.")</script>
+</c:if>
 <form action="<%=path %>/member/joinAction" method="POST">
 	<table>
 		<tr>

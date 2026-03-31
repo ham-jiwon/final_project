@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp" %>
+<c:if test="${param.passAgainFail == 'true' }">
+	<script>alert("비밀번호를 다시 확인해 주세요.")</script>
+</c:if>
 	<table>
 		<tr >
 			<th colspan="2">회원정보</th> 
@@ -38,12 +41,17 @@
 		</tr>
 		<tr>
 			<th colspan="2">
-				<button onclick="location.href='<%=path%>/member/update'">정보 수정</button>
+				<a href="<%=path%>/member/passConfirm"><button type="button">정보 수정</button></a>
 			</th>
 		</tr>
 		<tr>
 			<th colspan="2">
-				<button onclick="location.href='<%=path%>'">메인으로</button>
+				<a href="<%=path%>/member/passConfirm?remove=true"><button type="button">회원 탈퇴</button></a>
+			</th>
+		</tr>
+		<tr>
+			<th colspan="2">
+				<a href="<%=path%>"><button type="button">메인으로</button></a>
 			</th>
 		</tr>
 		
