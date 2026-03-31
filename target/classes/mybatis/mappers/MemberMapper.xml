@@ -25,4 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="removeMember" parameterType="int">
 		DELETE FROM final_member WHERE num = #{num}
 	</delete>
+	
+	<select id="readMemberList" resultType="net.koreate.cinema.vo.MemberVO">
+		SELECT * FROM final_member WHERE id != 'admin' ORDER BY num DESC
+	</select>
 </mapper>

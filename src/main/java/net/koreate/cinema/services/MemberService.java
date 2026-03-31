@@ -1,5 +1,7 @@
 package net.koreate.cinema.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,4 +43,15 @@ public class MemberService {
 		return result;
 	}//end removeeMember()
 
-}
+	public List<MemberVO> readMemberList(){
+		List<MemberVO> list = memberDAO.readMemberList();
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+}//end class

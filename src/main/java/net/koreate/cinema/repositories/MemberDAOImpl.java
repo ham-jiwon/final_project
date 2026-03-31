@@ -44,7 +44,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public List<MemberVO> readMemberList() {
-		return null;
+		List<MemberVO> list = session.selectList("MemberMapper.readMemberList");
+		return list;
 	}
 
 	@Override
