@@ -43,8 +43,11 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public List<MemberVO> readMemberList() {
-		List<MemberVO> list = session.selectList("MemberMapper.readMemberList");
+	public List<MemberVO> readMemberList(int offset, int perPageNum) {
+		Map<String, Integer> map = new HashMap<>();
+		map.put("offset", offset);
+		map.put("perPageNum", perPageNum);
+		List<MemberVO> list = session.selectList("MemberMapper.readMemberList", map);
 		return list;
 	}
 
@@ -61,7 +64,11 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 
-	
+	@Override
+	public int totalMemberCount() {
+		int result = session.selectOne("MemberMapper.totalMemberCount");
+		return result;
+	}//end totalMemberCount
 	
 	
 	

@@ -43,12 +43,15 @@ public class MemberService {
 		return result;
 	}//end removeeMember()
 
-	public List<MemberVO> readMemberList(){
-		List<MemberVO> list = memberDAO.readMemberList();
+	public List<MemberVO> readMemberList(int offset, int perPageNum){
+		List<MemberVO> list = memberDAO.readMemberList(offset, perPageNum);
 		return list;
 	}
 	
-	
+	public int totalMemberCount() {
+		int result = memberDAO.totalMemberCount();
+		return result;
+	}
 	
 	
 	

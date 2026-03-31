@@ -81,6 +81,39 @@ ALTER TABLE final_movie DROP COLUMN poster;
 ALTER TABLE final_movie ADD poster CLOB;
 
 
+-- 더미 아이디 추가
+INSERT INTO final_member(id, pass, name, nickname, phone, email, gender, age)
+SELECT
+	-- user1, user2, user3 ... user10000
+	'user' || LEVEL AS id,
+	
+	-- pass1, pass2, pass3 ... pass10000
+	'pass' || LEVEL AS pass,
+	
+	-- 사용자1, 사용자2, 사용자3 ... 사용자10000
+	'사용자' || LEVEL AS name,
+	
+	-- 사용자1, 사용자2, 사용자3 ... 사용자10000
+	'사용자' || LEVEL AS nickname,
+	
+	'01012345678' AS phone,
+	
+	'email' || LEVEL || '@email.com' AS email,
+	
+	CASE WHEN MOD(LEVEL, 2) = 1 THEN '남성' ELSE '여성' END AS gender,
+	
+	-- 나이 (20 ~ 70세 랜덤)
+	TRUNC(DBMS_RANDOM.VALUE(20, 70)) AS age
+	
+FROM DUAL
+CONNECT BY LEVEL <= 300;
+
+SELECT count(*) FROM final_member;
+SELECT * FROM final_member;
+
+COMMIT
+
+
 -- 데이터 삽입 (테이블 생성 후 관리자 계정 추가)
 INSERT INTO team_member (
     id, pass, name, addr, phone, email, gender, age

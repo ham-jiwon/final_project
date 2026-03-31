@@ -28,5 +28,8 @@
 				<td>${member.age}</td>
 			</tr>
 		</c:forEach>
+		<tr>
+			<th>${totalCount}</th>
+		</tr>
 	</table>
 <%@ include file="../common/footer.jsp" %>
