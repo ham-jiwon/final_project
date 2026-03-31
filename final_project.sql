@@ -345,7 +345,11 @@ VALUES (
     '농구선수 출신 공익근무요원 양현은 해체 위기에 놓인 부산중앙고 농구부의 신임 코치로 발탁된다.',
     122,
     '/resources/img/movies/rebound.jpg'
+    
 );
+
+DELETE FROM final_movie 
+WHERE title = '리바운드';
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
 VALUES (
@@ -357,6 +361,7 @@ VALUES (
     '흔적도, 증거도 없다! 101번 국도를 따라 흔적도 없이 사라지는 보석들. 전설적인 절도범 ‘데이비스’(크리스 헴스워스)는 자신만의 규칙 아래 완벽한 범죄를 설계한다.',
     140,
     '/resources/img/movies/Crime_101.jpg'
+    
 );
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
@@ -370,6 +375,7 @@ VALUES (
      오늘 안에 반드시 재촬영을 끝내야 하는 상황 속에 살목지로 향한 PD ‘수인’(김혜윤)과 촬영팀.',
     140,
     '/resources/img/movies/Whispering_Water.jpg'
+     
 );
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
@@ -429,7 +435,7 @@ VALUES (
     15,
     '독일 대학의 한 식물원에는 1832년부터 인간을 바라보며 뿌리내린 장엄한 한 그루의 은행나무가 서있다.',
     113,
-    '/resources/img/movies/Silent_Friend_jsp'
+    '/resources/img/movies/Silent_Friend.jpg'
 );
 
 commit
