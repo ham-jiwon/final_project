@@ -50,5 +50,18 @@ public interface MemberDAO {
 	 */
 	int removeMember(int num);
 	
+	/**
+	 * 
+	 * @param member - 수정할 회원 정보
+	 * @return - 수정된 행의 개수
+	 */
+	int updateMember(MemberVO member);
+	
+	
+	
+	
+	
+	
+	
 	
 }//end interface
