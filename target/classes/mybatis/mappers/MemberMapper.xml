@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE id=#{id}
 	</update>
 	
-	<delete id="remoberMember" parameterType="int">
+	<delete id="removeMember" parameterType="int">
 		DELETE FROM final_member WHERE num = #{num}
 	</delete>
 </mapper>

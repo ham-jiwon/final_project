@@ -139,7 +139,7 @@ header .sub-nav a, header .sub-nav span {
     font-size: 13px;
 
 }
-
+/*
 /* 7. 홈페이지 logo 수정 css */
 .logo {
     position: absolute;
@@ -154,4 +154,6 @@ header .sub-nav a, header .sub-nav span {
 .logo img {
     height: 131px;   /* ⭐ 원본보다 크게 */
     display: block;
+    width: 100px;
 }
+*/

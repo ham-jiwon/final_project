@@ -92,7 +92,8 @@ public class MemberController {
 				if(result < 1) {
 					return "redirect:/member/info?removeFail=true";
 				}
-				return "/";
+				session.invalidate();
+				return "redirect:/?removeSuccess=true";
 			}
 			return "redirect:/member/info?passAgainFail=true";
 		}

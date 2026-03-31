@@ -49,7 +49,7 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public int removeMember(int num) {
-		int result = session.delete("MemberMapper.removerMember", num);
+		int result = session.delete("MemberMapper.removeMember", num);
 		return result;
 	}
 	
