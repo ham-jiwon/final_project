@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import net.koreate.cinema.services.MovieService;
 import net.koreate.cinema.vo.MovieVO;
@@ -37,6 +38,16 @@ public class MovieController {
     public String willGoMov() {
 
         return "movie/willGoMov";
+	}
+	
+	@GetMapping("/movie/detail")
+	public String movieDetail(@RequestParam("code") int code, Model model) {
+	    
+		MovieVO movie = service.read(code);
+		
+	    model.addAttribute("movie", movie);
+	    
+	    return "movie/detail";
 	}
 	
 }

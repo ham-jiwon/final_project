@@ -337,18 +337,6 @@ VALUES (
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
 VALUES (
-    '리바운드', 
-    '장항준', 
-    '드라마', 
-    '2026-04-05', 
-    12,
-    '농구선수 출신 공익근무요원 양현은 해체 위기에 놓인 부산중앙고 농구부의 신임 코치로 발탁된다.',
-    122,
-    '/resources/img/movies/rebound.jpg'
-);
-
-INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
-VALUES (
     '크라임101', 
     '바트 레이튼', 
     '범죄,드라마,스릴러', 
@@ -381,7 +369,7 @@ VALUES (
     12,
     '인생이 담긴 마지막 작품을 완성하기 위한 미야자키 하야오의 고뇌와 갈등, 긴 세월을 함께한 동료들과 예기치 못한 이별까지…',
     120,
-    '/resources/img/movies/Hayao_Miyzaki_and_the_Heron.jpg'
+    '/resources/img/movies/Hayao_Miyazaki_and_the_Heron.jpg'
 );
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
@@ -429,7 +417,7 @@ VALUES (
     15,
     '독일 대학의 한 식물원에는 1832년부터 인간을 바라보며 뿌리내린 장엄한 한 그루의 은행나무가 서있다.',
     113,
-    '/resources/img/movies/Silent_Friend_jsp'
+    '/resources/img/movies/Silent_Friend.jpg'
 );
 
 commit

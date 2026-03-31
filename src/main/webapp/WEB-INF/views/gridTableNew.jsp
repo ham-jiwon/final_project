@@ -12,7 +12,7 @@
 	    <div class="movie-card">
 	    
 			        <img 
-			            src="${pageContext.request.contextPath}/resources/img/movies/${m.poster}" 
+			            src="${pageContext.request.contextPath}${m.poster}" 
 			            onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/resources/img/default.png';"
 			        />
 			        
