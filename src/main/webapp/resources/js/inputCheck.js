@@ -7,6 +7,9 @@ window.onload = function(){
 	var input = document.getElementsByTagName("input");
 	// tag 들 중에 최초에 검색되는 한개 요소를 반환
 	var btn = document.querySelector("button");
+	
+	if(!btn) return;	
+	
 	// button tag click event 발생 시 호출 될 함수
 	btn.onclick = function(event){
 		for(var i = 0; i<input.length; i++){
