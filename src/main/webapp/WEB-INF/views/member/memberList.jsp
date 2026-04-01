@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 	<table>
 		<tr>
-			<th colspan="8"><h1>회원 목록</h1></th>
+			<th colspan="10"><h1>회원 목록</h1></th>
 		</tr>
 		<tr>
 			<th>회원 번호</th>
@@ -15,6 +15,8 @@
 			<th>이메일</th>
 			<th>성별</th>
 			<th>나이</th>
+			<th>수정</th>
+			<th>삭제</th>
 		</tr>
 		<c:forEach var="member" items="${memberList}">
 			<tr>
@@ -26,10 +28,32 @@
 				<td>${member.email}</td>
 				<td>${member.gender}</td>
 				<td>${member.age}</td>
+				<td><button>수정</button></td>
+				<td><button>삭제</button></td>
 			</tr>
 		</c:forEach>
 		<tr>
-			<th>${totalCount}</th>
+			<th colspan="10">
+				<c:if test="${pageMaker.first}">
+					<a href="?page=1&perPageNum=${pageMaker.criteria.perPageNum}">[처음]</a>
+				</c:if>
+				
+				<c:if test="${pageMaker.prev}">
+					<a href="?page=${pageMaker.startPage-1}&perPageNum=${pageMaker.criteria.perPageNum}">[이전]</a>
+				</c:if>
+				
+				<c:forEach var="i" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+					<a href="?page=${i}&perPageNum=${pageMaker.criteria.perPageNum}">[${i}]</a>
+				</c:forEach>
+				
+				<c:if test="${pageMaker.next}">
+					<a href="?page=${pageMaker.endPage+1}&perPageNum=${pageMaker.criteria.perPageNum}">[다음]</a>
+				</c:if>
+				
+				<c:if test="${pageMaker.last}">
+					<a href="?page=${pageMaker.maxPage}&perPageNum=${pageMaker.criteria.perPageNum}">[마지막]</a>
+				</c:if>
+			</th>
 		</tr>
 	</table>
 <%@ include file="../common/footer.jsp" %>
