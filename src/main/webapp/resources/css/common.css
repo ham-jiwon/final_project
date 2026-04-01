@@ -363,3 +363,97 @@ table tr td input[type='number'] {
     cursor: not-allowed;
     opacity: 0.6;
 }
+
+/* 영화 상세페이지 댓글 게시판 css 설정 */
+
+#comment-section {
+    margin-top: 50px;
+    padding: 20px;
+    
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 5px;
+    /* border-top: 2px solid #444; */
+}
+
+#comment-section h3 {
+    margin-bottom: 15px;
+}
+
+/* textarea 크게 */
+#content {
+    flex: 1;
+    height: 100px;
+
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.comment-input-area {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+/* 오른쪽 영역 */
+.comment-side {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-item {
+	position: relative; /* 기준 잡기 */
+    background: rgba(255,255,255,0.05);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.comment-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1); /* 반투명 회색 */
+}
+
+/* 별 */
+#star-input span {
+  font-size: 22px;
+  cursor: pointer;
+  color: gray;
+  transition: 0.2s;
+}
+
+.stars {
+	position: absolute;
+    top: 10px;
+    right: 15px;	
+	
+    color: gold;
+    font-size: 18px;
+}
+
+/* 버튼 */
+.comment-side button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-content {
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+/* 수정 UI */
+.edit-area textarea {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 5px;
+}
+
+.edit-area {
+  margin-top: 5px;
+}

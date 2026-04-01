@@ -47,9 +47,12 @@
 		        ${movie.story}
 		    </div>
         </div>
+
     </div>
 
-
+    <div>
+    	<jsp:include page="movieComment.jsp" />
+    </div>
 
     
 
