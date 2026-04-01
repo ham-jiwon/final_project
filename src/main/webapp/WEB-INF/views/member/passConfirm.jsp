@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp" %>
+
+<c:set var="actionUrl" value="${param.remove == 'true' ? '/member/remove' : '/member/update'}" />
+
+<form action="<%=path%>/member/remove" method="POST">
+
 	<c:choose>
 	    <c:when test="${param.remove == 'true'}">
 	    	<script>
@@ -9,24 +14,27 @@
 	    		}else{
 	    			history.back();
 	    		}
-	    	</script>
-	        <form action="<%=path%>/member/remove" method="POST">
+	    	</script> 
 	    </c:when>
-	    <c:otherwise>
-	        <form action="<%=path%>/member/update" method="POST">
-	    </c:otherwise>
 	</c:choose>
+	
 	<table>
 		<tr >
 			<th colspan="2"> 비밀번호 확인</th> 
 		</tr>
 		<tr>
 			<td>비밀번호</td>
-			<td><input type="password" name="pass" placeholder="INSERT PW HERE" data-msg="비밀번호 확인" autofocus required></td>
+			<td>
+			<input type="password" name="pass" 
+			       placeholder="INSERT PW HERE" required>
+			</td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
-			<td><input type="password" name="passAgain" placeholder="INSERT PW HERE AGAIN" data-msg="비밀번호 확인" required></td>
+			<td>
+			<input type="password" name="passAgain" 
+			       placeholder="INSERT PW HERE AGAIN" required>
+			</td>
 		</tr>
 		<tr>
 			<th colspan="2">
@@ -35,5 +43,7 @@
 		</tr>
 		
 	</table>
-</form>
+	
+</form>	
+
 <%@ include file="../common/footer.jsp" %>
