@@ -63,7 +63,7 @@
 		<tr>
 			<td>나이</td>
 			<td>
-				<input type="number" name="age" data-msg="나이" placeholder="INSERT AGE HERE" value="<%=loginMember.getAge()%>"/>
+				<input type="number" name="age" data-msg="나이" placeholder="INSERT AGE HERE" value="<%=loginMember.getAge()%>" max="999"/>
 			</td>
 		</tr>
 		<tr>

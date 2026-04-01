@@ -71,7 +71,7 @@
 		<tr>
 			<td>나이</td>
 			<td>
-				<input type="number" name="age" data-msg="나이" placeholder="INSERT Age HERE"/>
+				<input type="number" name="age" data-msg="나이" placeholder="INSERT Age HERE" max="999"/>
 			</td>
 		</tr>
 		<tr>

@@ -85,6 +85,8 @@ public class MemberController {
 		}
 	}//end updateAction
 	
+
+	
 	
 	@PostMapping("/remove")
 	public String remove(String pass, String passAgain, HttpSession session) {
@@ -147,7 +149,16 @@ public class MemberController {
 		return "member/adminUpdate";
 	}
 	
-	
+	@PostMapping("adminUpdateAction")
+	public String adminUpdateAction(MemberVO member, Model model) {
+		int result = service.updateMember(member);
+		if(result >0) {
+			return "redirect:/member/memberList?updateSuccess=true";
+		}else {
+			model.addAttribute("updateMember", member);			
+			return "redirect:/member/adminUpdate?updateFail=true";
+		}
+	}
 	
 	
 }//end calss

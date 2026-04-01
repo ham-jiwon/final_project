@@ -5,7 +5,9 @@
 <c:if test="${param.updateFail == 'true'}">
 	<script>alert("회원정보 변경에 실패하였습니다.")</script>
 </c:if>
-<form action="<%=path%>/member/updateAction" method="POST">
+<form action="<%=path%>/member/adminUpdateAction" method="POST">
+	<input type="hidden" name="id" value="${updateMember.id}">
+	<input type="hidden" name="pass" value="${updateMember.pass}">
 	<table>
 		<tr>
 			<th colspan="2"><h1>회원정보 수정</h1></th>
@@ -50,7 +52,7 @@
 		<tr>
 			<td>나이</td>
 			<td>
-				<input type="number" name="age" data-msg="나이" placeholder="INSERT AGE HERE" value="${updateMember.age}"/>
+				<input type="number" name="age" data-msg="나이" placeholder="INSERT AGE HERE" value="${updateMember.age}" max="999"/>
 			</td>
 		</tr>
 		<tr>
