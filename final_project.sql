@@ -489,7 +489,9 @@ CREATE TABLE theater_branch(
 	addr VARCHAR2(150) NOT NULL,												-- 주소
 	phone VARCHAR2(30)															-- 연락처
 );
-
+-- branch_name 컬럼의 크기를 100바이트로 확장
+ALTER TABLE THEATER_BRANCH 
+MODIFY branch_name VARCHAR2(100);
 -- theater_branch 테이블 중에 theater_code가 1인 행을 전부 삭제(주의!)
 DELETE FROM THEATER_BRANCH WHERE theater_code = 1 AND branch_name = '서면';
 
@@ -505,7 +507,7 @@ INSERT INTO THEATER_BRANCH(theater_code, branch_name, addr)
 VALUES(1, '아시아드', '부산광역시 연제구 종합운동장로 7 부산아시아드주경기장 노외주차장');
 
 INSERT INTO THEATER_BRANCH(theater_code, branch_name, addr)
-VALUES(1, '신세계 백화점센텀시티점', '부산광역시 해운대구 센텀남대로 35 7,8층');
+VALUES(1, '신세계백화점 센텀시티점', '부산광역시 해운대구 센텀남대로 35 7,8층');
 
 INSERT INTO THEATER_BRANCH(theater_code, branch_name, addr)
 VALUES(1, '대연', '부산광역시 남구 수영로 305 스파크');
@@ -566,6 +568,8 @@ VALUES(3, '장산점', '부산광역시 해운대구 해운대로 813 NC백화�
 
 INSERT INTO THEATER_BRANCH(theater_code, branch_name, addr)
 VALUES(3, '부산극장신관', '부산광역시 중구 비프광장로 28');
+
+DELETE FROM theater_branch WHERE branch_code =4;
 
 
 -- 커밋
