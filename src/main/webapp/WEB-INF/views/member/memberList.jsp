@@ -28,7 +28,7 @@
 				<td>${member.email}</td>
 				<td>${member.gender}</td>
 				<td>${member.age}</td>
-				<td><button>수정</button></td>
+				<td><a href="<%=path%>/member/adminUpdate?id=${member.id}"><button>수정</button></a></td>
 				<td><button>삭제</button></td>
 			</tr>
 		</c:forEach>

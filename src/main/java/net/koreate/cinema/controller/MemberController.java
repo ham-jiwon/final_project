@@ -140,6 +140,13 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("adminUpdate")
+	public String adminUpdate(String id, Model model) {
+		MemberVO member = service.readMember(id);
+		model.addAttribute("updateMember", member);
+		return "member/adminUpdate";
+	}
+	
 	
 	
 	

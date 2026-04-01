@@ -30,7 +30,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public MemberVO readMember(String memberid) {
-		return null;
+		MemberVO member = session.selectOne("MemberMapper.readMember", memberid);
+		return member;
 	}
 
 	@Override

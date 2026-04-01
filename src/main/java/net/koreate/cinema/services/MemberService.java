@@ -53,7 +53,10 @@ public class MemberService {
 		return result;
 	}
 	
-	
+	public MemberVO readMember(String id) {
+		MemberVO member = memberDAO.readMember(id);
+		return member;
+	}//end readMember
 	
 	
 	
