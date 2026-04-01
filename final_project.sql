@@ -386,6 +386,7 @@ WHERE title = '리바운드';
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
 VALUES (
+
     '크라임101', 
     '바트 레이튼', 
     '범죄,드라마,스릴러', 
@@ -420,7 +421,7 @@ VALUES (
     12,
     '인생이 담긴 마지막 작품을 완성하기 위한 미야자키 하야오의 고뇌와 갈등, 긴 세월을 함께한 동료들과 예기치 못한 이별까지…',
     120,
-    '/resources/img/movies/Hayao_Miyzaki_and_the_Heron.jpg'
+    '/resources/img/movies/Hayao_Miyazaki_and_the_Heron.jpg'
 );
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)

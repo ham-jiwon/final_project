@@ -17,10 +17,13 @@
 			    <div class="movie-card">
 			    
 			        <img 
-			            src="${pageContext.request.contextPath}/resources/img/movies/${m.poster}" 
+			            src="${pageContext.request.contextPath}${m.poster}" 
 			            onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/resources/img/default.png';"
 			        />
-			        <div class="overlay">
+			        
+			        <div class="overlay"
+			        	 onclick="location.href='${pageContext.request.contextPath}/movie/movieDetail?code=${m.movie_code}'"
+			        	 style="cursor:pointer;">
 			        	<p class="story">
 						    ${fn:substring(m.story, 0, 50)}...
 						</p>
