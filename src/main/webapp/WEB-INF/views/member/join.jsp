@@ -28,7 +28,7 @@
 		<tr>
 			<td>비밀번호 확인</td>
 			<td>
-				<input type="password" name="passAgaion" data-msg="비밀번호 확인" placeholder="INSERT PW HERE AGAIN" />
+				<input type="password" name="passAgain" data-msg="비밀번호 확인" placeholder="INSERT PW HERE AGAIN" />
 			</td>
 		</tr>
 		<tr>
