@@ -160,5 +160,15 @@ public class MemberController {
 		}
 	}
 	
+	@GetMapping("adminRemove")
+	public String adminRemove(String id) {
+		MemberVO member = service.readMember(id);
+		int result = service.removeMember(member.getNum());
+		if(result > 0) {
+			return "redirect:/member/memberList?removeSuccess=true";
+		}else {
+			return "redirect:/member/memberList?removeSuccess=false";
+		}
+	}
 	
 }//end calss
