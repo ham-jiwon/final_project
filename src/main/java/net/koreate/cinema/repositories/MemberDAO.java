@@ -39,9 +39,11 @@ public interface MemberDAO {
 	
 	
 	/**
+	 * @param offset - 페이징 처리 시 요청 페이지에 따라 몇 개의 행을 넘길 지 결정하는 변수
+	 * @param perPageNum - 한 페이지에 몇 개의 행을 출력할 지 결정하는 변수 
 	 * @return - final_member table 에 등록된 모든 사용자 정보를 List 타입으로 반환
 	 */
-	List<MemberVO> readMemberList();
+	List<MemberVO> readMemberList(int offset, int perPageNum);
 	
 	
 	/**
@@ -58,6 +60,11 @@ public interface MemberDAO {
 	int updateMember(MemberVO member);
 	
 	
+	/**
+	 * 
+	 * @return - 총 회원 수 반환 메소드
+	 */
+	int totalMemberCount();
 	
 	
 	

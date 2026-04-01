@@ -1,14 +1,19 @@
 package net.koreate.cinema.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.koreate.cinema.services.MemberService;
+import net.koreate.cinema.utils.Criteria;
+import net.koreate.cinema.utils.PageMaker;
 import net.koreate.cinema.vo.MemberVO;
 
 @Controller
@@ -92,7 +97,8 @@ public class MemberController {
 				if(result < 1) {
 					return "redirect:/member/info?removeFail=true";
 				}
-				return "/";
+				session.invalidate();
+				return "redirect:/?removeSuccess=true";
 			}
 			return "redirect:/member/info?passAgainFail=true";
 		}
@@ -101,8 +107,14 @@ public class MemberController {
 
 	
 	@GetMapping("/memberList")
-	public String memberList() {
-		
+	public String memberList(Model model, Criteria cri) {
+		int totalCount = service.totalMemberCount(); 
+		PageMaker pm = new PageMaker(cri, totalCount, 10);
+		List<MemberVO> list = service.readMemberList(cri.offset(), cri.getPerPageNum());
+		model.addAttribute("memberList", list);
+		model.addAttribute("totalCount", totalCount);
+		model.addAttribute("criteria", cri);
+		model.addAttribute("pageMaker", pm);
 		return "member/memberList";
 	}
 	

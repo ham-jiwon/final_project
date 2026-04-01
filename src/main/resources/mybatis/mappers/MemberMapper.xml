@@ -22,7 +22,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE id=#{id}
 	</update>
 	
-	<delete id="remoberMember" parameterType="int">
+	<delete id="removeMember" parameterType="int">
 		DELETE FROM final_member WHERE num = #{num}
 	</delete>
+	
+	<select id="readMemberList" parameterType="map" resultType="net.koreate.cinema.vo.MemberVO">
+		SELECT * FROM final_member WHERE id != 'admin' ORDER BY num DESC 
+		OFFSET #{offset} ROWS FETCH NEXT #{perPageNum} ROWS ONLY
+	</select>
+	
+	<select id="totalMemberCount" resultType="int">
+		SELECT COUNT(*) FROM final_member WHERE id != 'admin'
+	</select>
+	
+	
+	
 </mapper>
