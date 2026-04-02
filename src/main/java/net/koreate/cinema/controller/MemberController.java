@@ -2,6 +2,8 @@ package net.koreate.cinema.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,9 +125,14 @@ public class MemberController {
 	
 
 	@PostMapping("/loginAction")
-	public String loginAction(MemberVO member, HttpSession session) {
+	public String loginAction(MemberVO member, HttpSession session, boolean rememberMe, HttpServletResponse response) {
 		MemberVO loginResult = service.loginMember(member);
-		
+		if(rememberMe == true) {
+			Cookie cookie = new Cookie("rememberMe", member.getId());
+			cookie.setMaxAge(60*60*24*15);
+			cookie.setPath("/");
+			response.addCookie(cookie);
+		}
 		if(loginResult != null) {
 			session.setAttribute("loginMember", loginResult);
 			return "redirect:/";

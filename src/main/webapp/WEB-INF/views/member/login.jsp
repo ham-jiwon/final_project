@@ -21,10 +21,14 @@
 		</tr>
 		<tr>
 			<th colspan="2">
-				<button>로그인</button>
+				<button>로그인</button><label><input type="checkbox" name="rememberMe">로그인 상태 유지</label>
 			</th>
 		</tr>
-		
+		<tr>
+			<th colspan="2">
+				<button type="button" onclick="location.href='<%=path%>/member/findPass'">비밀번호 찾기</button>
+			</th>
+		</tr>
 	</table>
 </form>
 <%@ include file="../common/footer.jsp" %>
