@@ -2,11 +2,15 @@ package net.koreate.cinema.controller;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.koreate.cinema.services.MemberService;
-import net.koreate.cinema.utils.Criteria;
 import net.koreate.cinema.utils.PageMaker;
 import net.koreate.cinema.utils.SearchCriteria;
 import net.koreate.cinema.vo.MemberVO;
@@ -25,6 +28,11 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	JavaMailSender mailSender;
+	
+	
 	
 	@GetMapping("/join")
 	public String join() {
@@ -185,5 +193,41 @@ public class MemberController {
 			return "redirect:/member/memberList?removeSuccess=false";
 		}
 	}
+	
+	@GetMapping("findPass")
+	public void findPass() {}
+	
+	@GetMapping("passCode")
+	public String passCode(String id, HttpSession session) {
+		MemberVO member = service.readMember(id);
+		if(member == null) {
+			return "redirect:/member/findPass?fail=true";
+		}
+		String code = "";
+		for(int i = 0; i < 6; i++) {
+			code += (int)(Math.random()*10);
+		}
+		session.setAttribute("id", id);
+		session.setAttribute("code", code);
+		
+		MimeMessage message = mailSender.createMimeMessage();
+		try {
+			MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+			
+			helper.setTo(member.getEmail());
+			helper.setSubject("Cinema in Busan 비밀번호 재설정 인증코드");
+			helper.setText(
+					"<div style='padding:20px; border:1px solid #ddd;'>" +
+				    "<h2>비밀번호 재설정 인증번호</h2>" +
+				    "<p>인증번호: <strong style='font-size:24px'>" + code + "</strong></p>" +
+				    "</div>",
+				    true  // true = HTML 사용
+			);
+			mailSender.send(message);
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+		return "member/codeConfirm";
+	}//end passCode
 	
 }//end calss
