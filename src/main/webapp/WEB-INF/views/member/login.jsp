@@ -21,7 +21,7 @@
 		</tr>
 		<tr>
 			<th colspan="2">
-				<button>로그인</button><label><input type="checkbox" name="rememberMe">로그인 상태 유지</label>
+				<button>로그인</button><br><label><input type="checkbox" name="rememberMe">로그인 상태 유지</label>
 			</th>
 		</tr>
 		<tr>

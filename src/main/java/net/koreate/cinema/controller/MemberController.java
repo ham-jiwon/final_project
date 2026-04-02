@@ -144,8 +144,12 @@ public class MemberController {
 
 	
 	@GetMapping("/logout")
-	public String logout(HttpSession session){
+	public String logout(HttpSession session, HttpServletResponse response){
 		session.invalidate();
+		Cookie cookie = new Cookie("rememberMe", "");
+		cookie.setPath("/");
+		cookie.setMaxAge(0);
+		response.addCookie(cookie);
 		return "redirect:/";
 	}
 	
