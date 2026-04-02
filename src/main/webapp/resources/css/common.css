@@ -457,3 +457,9 @@ table tr td input[type='number'] {
 .edit-area {
   margin-top: 5px;
 }
+
+.edit-star span {
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.2s;
+}

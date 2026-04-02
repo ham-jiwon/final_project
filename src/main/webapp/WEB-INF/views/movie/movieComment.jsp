@@ -106,12 +106,18 @@ function loadComments(){
 		    html += "<div class='edit-area' id='edit-" + c.comment_num + "' style='display:none'>";
 		    html += "<textarea id='editContent-" + c.comment_num + "'>" + c.content + "</textarea>";
 
-		    html += "<input type='number' id='editScore-" + c.comment_num + "' min='1' max='5' value='" + c.score + "'>";
+		    html += "<div class='edit-star' id='edit-star-" + c.comment_num + "'>";
+		    for(let i=1; i<=5; i++){
+		    	html += "<span onmouseover='hoverEditStar(" + c.comment_num + "," + i + ")' onclick='setEditScore(" + c.comment_num + "," + i + ")'>★</span>";
+		    }
+		    html += "</div>";
+
+		    html += "<input type='hidden' id='editScore-" + c.comment_num + "' value='" + c.score + "'>";
 
 		    html += "<button onclick='saveEdit(" + c.comment_num + ")'>저장</button>";
 		    html += "<button onclick='cancelEdit(" + c.comment_num + ")'>취소</button>";
 		    html += "</div>";
-
+		    
 		    // 버튼
 		    if(loginId === c.member_id){
 			    html += "<button onclick='showEdit(" + c.comment_num + ")'>수정</button>";		    
@@ -127,12 +133,50 @@ function loadComments(){
 
 	}
 	
+// 수정 페이지 별점 관련
+function setEditScore(comment_num, score){
+	  editSelectedScore[comment_num] = score;
+
+	  document.getElementById("editScore-" + comment_num).value = score;
+
+	  paintEditStar(comment_num, score);
+}
+
+// 마우스 오버
+function hoverEditStar(comment_num, n){
+	  paintEditStar(comment_num, n);
+}
+
+function paintEditStar(comment_num, score){
+	  let stars = document.querySelectorAll("#edit-star-" + comment_num + " span");
+
+	  stars.forEach((s, i) => {
+	    s.style.color = i < score ? "gold" : "gray";
+	  });
+}
 
 function getStars(score){
 	  let full = "★".repeat(score);
 	  let empty = "☆".repeat(5 - score);
 	  return full + empty;
-	}
+}
+
+let editSelectedScore = {};
+
+document.addEventListener("mouseover", function(e){
+
+  document.querySelectorAll(".edit-star").forEach(div => {
+
+    let comment_num = div.id.split("-")[2];
+
+    if(!div.contains(e.target)){
+      let score = editSelectedScore[comment_num] || 0;
+      paintEditStar(comment_num, score);
+    }
+
+  });
+
+});
 
 	
 let selectedScore = 0;
@@ -200,6 +244,10 @@ function showEdit(comment_num){
 	  // 선택한 것만 열기
 	  document.getElementById("edit-" + comment_num).style.display = "block";
 	  document.getElementById("content-" + comment_num).style.display = "none";
+	  
+	  // 별점 색칠
+	  let score = document.getElementById("editScore-" + comment_num).value;
+	  setEditScore(comment_num, score);	  
 }
 
 // 수정 취소
