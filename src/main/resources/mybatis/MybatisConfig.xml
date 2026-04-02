@@ -13,6 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="mybatis/mappers/MemberMapper.xml"/>
 	    <mapper resource="mybatis/mappers/MovieMapper.xml"/>
+	    <mapper resource="mybatis/mappers/CommentMapper.xml"/>
 	</mappers>	
 	
 </configuration>
