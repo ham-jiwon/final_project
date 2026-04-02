@@ -463,3 +463,8 @@ table tr td input[type='number'] {
   cursor: pointer;
   transition: 0.2s;
 }
+
+.save-btn,
+.cancel-btn {
+  display: none;
+}

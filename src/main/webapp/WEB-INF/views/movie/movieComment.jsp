@@ -114,14 +114,14 @@ function loadComments(){
 
 		    html += "<input type='hidden' id='editScore-" + c.comment_num + "' value='" + c.score + "'>";
 
-		    html += "<button onclick='saveEdit(" + c.comment_num + ")'>저장</button>";
-		    html += "<button onclick='cancelEdit(" + c.comment_num + ")'>취소</button>";
+		    html += "<button class='save-btn' onclick='saveEdit(" + c.comment_num + ")'>저장</button>";
+		    html += "<button class='cancel-btn' onclick='cancelEdit(" + c.comment_num + ")'>취소</button>";
 		    html += "</div>";
 		    
 		    // 버튼
 		    if(loginId === c.member_id){
-			    html += "<button onclick='showEdit(" + c.comment_num + ")'>수정</button>";		    
-		  		html += "<button onclick='deleteComment(" + c.comment_num + ")'>삭제</button>";
+			    html += "<button class='edit-btn' onclick='showEdit(" + c.comment_num + ")'>수정</button>";		    
+		  		html += "<button class='delete-btn' onclick='deleteComment(" + c.comment_num + ")'>삭제</button>";
 		    }
 		    
 	  	    html += "<hr>";	  		
@@ -245,6 +245,13 @@ function showEdit(comment_num){
 	  document.getElementById("edit-" + comment_num).style.display = "block";
 	  document.getElementById("content-" + comment_num).style.display = "none";
 	  
+	  // 버튼 숨김/표시
+	  document.querySelector("#edit-" + comment_num).parentElement.querySelector(".edit-btn").style.display = "none";
+	  document.querySelector("#edit-" + comment_num).parentElement.querySelector(".delete-btn").style.display = "none";
+
+	  document.querySelector("#edit-" + comment_num).parentElement.querySelector(".save-btn").style.display = "inline-block";
+	  document.querySelector("#edit-" + comment_num).parentElement.querySelector(".cancel-btn").style.display = "inline-block";	  
+	  
 	  // 별점 색칠
 	  let score = document.getElementById("editScore-" + comment_num).value;
 	  setEditScore(comment_num, score);	  
@@ -254,6 +261,15 @@ function showEdit(comment_num){
 function cancelEdit(comment_num){
   document.getElementById("edit-" + comment_num).style.display = "none";
   document.getElementById("content-" + comment_num).style.display = "block";  
+  
+  // 버튼 원상복구
+  let parent = document.getElementById("edit-" + comment_num).parentElement;
+
+  parent.querySelector(".edit-btn").style.display = "inline-block";
+  parent.querySelector(".delete-btn").style.display = "inline-block";
+
+  parent.querySelector(".save-btn").style.display = "none";
+  parent.querySelector(".cancel-btn").style.display = "none";  
 }
 
 // 저장
