@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import net.koreate.cinema.services.MemberService;
 import net.koreate.cinema.utils.Criteria;
 import net.koreate.cinema.utils.PageMaker;
+import net.koreate.cinema.utils.SearchCriteria;
 import net.koreate.cinema.vo.MemberVO;
 
 @Controller
@@ -111,14 +112,17 @@ public class MemberController {
 
 	
 	@GetMapping("/memberList")
-	public String memberList(Model model, Criteria cri) {
-		int totalCount = service.totalMemberCount(); 
+	public String memberList(Model model, SearchCriteria cri) {
+		cri.setKeyword(cri.getKeyword().trim());
+		int totalCount = service.totalMemberCount(cri); 
 		PageMaker pm = new PageMaker(cri, totalCount, 10);
-		List<MemberVO> list = service.readMemberList(cri.offset(), cri.getPerPageNum());
+		List<MemberVO> list = service.readMemberList(cri.offset(), cri.getPerPageNum(), cri);
 		model.addAttribute("memberList", list);
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("criteria", cri);
 		model.addAttribute("pageMaker", pm);
+		model.addAttribute("searchType", cri.getSearchType());
+		model.addAttribute("keyword", cri.getKeyword());
 		return "member/memberList";
 	}
 	

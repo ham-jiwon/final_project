@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import net.koreate.cinema.utils.SearchCriteria;
 import net.koreate.cinema.vo.MemberVO;
 
 @Repository
@@ -44,10 +45,12 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public List<MemberVO> readMemberList(int offset, int perPageNum) {
-		Map<String, Integer> map = new HashMap<>();
+	public List<MemberVO> readMemberList(int offset, int perPageNum, SearchCriteria sc) {
+		Map<String, Object> map = new HashMap<>();
 		map.put("offset", offset);
 		map.put("perPageNum", perPageNum);
+		map.put("searchType", sc.getSearchType());
+		map.put("keyword", sc.getKeyword());
 		List<MemberVO> list = session.selectList("MemberMapper.readMemberList", map);
 		return list;
 	}
@@ -66,8 +69,11 @@ public class MemberDAOImpl implements MemberDAO {
 
 
 	@Override
-	public int totalMemberCount() {
-		int result = session.selectOne("MemberMapper.totalMemberCount");
+	public int totalMemberCount(SearchCriteria sc) {
+		Map<String, String> map = new HashMap<>();
+		map.put("searchType", sc.getSearchType());
+		map.put("keyword", sc.getKeyword());
+		int result = session.selectOne("MemberMapper.totalMemberCount", map);
 		return result;
 	}//end totalMemberCount
 	

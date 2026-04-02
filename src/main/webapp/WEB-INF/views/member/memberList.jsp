@@ -16,6 +16,19 @@
 			<th colspan="10"><h1>회원 목록</h1></th>
 		</tr>
 		<tr>
+			<th colspan="10">
+				<form>
+					<select name="searchType">
+						<option ${searchType == "id"? selected : ""} value = "id">아이디</option>
+						<option ${searchType == "name"? selected : ""} value = "name">이름</option>
+						<option ${searchType == "phone"? selected : ""} value = "phone">전화번호</option>
+					</select>
+					<input type="text" name="keyword" value="${keyword}" placeholder="검색 키워드">
+					<input type="submit" value="검색">
+				</form>
+			</th>
+		</tr>
+		<tr>
 			<th>회원 번호</th>
 			<th>아이디</th>
 			<th>이름</th>
@@ -44,23 +57,23 @@
 		<tr>
 			<th colspan="10">
 				<c:if test="${pageMaker.first}">
-					<a href="?page=1&perPageNum=${pageMaker.criteria.perPageNum}">[처음]</a>
+					<a href="?page=1&perPageNum=${pageMaker.criteria.perPageNum}&searchType=${searchType}&keyword=${keyword}">[처음]</a>
 				</c:if>
 				
 				<c:if test="${pageMaker.prev}">
-					<a href="?page=${pageMaker.startPage-1}&perPageNum=${pageMaker.criteria.perPageNum}">[이전]</a>
+					<a href="?page=${pageMaker.startPage-1}&perPageNum=${pageMaker.criteria.perPageNum}&searchType=${searchType}&keyword=${keyword}">[이전]</a>
 				</c:if>
 				
 				<c:forEach var="i" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-					<a href="?page=${i}&perPageNum=${pageMaker.criteria.perPageNum}">[${i}]</a>
+					<a href="?page=${i}&perPageNum=${pageMaker.criteria.perPageNum}&searchType=${searchType}&keyword=${keyword}">[${i}]</a>
 				</c:forEach>
 				
 				<c:if test="${pageMaker.next}">
-					<a href="?page=${pageMaker.endPage+1}&perPageNum=${pageMaker.criteria.perPageNum}">[다음]</a>
+					<a href="?page=${pageMaker.endPage+1}&perPageNum=${pageMaker.criteria.perPageNum}&searchType=${searchType}&keyword=${keyword}">[다음]</a>
 				</c:if>
 				
 				<c:if test="${pageMaker.last}">
-					<a href="?page=${pageMaker.maxPage}&perPageNum=${pageMaker.criteria.perPageNum}">[마지막]</a>
+					<a href="?page=${pageMaker.maxPage}&perPageNum=${pageMaker.criteria.perPageNum}&searchType=${searchType}&keyword=${keyword}">[마지막]</a>
 				</c:if>
 			</th>
 		</tr>
