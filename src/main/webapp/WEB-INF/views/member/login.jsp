@@ -5,6 +5,9 @@
 <c:if test="${param.fail == 'true' }">
 	<script>alert("아이디 또는 비밀번호가 틀렸습니다.")</script>
 </c:if>
+<c:if test="${param.passChangeSuccess == 'true'}">
+	<script>alert("비밀번호 변경이 완료되었습니다.")</script>
+</c:if>
 
 <form action="<%=path %>/member/loginAction" method = "POST">
 	<table>

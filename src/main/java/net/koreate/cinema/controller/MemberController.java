@@ -241,7 +241,21 @@ public class MemberController {
 			return "member/passChange";
 		}
 		return "redirect:/member/passCode?id="+session.getAttribute("id")+"&fail=true";
+		
 	}
 	
+	
+	@PostMapping("passChangeAction")
+	public String passChangeAction(String pass, String passAgain, Model model, HttpSession session) {
+		if(!pass.equals(passAgain)) {
+			model.addAttribute("fail", "true");
+			return "member/passChange";
+		}
+		MemberVO member = service.readMember((String)session.getAttribute("id"));
+		member.setPass(pass);
+		service.updateMember(member);
+		
+		return "redirect:/member/login?passChangeSuccess=true";
+	}
 	
 }//end calss
