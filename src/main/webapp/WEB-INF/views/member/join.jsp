@@ -9,7 +9,7 @@
 	<script>alert("비밀번호를 다시 확인해주세요.")</script>
 </c:if>
 <form action="<%=path %>/member/joinAction" method="POST">
-	<table>
+	<table class="list">
 		<tr>
 			<th colspan="2"><h1>회원가입</h1></th>
 		</tr>

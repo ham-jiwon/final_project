@@ -168,28 +168,35 @@ section.main h1{
 	justify-content: center;
 }
 
+/* 테이블 전역 설정(주의!!) */
 table {
-	border-collapse: collapse;
+	position: relative;
+	z-index: 10;
 }
+/***********************/
 
-table tr {
-	height: 40px;
-}
-
-table tr td,
-table tr th {
-	border: 1px solid #ccc;
-	text-align: center;
-}
-
-table tr:first-child th{
+table.list tr:first-child th{
 	color:white;
 	background-color: navy;
 }
 
-table tr td:first-child{
+table.list tr td:first-child{
 	padding:10px;
 	text-align:left;
+}
+
+table.list{
+	border-collapse: collapse;	
+}
+
+table.list tr td,
+table.list tr th {
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+table.list tr {
+	height: 40px;
 }
 
 table.list tr td:nth-child(2) {
@@ -207,6 +214,10 @@ table tr td input[type='number'] {
 	border: none;
 	padding: 10px;
 	font-size: 14px;
+}
+
+table.movie-list {
+	margin-top: 100px;
 }
 
 /* 그리드 게시판 css 설정 */

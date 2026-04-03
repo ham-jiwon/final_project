@@ -369,19 +369,6 @@ VALUES (
     '/resources/img/movies/rebound.jpg'
 );
 
-INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
-VALUES (
-    '리바운드', 
-    '장항준', 
-    '드라마', 
-    '2026-04-05', 
-    12,
-    '농구선수 출신 공익근무요원 양현은 해체 위기에 놓인 부산중앙고 농구부의 신임 코치로 발탁된다.',
-    122,
-    '/resources/img/movies/rebound.jpg'
-    
-);
-
 DELETE FROM final_movie 
 WHERE title = '리바운드';
 
@@ -463,7 +450,7 @@ VALUES (
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
 VALUES (
-    '침묵은 친구', 
+    '침묵의 친구', 
     '일디코 엔예디', 
     '드라마',
     '2026-04-15', 

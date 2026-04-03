@@ -8,7 +8,7 @@
 <form action="<%=path%>/member/adminUpdateAction" method="POST">
 	<input type="hidden" name="id" value="${updateMember.id}">
 	<input type="hidden" name="pass" value="${updateMember.pass}">
-	<table>
+	<table class="list">
 		<tr>
 			<th colspan="2"><h1>회원정보 수정</h1></th>
 		</tr>

@@ -7,7 +7,7 @@
 <c:if test="${param.removeFail == 'true' }">
 	<script>alert("회원 탈퇴에 실패하였습니다.")</script>
 </c:if>
-	<table>
+	<table class="list">
 		<tr >
 			<th colspan="2">회원정보</th> 
 		</tr>

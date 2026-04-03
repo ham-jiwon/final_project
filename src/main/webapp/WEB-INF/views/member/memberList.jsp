@@ -11,7 +11,7 @@
 <c:if test="${param.removeSuccess == 'false'}">
 	<script>alert("회원정보 삭제 실패.")</script>
 </c:if>
-	<table>
+	<table class="list">
 		<tr>
 			<th colspan="10"><h1>회원 목록</h1></th>
 		</tr>

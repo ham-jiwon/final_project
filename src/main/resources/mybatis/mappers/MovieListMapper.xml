@@ -9,11 +9,20 @@
 </select>
 
 <select id="getMovie" resultType="net.koreate.cinema.vo.MovieVO">
-    SELECT * FROM movie WHERE movie_id = #{movie_id}
+    SELECT * FROM final_movie WHERE movie_code = #{movie_code}
 </select>
 
+<update id="updateMovie">
+    UPDATE final_movie
+    SET 
+        title = #{title},
+        director = #{director},
+        genre = #{genre}
+    WHERE movie_code = #{movie_code}
+</update>
+
 <delete id="deleteMovie">
-    DELETE FROM movie WHERE movie_id = #{movie_id}
+    DELETE FROM final_movie WHERE movie_code = #{movie_code}
 </delete>
 
 </mapper>

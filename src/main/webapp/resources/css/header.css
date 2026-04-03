@@ -8,6 +8,7 @@
 }
 
 body {
+	padding-top: 5px;
     width: 100%;
     font-family: 'Malgun Gothic', sans-serif;
 }

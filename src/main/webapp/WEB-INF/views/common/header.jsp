@@ -19,8 +19,6 @@
 <link href="<%=path %>/resources/css/common.css" rel="stylesheet" type="text/css" />
 <link rel="icon" href="<%=path%>/resources/img/film.ico" type="image/x-icon">
 
-</head>
-<body>
 
 <header>
 
@@ -81,4 +79,9 @@
     <a href="<%=path %>"><img src="${pageContext.request.contextPath}/resources/img/logo2.gif"></a>	
 	</div>
 </header>
+
+<!-- 수정 금지 -->
+</head>
+<body>
+<!-- 수정 금지 -->
 

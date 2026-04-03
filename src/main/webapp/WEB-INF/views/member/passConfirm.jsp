@@ -18,7 +18,7 @@
 	    </c:when>
 	</c:choose>
 	
-	<table>
+	<table class="list">
 		<tr >
 			<th colspan="2"> 비밀번호 확인</th> 
 		</tr>

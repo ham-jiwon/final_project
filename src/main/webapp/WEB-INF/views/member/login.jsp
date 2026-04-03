@@ -7,7 +7,7 @@
 </c:if>
 
 <form action="<%=path %>/member/loginAction" method = "POST">
-	<table>
+	<table class="list">
 		<tr >
 			<th colspan="2"> 로그인</th> 
 		</tr>
