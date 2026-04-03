@@ -89,12 +89,13 @@ function loadComments(){
 
 	    data.forEach(c => {
 	    	// 디버깅용 출력코드
+	    	console.log(c);
 	    	console.log("loginId type :", typeof loginId);
 	    	console.log("c.member_id type :", typeof c.member_id);
 	    	
  	  		html += "<div class='comment-item'>";
  	  		
-	  		html += "<b>" + c.member_id + "</b>";
+	  		html += "<b>" + c.nickname + "</b>";
 	  		html += "<span class='stars'>" + getStars(c.score) + "</span>";
 	  		
 	  		// 내용 영역

@@ -41,6 +41,11 @@
 		<%if(loginMember.getId().equals("admin")){ %>
 	        <li><a href="<%=path %>/member/memberList">회원 관리</a></li>
 	    <%} %>
+	    
+		<%if(loginMember.getId().equals("admin")){ %>
+		    <li><a href="<%=path %>/admin/movieList">영화관리</a></li>
+		<%} %>	    
+	    
 	<%} %>		    
 	    </ul>
     </div>
