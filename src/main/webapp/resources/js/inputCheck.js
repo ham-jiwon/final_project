@@ -1,6 +1,7 @@
 /**
  * inputCheck.js
  */
+
 // 문서가 모두 로드 되면 실행
 window.onload = function(){
 	// tag 이름이 input인 모든 요소들을 배열로 반환
@@ -14,7 +15,7 @@ window.onload = function(){
 	btn.onclick = function(event){
 		for(var i = 0; i<input.length; i++){
 			// 작성된 value 값이 없을때.
-			if(input[i].value.length == 0){
+			if(input[i].value.length == 0 && input[i].dataset.msg){
 				var msg = input[i].dataset.msg+"를 확인해주세요.";
 				alert(msg);
 				input[i].focus();

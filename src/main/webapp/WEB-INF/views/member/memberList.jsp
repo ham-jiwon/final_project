@@ -50,8 +50,8 @@
 				<td>${member.email}</td>
 				<td>${member.gender}</td>
 				<td>${member.age}</td>
-				<td><a href="<%=path%>/member/adminUpdate?id=${member.id}"><button>수정</button></a></td>
-				<td><button onclick="if(confirm('${member.id}님의 회원정보를 삭제하시겠습니까?')) location.href='<%=path%>/member/adminRemove?id=${member.id}'">삭제</button></td>
+				<td><a href="<%=path%>/member/adminUpdate?id=${member.id}"><button type="button">수정</button></a></td>
+				<td><button onclick="if(confirm('${member.id}님의 회원정보를 삭제하시겠습니까?')) location.href='<%=path%>/member/adminRemove?id=${member.id}'" type="button">삭제</button></td>
 			</tr>
 		</c:forEach>
 		<tr>
