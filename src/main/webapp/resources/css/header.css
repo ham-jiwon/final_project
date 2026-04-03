@@ -155,6 +155,6 @@ header .sub-nav a, header .sub-nav span {
 .logo img {
     height: 131px;   /* ⭐ 원본보다 크게 */
     display: block;
-    width: 100px;
+    width: auto;
 }
 */

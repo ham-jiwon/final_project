@@ -7,7 +7,7 @@
 </c:if>
 <form action="<%=path %>/member/updateAction" method="POST">
 	<input type="hidden" name="id" value="<%=loginMember.getId()%>">
-	<table class="list">
+	<table class="list info-table">
 		<tr>
 			<th colspan="2"><h1>회원정보 수정</h1></th>
 		</tr>

@@ -170,41 +170,8 @@ section.main h1{
 
 /* 테이블 전역 설정(주의!!) */
 table {
-    width: 100%;
+    /* width: 100%; */
     border-collapse: collapse;
-}
-/***********************/
-
-table.list tr:first-child th{
-	color:white;
-	background-color: navy;
-}
-
-table.list tr td:first-child{
-	padding:10px;
-	text-align:left;
-}
-
-table.list{
-	border-collapse: collapse;	
-}
-
-table.list tr td,
-table.list tr th {
-	border: 1px solid #ccc;
-	text-align: center;
-}
-
-table.list tr {
-	height: 40px;
-}
-
-table.list tr td:nth-child(2) {
-	text-align: left;
-}
-
-table.list tr td:first-child {
-	text-align:center;
 }
 
 table tr td input[type='text'],
@@ -216,6 +183,286 @@ table tr td input[type='number'] {
 	font-size: 14px;
 }
 
+/***********************/
+
+
+/* =========================
+   기본 테이블
+========================= */
+table.list{
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+/* =========================
+   헤더
+========================= */
+table.list th {
+    color: white;
+    background: linear-gradient(90deg, navy, #1a1aff);
+}
+
+/* =========================
+   공통 셀
+========================= */
+table.list th,
+table.list td {
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    border-left: none;
+    border-right: none;
+    
+    text-align: center;
+    padding: 10px;
+}
+
+/* =========================
+   행 높이 및 스타일 설정
+========================= */
+table.list tr {
+    height: 40px;
+}
+
+table.list tr:first-child th {
+    padding: 15px;
+    font-size: 22px;
+}
+
+/* =========================
+   첫 번째 컬럼 (라벨)
+========================= */
+table.list tr td:first-child {
+    width: 150px;
+}
+
+/* =========================
+   두 번째 컬럼 (input 영역)
+========================= */
+table.list tr td:nth-child(2) {
+    text-align: left;
+    padding-left: 10px;
+}
+
+table.list tr td:nth-child(2):not([colspan]) {
+    text-align: left;
+}
+
+/* =========================
+   입력창
+========================= */
+table.list input {
+    width: 90%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* =========================
+   버튼
+========================= */
+table.list button {
+    padding: 6px 12px;
+    border-radius: 5px;
+    background: #3a8bfd;
+    color: white;
+    border: none;
+}
+
+/* =========================
+   버튼 hover (마우스 오버 시)
+========================= */
+table.list button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* 검색 영역 css 설정*/
+table.list form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+table.list select,
+table.list input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+table.list input[type="submit"] {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    background: #3a8bfd;
+    color: white;
+    cursor: pointer;
+}
+
+/* 로그인 화면 css */
+.login-box table.list {
+    width: 350px;
+    margin: 0 auto;
+}
+
+.login-box {
+
+    width: 350px;
+    margin: 80px auto;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.85);
+    
+    border: 1px solid rgba(255,255,255,0.2); /* 외곽선 */
+}
+
+.login-box:hover {
+    box-shadow: 
+        0 0 0 1px rgba(255,255,255,0.2),
+        0 0 25px rgba(100,150,255,0.3);
+}
+
+.keep-login {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+/* 회원 정보 화면 css 설정 */
+.list.info-table {
+    border-collapse: separate;   /* 외곽선 분리 */
+    border-spacing: 0 8px;       /* 세로 간격 */	
+	
+    width: 500px;
+    margin: 50px auto;
+    
+    background: rgba(0,0,0,0.85);
+    border-radius: 12px;
+    padding: 10px;    
+}
+
+.list.info-table td:first-child {
+    width: 120px;
+    text-align: center;
+    color: #888;
+}
+
+.list.info-table td:nth-child(2) {
+	display: flex;
+	min-height: 40px;
+    align-items: center;
+    gap: 15px;
+    border: none; /* 외곽선 제거 */
+    background: rgba(255,255,255,0.12);
+    border-radius: 6px;    
+    padding: 12px 15px;
+    
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.list.info-table tr:not(:last-child) {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.list.info-table tr:last-child th,
+.list.info-table tr:nth-last-child(2) th,
+.list.info-table tr:nth-last-child(3) th {
+    padding: 8px;
+}
+
+.list.info-table button {
+    width: 120px;
+}
+
+.list.info-table input[type="radio"] {
+    margin: 0 5px;
+}
+
+.list.info-table td:nth-child(2) input[type="radio"] {
+    margin-right: 5px;    
+}
+
+.list.info-table .gender {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    white-space: nowrap;
+}
+
+.list.info-table .gender label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 비밀번호 확인 화면 css 설정 */
+
+
+
+/* 관리자 회원 관리 게시판 css 설정 */
+.member-table {
+    max-width: 1200px;
+    width: 100%;
+    margin: 50px auto;
+}
+
+.list.member-table th,
+.list.member-table td {
+    padding: 12px 10px;
+    border-top: none;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.list.member-table th {
+    background: #1a1a2e;
+    color: #ccc;
+}
+
+.member-table tr:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.member-table tr:last-child a {
+    padding: 6px 10px;
+    margin: 0 3px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    text-decoration: none;
+    color: white;
+}
+
+.member-table tr:last-child a:hover {
+    background: #3a8bfd;
+}
+
+.member-table td:last-child,
+.member-table td:nth-last-child(2) {
+    text-align: center;
+}
+
+.list.member-table form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.list.member-table input[type="text"] {
+    width: 250px;
+}
+
+.list.member-table input[type="submit"] {
+    width: auto;
+    flex: none;
+}
+
+
+/* 관리자 영화 관리 게시판 css 설정 */
 table.movie-list {
 	margin-top: 100px;
 }
