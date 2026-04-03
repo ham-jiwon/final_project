@@ -19,6 +19,8 @@
 <link href="<%=path %>/resources/css/common.css" rel="stylesheet" type="text/css" />
 <link rel="icon" href="<%=path%>/resources/img/film.ico" type="image/x-icon">
 
+</head>
+<body>
 
 <header>
 
@@ -80,8 +82,7 @@
 	</div>
 </header>
 
-<!-- 수정 금지 -->
-</head>
-<body>
-<!-- 수정 금지 -->
+
+
+
 

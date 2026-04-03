@@ -170,8 +170,8 @@ section.main h1{
 
 /* 테이블 전역 설정(주의!!) */
 table {
-	position: relative;
-	z-index: 10;
+    width: 100%;
+    border-collapse: collapse;
 }
 /***********************/
 
