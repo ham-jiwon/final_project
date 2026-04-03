@@ -6,4 +6,9 @@ import net.koreate.cinema.vo.MovieVO;
 
 public interface MovieListMapper {
 	List<MovieVO> selectMovieList();
+	
+	MovieVO getMovie(int movie_id);
+
+	void deleteMovie(int movie_id);	
+	
 }

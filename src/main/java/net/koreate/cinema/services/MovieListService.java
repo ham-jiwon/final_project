@@ -18,5 +18,13 @@ public class MovieListService {
         return mapper.selectMovieList();
     
 	}
+    
+    public MovieVO getMovie(int movie_id) {
+        return mapper.getMovie(movie_id);
+    }
+
+    public void deleteMovie(int movie_id) {
+        mapper.deleteMovie(movie_id);
+    }    
 	
 }

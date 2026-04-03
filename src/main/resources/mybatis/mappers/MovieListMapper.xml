@@ -8,4 +8,12 @@
     SELECT * FROM final_movie ORDER BY movie_code DESC
 </select>
 
+<select id="getMovie" resultType="net.koreate.cinema.vo.MovieVO">
+    SELECT * FROM movie WHERE movie_id = #{movie_id}
+</select>
+
+<delete id="deleteMovie">
+    DELETE FROM movie WHERE movie_id = #{movie_id}
+</delete>
+
 </mapper>

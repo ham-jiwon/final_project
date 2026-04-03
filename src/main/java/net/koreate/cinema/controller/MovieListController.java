@@ -29,6 +29,32 @@ public class MovieListController {
 
         model.addAttribute("list", service.getList());
         return "admin/movieList";
-    }	
+    }
+    
+    @GetMapping("/movieUpdate")
+    public String movieUpdateForm(int movie_id, Model model, HttpSession session) {
+    	
+        MemberVO loginMember = (MemberVO) session.getAttribute("loginMember");
+
+        if(loginMember == null || !loginMember.getId().equals("admin")){
+            return "redirect:/";
+        }   	
+    	
+        model.addAttribute("movie", service.getMovie(movie_id));
+        return "admin/movieUpdate";
+    }
 	
+    @GetMapping("/movieDelete")
+    public String movieDelete(int movie_id, HttpSession session) {
+    	
+        MemberVO loginMember = (MemberVO) session.getAttribute("loginMember");
+
+        if(loginMember == null || !loginMember.getId().equals("admin")){
+            return "redirect:/";
+        }    	
+    	
+        service.deleteMovie(movie_id);
+        return "redirect:/admin/movieList";
+    }    
+    
 }
