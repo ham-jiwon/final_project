@@ -911,6 +911,16 @@ VALUES (17, '2관 리클라이너(레이저영사기)', '2D');
 INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
 VALUES (17, '3관 리클라이너(레이저영사기)', '2D');
 
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (17, '4관 리클라이너(레이저영사기)', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (17, '5관 리클라이너(레이저영사기)', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (17, '6관 리클라이너(레이저영사기)', '2D');
+
+
 COMMIT
 
 
