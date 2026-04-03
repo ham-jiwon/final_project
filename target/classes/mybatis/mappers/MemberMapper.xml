@@ -22,7 +22,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE id=#{id}
 	</update>
 	
-	<delete id="remoberMember" parameterType="int">
+	<delete id="removeMember" parameterType="int">
 		DELETE FROM final_member WHERE num = #{num}
 	</delete>
+	
+	<select id="readMemberList" parameterType="map" resultType="net.koreate.cinema.vo.MemberVO">
+		SELECT * FROM final_member WHERE id != 'admin' 
+		AND ${searchType} LIKE '%' || #{keyword} || '%'
+		ORDER BY num DESC 
+		OFFSET #{offset} ROWS FETCH NEXT #{perPageNum} ROWS ONLY
+	</select>
+	
+	<select id="totalMemberCount" parameterType="map" resultType="int">
+		SELECT COUNT(*) FROM final_member WHERE id != 'admin'
+		AND ${searchType} LIKE '%' || #{keyword} || '%'
+	</select>
+	
+	<select id="readMember" parameterType="String" resultType="net.koreate.cinema.vo.MemberVO">
+		SELECT * FROM final_member WHERE id = #{memberId, jdbcType=VARCHAR}
+	</select>
+	
+	
 </mapper>

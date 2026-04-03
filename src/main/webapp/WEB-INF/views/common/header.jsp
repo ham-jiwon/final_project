@@ -39,8 +39,13 @@
 
 	        <li><a href="<%=path %>/member/logout">로그아웃</a></li>
 		<%if(loginMember.getId().equals("admin")){ %>
-	        <li><a href="<%=path %>/member/memberList">관리자 모드</a></li>
+	        <li><a href="<%=path %>/member/memberList">회원 관리</a></li>
 	    <%} %>
+	    
+		<%if(loginMember.getId().equals("admin")){ %>
+		    <li><a href="<%=path %>/admin/movieList">영화관리</a></li>
+		<%} %>	    
+	    
 	<%} %>		    
 	    </ul>
     </div>

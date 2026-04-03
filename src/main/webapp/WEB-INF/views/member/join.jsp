@@ -28,7 +28,7 @@
 		<tr>
 			<td>비밀번호 확인</td>
 			<td>
-				<input type="password" name="passAgaion" data-msg="비밀번호 확인" placeholder="INSERT PW HERE AGAIN" />
+				<input type="password" name="passAgain" data-msg="비밀번호 확인" placeholder="INSERT PW HERE AGAIN" />
 			</td>
 		</tr>
 		<tr>
@@ -71,7 +71,7 @@
 		<tr>
 			<td>나이</td>
 			<td>
-				<input type="number" name="age" data-msg="나이" placeholder="INSERT Age HERE"/>
+				<input type="number" name="age" data-msg="나이" placeholder="INSERT Age HERE" max="999"/>
 			</td>
 		</tr>
 		<tr>

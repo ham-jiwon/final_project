@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import net.koreate.cinema.utils.SearchCriteria;
 import net.koreate.cinema.vo.MemberVO;
 
 @Repository
@@ -30,7 +31,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public MemberVO readMember(String memberid) {
-		return null;
+		MemberVO member = session.selectOne("MemberMapper.readMember", memberid);
+		return member;
 	}
 
 	@Override
@@ -43,13 +45,19 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public List<MemberVO> readMemberList() {
-		return null;
+	public List<MemberVO> readMemberList(int offset, int perPageNum, SearchCriteria sc) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("offset", offset);
+		map.put("perPageNum", perPageNum);
+		map.put("searchType", sc.getSearchType());
+		map.put("keyword", sc.getKeyword());
+		List<MemberVO> list = session.selectList("MemberMapper.readMemberList", map);
+		return list;
 	}
 
 	@Override
 	public int removeMember(int num) {
-		int result = session.delete("MemberMapper.removerMember", num);
+		int result = session.delete("MemberMapper.removeMember", num);
 		return result;
 	}
 	
@@ -60,7 +68,14 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 
-	
+	@Override
+	public int totalMemberCount(SearchCriteria sc) {
+		Map<String, String> map = new HashMap<>();
+		map.put("searchType", sc.getSearchType());
+		map.put("keyword", sc.getKeyword());
+		int result = session.selectOne("MemberMapper.totalMemberCount", map);
+		return result;
+	}//end totalMemberCount
 	
 	
 	

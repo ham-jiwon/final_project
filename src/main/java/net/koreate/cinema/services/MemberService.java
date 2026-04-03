@@ -1,13 +1,14 @@
 package net.koreate.cinema.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 
 import net.koreate.cinema.repositories.MemberDAO;
-
-
+import net.koreate.cinema.utils.SearchCriteria;
 import net.koreate.cinema.vo.MemberVO;
 
 @Service
@@ -41,4 +42,21 @@ public class MemberService {
 		return result;
 	}//end removeeMember()
 
-}
+	public List<MemberVO> readMemberList(int offset, int perPageNum, SearchCriteria sc){
+		List<MemberVO> list = memberDAO.readMemberList(offset, perPageNum, sc);
+		return list;
+	}
+	
+	public int totalMemberCount(SearchCriteria sc) {
+		int result = memberDAO.totalMemberCount(sc);
+		return result;
+	}
+	
+	public MemberVO readMember(String id) {
+		MemberVO member = memberDAO.readMember(id);
+		return member;
+	}//end readMember
+	
+	
+	
+}//end class
