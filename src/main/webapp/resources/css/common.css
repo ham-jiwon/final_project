@@ -353,16 +353,23 @@ table.list input[type="submit"] {
 }
 
 .list.info-table td:nth-child(2) {
-	display: flex;
+	/* display: flex; */
+	
 	min-height: 40px;
-    align-items: center;
-    gap: 15px;
+    /* align-items: center; */
+    /* gap: 15px; */
     border: none; /* 외곽선 제거 */
     background: rgba(255,255,255,0.12);
     border-radius: 6px;    
     padding: 12px 15px;
     
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.list.info-table .cell-flex {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .list.info-table tr:not(:last-child) {
