@@ -7,7 +7,7 @@
 <form action="<%=path %>/member/passCode" method = "GET">
 	<table>
 		<tr >
-			<th colspan="2"> 비밀번호 찾기</th> 
+			<th colspan="2">비밀번호 찾기</th> 
 		</tr>
 		<tr>
 			<td colspan="2">

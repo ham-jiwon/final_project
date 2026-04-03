@@ -198,10 +198,13 @@ public class MemberController {
 	public void findPass() {}
 	
 	@GetMapping("passCode")
-	public String passCode(String id, HttpSession session) {
+	public String passCode(String id, String fail, HttpSession session) {
 		MemberVO member = service.readMember(id);
 		if(member == null) {
 			return "redirect:/member/findPass?fail=true";
+		}
+		if("true".equals(fail)) {
+			return "member/passCode";
 		}
 		String code = "";
 		for(int i = 0; i < 6; i++) {
@@ -227,7 +230,18 @@ public class MemberController {
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
-		return "member/codeConfirm";
+		return "member/passCode";
 	}//end passCode
+	
+	
+	@PostMapping("passChange")
+	public String passChange(String userCode, HttpSession session) {
+		String code = (String)session.getAttribute("code");
+		if(code.equals(userCode)) {
+			return "member/passChange";
+		}
+		return "redirect:/member/passCode?id="+session.getAttribute("id")+"&fail=true";
+	}
+	
 	
 }//end calss

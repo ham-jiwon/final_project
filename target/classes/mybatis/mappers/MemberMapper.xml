@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="readMember" parameterType="String" resultType="net.koreate.cinema.vo.MemberVO">
-		SELECT * FROM final_member WHERE id = #{memberId}
+		SELECT * FROM final_member WHERE id = #{memberId, jdbcType=VARCHAR}
 	</select>
 	
 	

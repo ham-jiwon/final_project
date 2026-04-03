@@ -4,7 +4,7 @@
 
 <c:set var="actionUrl" value="${param.remove == 'true' ? '/member/remove' : '/member/update'}" />
 
-<form action="<%=path%>/member/remove" method="POST">
+<form action="<%=path%>${actionUrl}" method="POST">
 
 	<c:choose>
 	    <c:when test="${param.remove == 'true'}">
