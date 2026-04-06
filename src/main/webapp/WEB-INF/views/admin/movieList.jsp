@@ -8,7 +8,7 @@
 	<table class="movie-list" border="1" style="width:100%; text-align:center;">
 		<thead>
 		    <tr>
-		        <th>번호</th>
+		        <th>No.</th>
 		        <th>포스터</th>
 		        <th>제목</th>
 		        <th>감독</th>
