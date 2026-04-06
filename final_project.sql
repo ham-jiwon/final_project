@@ -1,6 +1,8 @@
 -- 필요 시 테이블 제거
 DROP TABLE team_member PURGE;
 
+SELECT * FROM theater;
+
 -- 테이블 생성
 -- 회원 테이블
 CREATE TABLE final_member (
