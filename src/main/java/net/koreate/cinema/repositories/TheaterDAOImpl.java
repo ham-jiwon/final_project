@@ -6,12 +6,14 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import net.koreate.cinema.vo.BranchVO;
 import net.koreate.cinema.vo.MovieVO;
 import net.koreate.cinema.vo.ScheduleVO;
 import net.koreate.cinema.vo.TheaterVO;
 
+@Repository
 public class TheaterDAOImpl implements TheaterDAO {
 
 	
