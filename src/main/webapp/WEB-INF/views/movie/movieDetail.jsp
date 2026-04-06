@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
@@ -29,6 +30,10 @@
             <h2>${movie.title}</h2>
             <p>감독: ${movie.director}</p>
             <p>장르: ${movie.genre}</p>
+			<p>
+			개봉일 :
+			<fmt:formatDate value="${movie.release_date}" pattern="yyyy-MM-dd"/>
+			</p>            
             <p>상영시간: ${movie.running_time}분</p>
             <p>
             연령: 

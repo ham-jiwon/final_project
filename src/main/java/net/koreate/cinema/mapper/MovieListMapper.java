@@ -9,6 +9,8 @@ public interface MovieListMapper {
 	
 	MovieVO getMovie(int movie_id);
 
-	void deleteMovie(int movie_id);	
+	void deleteMovie(int movie_id);
+
+	void updateMovie(MovieVO movie);
 	
 }

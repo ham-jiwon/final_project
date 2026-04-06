@@ -7,7 +7,7 @@
 <c:if test="${param.removeFail == 'true' }">
 	<script>alert("회원 탈퇴에 실패하였습니다.")</script>
 </c:if>
-	<table>
+	<table class="list info-table">
 		<tr >
 			<th colspan="2">회원정보</th> 
 		</tr>
@@ -33,10 +33,16 @@
 		</tr>
 		<tr>
 			<td>성별</td>
-			<td>
-				<input type="radio" <%= loginMember.getGender().equals("남성")? "checked" : "disabled" %>/> 남성 
-				<input type="radio" <%= loginMember.getGender().equals("여성")? "checked" : "disabled" %>/> 여성
-			</td>
+				<td class="gender">
+				    <label>
+				        <input type="radio" <%= loginMember.getGender().equals("남성")? "checked" : "disabled" %> />
+				        남성
+				    </label>
+				    <label>
+				        <input type="radio" <%= loginMember.getGender().equals("여성")? "checked" : "disabled" %> />
+				        여성
+				    </label>
+				</td>
 		</tr>
 		<tr>
 			<td>나이</td>

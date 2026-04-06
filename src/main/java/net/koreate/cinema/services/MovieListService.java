@@ -27,4 +27,8 @@ public class MovieListService {
         mapper.deleteMovie(movie_id);
     }    
 	
+    public void updateMovie(MovieVO movie){
+        mapper.updateMovie(movie);
+    }
+    
 }
