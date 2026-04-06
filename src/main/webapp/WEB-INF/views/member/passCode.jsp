@@ -5,7 +5,7 @@
 	<script>alert("코드를 다시 확인해 주세요.");</script>
 </c:if>
 <form action="<%=path %>/member/passChange" method = "POST">
-	<table class="list">
+	<table class="list pass-box">
 		<tr >
 			<th colspan="2">인증코드 입력</th> 
 		</tr>

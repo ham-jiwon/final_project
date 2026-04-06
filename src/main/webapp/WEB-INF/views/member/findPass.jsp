@@ -5,7 +5,7 @@
 	<script>alert("존재하지 않는 아이디입니다.");</script>
 </c:if>
 <form action="<%=path %>/member/passCode" method = "GET">
-	<table class="list">
+	<table class="list pass-box">
 		<tr >
 			<th colspan="2">비밀번호 찾기</th> 
 		</tr>
