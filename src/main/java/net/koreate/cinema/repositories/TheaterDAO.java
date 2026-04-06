@@ -13,7 +13,7 @@ public interface TheaterDAO {
 	 * @return - 영화관 종류를 List로 반환 <br>
 	 * 		   - CGV, 메가박스, 롯데시네마 
 	 */
-	List<TheaterVO> theaterLis();
+	List<TheaterVO> theaterList();
 	
 	
 	/**
