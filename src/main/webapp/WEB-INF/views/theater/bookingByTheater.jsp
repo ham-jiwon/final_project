@@ -17,6 +17,9 @@
         	지점을 선택하세요.
         </div>
         
+        <div class="panel-movie" id="moviePanel">
+        	
+        </div>
         
         
         
@@ -41,6 +44,7 @@
 		.then(response => response.json())
 		.then(data => {
 			const panel = document.getElementById('branchPanel');
+			document.getElementById("moviePanel").innerHTML = "";
 			
 			if(data.length === 0){
 				panel.innerHTML = '지점이 없습니다.';
@@ -48,11 +52,32 @@
 			}
 			let html = '';
 			data.forEach(branch => {
-				html += '<div class="branch-item">' + branch.branch_name + '</div>'; 
+				html += '<div class="branch-item" onclick="loadMovies('+branch.branch_code+', this)">' 
+				+ branch.branch_name + '</div>'; 
 			})
 			panel.innerHTML = html;
 		})
 	}
 	
+	function loadMovies(branchCode, el){
+		document.querySelectorAll('.branch-item').forEach(e => e.classList.remove('selected'));
+		el.classList.add('selected');
+		
+		fetch("/cinema/theater/movieByBranch?branchCode="+branchCode)
+		.then(response => response.json())
+		.then(data => {
+			const panel = document.getElementById("moviePanel");
+			
+			if(data.length === 0){
+				panel.innerHTML = "상영중인 영화가 없습니다.";
+				return;
+			}
+			let html = '';
+			data.forEach(movie => {
+				html += '<div class="movie-item">' + movie.title + '</div>';
+			})
+			panel.innerHTML = html;
+		})
+	}
 </script>
 <%@ include file="../common/footer.jsp" %>
