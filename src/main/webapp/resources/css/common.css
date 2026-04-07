@@ -15,6 +15,8 @@ body{
 	color: #ffffff;
 	margin: 0 auto; /* 전체(body) 프레임을 가운데로 정렬 */
 	font-family: 'Segoe UI', sans-serif;
+	
+	min-width: 1200px; /* 최소 너비 */
 }
 
 .container{
@@ -524,7 +526,7 @@ table.list input[type="submit"] {
 /* 포스터 */
 .movie-list th:nth-child(2),
 .movie-list td:nth-child(2) {
-    width: 10%;
+    width: 8%;
 }
 
 /* 제목 */
@@ -540,13 +542,13 @@ table.list input[type="submit"] {
 /* 감독 */
 .movie-list th:nth-child(4),
 .movie-list td:nth-child(4) {
-    width: 15%;
+    width: 12%;
 }
 
 /* 장르 */
 .movie-list th:nth-child(5),
 .movie-list td:nth-child(5) {
-    width: 15%;
+    width: 12%;
 }
 
 /* 개봉일 */
@@ -564,7 +566,7 @@ table.list input[type="submit"] {
 /* 관리 버튼 */
 .movie-list th:nth-child(8),
 .movie-list td:nth-child(8) {
-    width: 10%;
+    width: 18%;
 }
 
 /* 포스터 이미지 */
