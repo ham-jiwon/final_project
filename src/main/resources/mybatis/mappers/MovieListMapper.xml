@@ -19,7 +19,7 @@
         director = #{director},
         genre = #{genre},
         story = #{story},
-        poster = #{poster, jdbcType=CLOB}
+        poster = #{poster, jdbcType=CLOB},
         release_date = #{release_date}        
     WHERE movie_code = #{movie_code}
 </update>
