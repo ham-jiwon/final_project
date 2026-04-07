@@ -21,7 +21,7 @@ public interface TheaterDAO {
 	 * @param TheaterCode - 영화관 종류(CGV 등)
 	 * @return - 해당 영화관의 지점 리스트 반환
 	 */
-	List<BranchVO> branchList(int TheaterCode);
+	List<BranchVO> branchList(int theaterCode);
 	
 	
 	/**
