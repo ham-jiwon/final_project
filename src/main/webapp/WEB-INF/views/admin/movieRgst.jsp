@@ -8,7 +8,7 @@
 
 <h2>영화 등록</h2>
 
-<form action="${pageContext.request.contextPath}/admin/movieInsert" 
+<form action="${pageContext.request.contextPath}/admin/movieRgst" 
       method="post"
       enctype="multipart/form-data">
 
@@ -21,6 +21,17 @@
     
     줄거리:<br>
     <textarea name="story" rows="5"></textarea><br>
+    
+    상영시간:
+    <input type="number" name="running_time">
+    
+    현재 포스터:<br>
+    <img id="previewImg"
+         style="width:100px;"><br>
+         
+    <span id="noImageText">
+    <br><br>(이미지 업로드)<br><br><br><br>
+	</span>    
     
     포스터 업로드:<br>
     
@@ -44,5 +55,4 @@
 </div>
 
 <script src="${pageContext.request.contextPath}/resources/js/MovieList.js"></script>
-
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

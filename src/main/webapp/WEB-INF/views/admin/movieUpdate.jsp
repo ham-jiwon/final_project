@@ -16,7 +16,7 @@
     <input type="hidden" name="movie_code" value="${movie.movie_code}"/>
     <input type="hidden" name="oldPoster" value="${movie.poster}"/>
 
-    제목: <input type="text" name="title" value="${movie.title}"/><br>
+    제목(상영시간): <input type="text" name="title" value="${movie.title}"/><br>
     감독: <input type="text" name="director" value="${movie.director}"/><br>
     장르: <input type="text" name="genre" value="${movie.genre}"/><br>
     
@@ -25,6 +25,9 @@
     
     줄거리:<br>
     <textarea name="story" rows="5">${movie.story}</textarea><br>
+    
+    상영시간:
+    <input type="number" name="running_time" value="${movie.running_time}"/><br>    
     
     현재 포스터:<br>
     <img id="previewImg"

@@ -47,13 +47,51 @@ public class MovieListController {
         return "admin/movieList";
     }
     
-    @PostMapping("/movieInsert")
-    public String movieInsert(
+    @GetMapping("/movieRgst")
+    public String movieRgstForm() {
+        return "admin/movieRgst";  // JSP 경로
+    }    
+    
+    @PostMapping("/movieRgst")
+    public String Insertmovie(
             @ModelAttribute MovieVO movie,
             @RequestParam(value="posterFile", required=false) MultipartFile file,
             HttpServletRequest request) {
 
         // 파일 업로드 로직
+        if (file != null && !file.isEmpty()) {
+
+            String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+
+            String serverPath = request.getSession()
+                    .getServletContext()
+                    .getRealPath("/resources/img/movies/");
+
+            String gitPath = "C:/Users/KTE/git/final_project/src/main/webapp/resources/img/movies/";
+           
+            try {
+                // 프로젝트 저장
+                File dir = new File(gitPath);
+                if (!dir.exists()) dir.mkdirs();
+
+                File gitFile = new File(gitPath, fileName);
+                file.transferTo(gitFile);
+
+                // 톰캣 복사
+                if (serverPath != null) {
+                    File serverFile = new File(serverPath, fileName);
+                    Files.copy(gitFile.toPath(), serverFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+
+                movie.setPoster("/resources/img/movies/" + fileName);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+        } else {
+            movie.setPoster("/resources/img/movies/default.png");
+        }            
 
         service.insertMovie(movie);
 

@@ -11,12 +11,17 @@
 		    <tr>
 		        <th>No.</th>
 		        <th>포스터</th>
-		        <th>제목</th>
+		        <th>제목(상영시간)</th>
 		        <th>감독</th>
 		        <th>장르</th>
 		        <th>개봉일</th>
 		        <th>줄거리</th>
-		        <th>관리</th>
+		        <th>관리 &nbsp;&nbsp;&nbsp;
+		        	<button type="button"
+	                	    onclick="location.href='${pageContext.request.contextPath}/admin/movieRgst?movie_code=${m.movie_code}';">
+		                    등록
+	                </button>
+		        </th>
 		    </tr>
 	    </thead>
 	    <tbody>
@@ -30,7 +35,7 @@
 					        onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/resources/img/default.png';">
 					</td>
 		            <td>
-		                ${m.title}
+		                ${m.title}(${m.running_time}분)
 	
 					    <c:if test="${loginMember != null && loginMember.id eq 'admin'}">
 					        <br><span class="poster-path">
@@ -53,11 +58,7 @@
 		            <td>
 					    <button onclick="showStory(this)" data-story="${fn:escapeXml(m.story)}">보기</button>
 					</td>
-		            <td>
-		                <button type="button"
-		                	    onclick="location.href='${pageContext.request.contextPath}/admin/movieRgst?movie_code=${m.movie_code}';">
-		                    등록
-		                </button>		            
+		            <td>		            
 		                <button type="button"
 		                	    onclick="location.href='${pageContext.request.contextPath}/admin/movieUpdate?movie_code=${m.movie_code}';">
 		                    수정
