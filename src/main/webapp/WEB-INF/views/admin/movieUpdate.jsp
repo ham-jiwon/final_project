@@ -1,6 +1,9 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+    
+<fmt:formatDate value="${movie.release_date}" pattern="yyyy-MM-dd" var="formattedDate"/>
 
 <div class="movie-update-wrap">
 
@@ -16,6 +19,9 @@
     제목: <input type="text" name="title" value="${movie.title}"/><br>
     감독: <input type="text" name="director" value="${movie.director}"/><br>
     장르: <input type="text" name="genre" value="${movie.genre}"/><br>
+    
+    개봉일: <input type="date" name="release_date" 
+       value="${formattedDate}" />
     
     줄거리:<br>
     <textarea name="story" rows="5">${movie.story}</textarea><br>
