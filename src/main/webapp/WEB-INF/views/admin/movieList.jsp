@@ -55,6 +55,10 @@
 					</td>
 		            <td>
 		                <button type="button"
+		                	    onclick="location.href='${pageContext.request.contextPath}/admin/movieRgst?movie_code=${m.movie_code}';">
+		                    등록
+		                </button>		            
+		                <button type="button"
 		                	    onclick="location.href='${pageContext.request.contextPath}/admin/movieUpdate?movie_code=${m.movie_code}';">
 		                    수정
 		                </button>
