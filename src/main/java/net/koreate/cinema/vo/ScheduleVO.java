@@ -6,14 +6,14 @@ import lombok.Data;
 
 @Data
 public class ScheduleVO {
-	private int scheduleCode;
-	private int movieCode;
-	private int screenCode;
-	private Date startTime;
-	private Date endTime;
+	private int schedule_code;
+	private int movie_code;
+	private int screen_code;
+	private Date start_time;
+	private Date end_time;
 	
 	// join 용
-	private String movieTitle;
-	private String screenName;
-	private String screenType;
+	private String movie_title;
+	private String screen_name;
+	private String screen_type;
 }//end ScheduleVO
