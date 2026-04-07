@@ -9,7 +9,7 @@
 	<script>alert("비밀번호를 다시 확인해주세요.")</script>
 </c:if>
 <form action="<%=path %>/member/joinAction" method="POST">
-	<table class="list">
+	<table class="list join-box">
 		<tr>
 			<th colspan="2"><h1>회원가입</h1></th>
 		</tr>
@@ -58,14 +58,16 @@
 		<tr>
 			<td>성별</td>
 			<td>
-				<label>
-				<input type="radio" name="gender" value="남성" checked />
-				남성
-				</label>
-				<label>
-				<input type="radio" name="gender" value="여성" />
-				여성
-				</label>
+				<div class="gender">
+					<label>
+					<input type="radio" name="gender" value="남성" checked />
+					남성
+					</label>
+					<label>
+					<input type="radio" name="gender" value="여성" />
+					여성
+					</label>
+				</div>
 			</td>
 		</tr>
 		<tr>
