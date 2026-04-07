@@ -31,4 +31,8 @@ public class MovieListService {
         mapper.updateMovie(movie);
     }
     
+    public void insertMovie(MovieVO movie){
+        mapper.insertMovie(movie);
+    }    
+    
 }

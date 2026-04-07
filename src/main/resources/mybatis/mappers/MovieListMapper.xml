@@ -19,12 +19,20 @@
         director = #{director},
         genre = #{genre},
         story = #{story},
-        poster = #{poster}        
+        poster = #{poster, jdbcType=CLOB}
+        release_date = #{release_date}        
     WHERE movie_code = #{movie_code}
 </update>
 
 <delete id="deleteMovie">
     DELETE FROM final_movie WHERE movie_code = #{movie_code}
 </delete>
+
+<insert id="insertMovie">
+    INSERT INTO final_movie
+    (movie_code, title, director, genre, story, poster, release_date)
+    VALUES
+    (final_movie_seq.nextval, #{title}, #{director}, #{genre}, #{story}, #{poster}, #{release_date})
+</insert>
 
 </mapper>
