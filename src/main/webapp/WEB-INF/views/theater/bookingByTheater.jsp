@@ -89,13 +89,13 @@
 			}
 			let html = '';
 			data.forEach(movie => {
-				html += '<div class="movie-item">' + movie.title + '</div>';
+				html += '<div class="movie-item" onclick="loadDates(' + movie.movie_code + ', this)">'+movie.title+'</div>';
 			})
 			panel.innerHTML = html;
 		})
 	}
 	
-	function loadDates(movidCode, el){
+	function loadDates(movieCode, el){
 		selectedMovieCode = movieCode;
 		document.querySelectorAll(".movie-item").forEach(e => e.classList.remove('selected'));
 		el.classList.add('selected')
@@ -104,7 +104,7 @@
 		fetch("/cinema/theater/scheduleByMovie?branchCode="+selectedBranchCode+"&movieCode="+movieCode)
 		.then(response => response.json())
 		.then(data => {
-			const panel = documant.getElementById("datePanel");
+			const panel = document.getElementById("datePanel");
 			
 			if(data.length === 0){
 				panel.innerHTML = "상영 날짜가 없습니다.";
@@ -112,28 +112,36 @@
 			}
 			
 			// 날짜 중복 제거
-			const dates = [...new Set(date.map(s => {
+			const dates = [...new Set(data.map(s => {
 				const d = new Date(s.start_time);
-				return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2, '0') 
-					   + String(d.getDate()).padStart(2, '0');
+				const y = d.getFullYear();
+			    const m = String(d.getMonth() + 1).padStart(2, '0');
+			    const day = String(d.getDate()).padStart(2, '0');
+			    return y+'-'+m+'-'+day;
+				/* return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2, '0') + '-'
+					   + String(d.getDate()).padStart(2, '0'); */
 			}))];
 			
 			let html = '';
+				const dayNames = ['일','월','화','수','목','금','토'];
 			dates.forEach(date => {
 				const d = new Date(date);
-				const month = d.fetMonth() + 1;
+				const month = d.getMonth() + 1;
 				const day = d.getDate();
-				const dayNames = ['일','월','화','수','목','금','토'];
 				const dayName = dayNames[d.getDay()];
 				
-				html = '<div class="date-item" onclick="loadSchedules(\''+date+'\', this)">'
+				html += '<div class="date-item" onclick="loadSchedules(\''+date+'\', this)">'
 					 + '<span class="date-month">' + month + '월</span>'
 					 + '<span class="date-day">' + day + '</span>'
 					 + '<span class="date-week">' + dayName + '</span>'
 					 + '</div>';
 			});
 			panel.innerHTML = html;
-		});
+			console.log(html);
+		}).catch(error => {
+	        console.error("데이터 로드 실패:", error);
+	        document.getElementById("datePanel").innerHTML = "데이터를 불러오는 중 오류가 발생했습니다.";
+	    });
 	}
 	
 	 // 스케줄 불러오기

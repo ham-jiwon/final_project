@@ -20,8 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE bs.branch_code = #{branchCode}
 	</select>
 	
-	<select id="scheduleByMovie" parameterType="map" resultType="String">
-		SELECT DISTINCT TO_CHAR(s.start_time, 'YYYY-MM-DD')
+	<select id="scheduleByMovie" parameterType="map" resultType="net.koreate.cinema.vo.ScheduleVO">
+		SELECT DISTINCT TRUNC(s.start_time) as start_time
 		FROM schedule s
 		JOIN branch_screen bs ON s.screen_code = bs.screen_code
 		WHERE bs.branch_code = #{branchCode}
