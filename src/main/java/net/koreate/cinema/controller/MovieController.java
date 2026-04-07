@@ -1,6 +1,8 @@
 package net.koreate.cinema.controller;
 
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,15 +29,32 @@ public class MovieController {
 		
 		List<MovieVO> list = service.list();
 		
-        model.addAttribute("list", list);
-        System.out.println("list: " + list);
+		//날짜 필터링
+		Date today = new Date();
+
+		List<MovieVO> filtered = list.stream()
+		    .filter(m -> m.getRelease_date().before(today) || m.getRelease_date().equals(today))
+		    .collect(Collectors.toList());
+
+		model.addAttribute("list", filtered);
+        System.out.println("list: " + filtered);
 
         return "movie/goingMov";
 	}
 	
 	// 상영 예정작 (일단 그대로)
 	@GetMapping("/willGoMov")
-    public String willGoMov() {
+    public String willGoMov(Model model) {
+		
+	    List<MovieVO> list = service.list();
+
+	    Date today = new Date();
+
+	    List<MovieVO> filtered = list.stream()
+	        .filter(m -> m.getRelease_date().after(today))  // 미래 시점에 상영할 영화
+	        .collect(Collectors.toList());
+
+	    model.addAttribute("list", filtered);		
 
         return "movie/willGoMov";
 	}
