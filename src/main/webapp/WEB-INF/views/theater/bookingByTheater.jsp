@@ -7,13 +7,13 @@
 		<div class="panel-theater">
             <c:forEach var="theater" items="${theaterList}">
                 <div class="theater-item ${theater.theater_code == selectedTheater ? 'selected' : ''}"
-                     onclick="selectTheater(${theater.theater_code})">
+                     onclick="selectTheater(${theater.theater_code}, this)">
                     ${theater.theater_name}
                 </div>
             </c:forEach>
         </div>
         
-        <div class="panel-branch" id="branchPanle">
+        <div class="panel-branch" id="branchPanel">
         	지점을 선택하세요.
         </div>
         
@@ -25,7 +25,34 @@
 	
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
-	    loadBranches(${selectedTheaterCode});
+	    loadBranches(${selectedTheater});
 	});
+	
+	function selectTheater(theaterCode, el){
+		document.querySelectorAll('.theater-item').forEach(e => e.classList.remove('selected'));
+		el.classList.add('selected');
+		loadBranches(theaterCode);
+	}
+	
+	function loadBranches(theaterCode){
+		if(!theaterCode) return;
+		
+		fetch("/cinema/theater/branchList?theaterCode=" + theaterCode)
+		.then(response => response.json())
+		.then(data => {
+			const panel = document.getElementById('branchPanel');
+			
+			if(data.length === 0){
+				panel.innerHTML = '지점이 없습니다.';
+				return;
+			}
+			let html = '';
+			data.forEach(branch => {
+				html += '<div class="branch-item">' + branch.branch_name + '</div>'; 
+			})
+			panel.innerHTML = html;
+		})
+	}
+	
 </script>
 <%@ include file="../common/footer.jsp" %>

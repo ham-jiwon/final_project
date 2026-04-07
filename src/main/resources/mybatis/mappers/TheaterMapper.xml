@@ -6,4 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="theaterList" resultType="net.koreate.cinema.vo.TheaterVO">
 		SELECT * FROM theater
 	</select>
+	
+	<select id="branchList" parameterType="int" resultType="net.koreate.cinema.vo.BranchVO">
+		SELECT * FROM theater_branch WHERE theater_code = #{theaterCode}
+	</select>
 </mapper>
