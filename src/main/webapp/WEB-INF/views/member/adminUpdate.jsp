@@ -57,7 +57,7 @@
 		</tr>
 		<tr>
 			<th colspan="2">
-				<button>정보수정</button>
+				<button>정보 수정</button>
 			</th>
 		</tr>
 	</table>

@@ -72,22 +72,53 @@ public class MovieListController {
         // 파일 처리
         if (file != null && !file.isEmpty()) {
 
-            String fileName = file.getOriginalFilename();
+            String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
 
-            String uploadPath = request.getServletContext()
+            // ✅ 기존 방식 (톰캣)
+            String serverPath = request.getSession()
+            		.getServletContext()
                     .getRealPath("/resources/img/movies/");
-
-            File saveFile = new File(uploadPath, fileName);
+            
+            // ✅ 추가 기능 (프로젝트 폴더 - git용)
+            String projectPath = System.getProperty("user.dir");
+            String gitPath = projectPath + "/src/main/webapp/resources/img/movies/";            
+            
+            System.out.println("서버 경로: " + serverPath);
+            System.out.println("프로젝트 경로: " + gitPath);           
 
             try {
-                file.transferTo(saveFile);
-                movie.setPoster("/resources/img/movies/" + fileName); // 풀경로 저장
+            	// 1️) 톰캣 저장 (기존 유지)                
+                if(serverPath != null) {
+                    File serverFile = new File(serverPath, fileName);
+                    file.transferTo(serverFile);
+                }
+                
+                // 2) 프로젝트 폴더 저장 (추가 기능)
+                File dir = new File(gitPath);
+                if(!dir.exists()) dir.mkdirs();
+
+                File gitFile = new File(gitPath, fileName);
+                file.transferTo(gitFile);
+                
+                // 기존 이미지 삭제
+                if(oldPoster != null && !oldPoster.isEmpty()) {
+                    String oldFileName = oldPoster.substring(oldPoster.lastIndexOf("/") + 1);
+
+                    File oldFile = new File(gitPath, oldFileName);
+                    if(oldFile.exists()) {
+                        oldFile.delete();
+                    }
+                }                
+                
+                // DB 저장 경로
+                movie.setPoster("/resources/img/movies/" + fileName);
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
         } else {
-            movie.setPoster(oldPoster); // 기존 유지 (이미 풀경로 상태)
+            movie.setPoster(oldPoster); // 기존 유지
         }        
 
         service.updateMovie(movie);
