@@ -40,4 +40,14 @@ public interface TheaterDAO {
 	 */
 	List<ScheduleVO> scheduleByMovie(int branchCode, int movieCode);
 	
+	
+	/**
+	 * 
+	 * @param branchCode - 영화관의 지점 코드
+	 * @param movieCode - 영화 코드
+	 * @param date - 문자열 타입의 날짜
+	 * @return - 해당 날짜의 해당 지점에서 상영중인 영화의 스케줄 리스트 반환
+	 */
+	List<ScheduleVO> scheduleByDate(int branchCode, int movieCode, String date);
+	
 }//end TheaterDAO

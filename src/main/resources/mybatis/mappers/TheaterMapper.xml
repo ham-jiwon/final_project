@@ -19,4 +19,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		JOIN branch_screen bs ON s.screen_code = bs.screen_code
 		WHERE bs.branch_code = #{branchCode}
 	</select>
+	
+	<select id="scheduleByMovie" parameterType="map" resultType="String">
+		SELECT DISTINCT TO_CHAR(s.start_time, 'YYYY-MM-DD')
+		FROM schedule s
+		JOIN branch_screen bs ON s.screen_code = bs.screen_code
+		WHERE bs.branch_code = #{branchCode}
+		AND s.movie_code = #{movieCode}
+		ORDER BY 1
+	</select>
+	
+	<select id="scheduleByDate" parameterType="map" resultType="net.koreate.cinema.vo.ScheduleVO">
+		SELECT s.*, bs.screen_name, bs.screen_type
+		FROM schedule s
+		JOIN branch_screen bs ON s.screen_code = bs.screen_code
+		WHERE bs.branch_code = #{branchCode}
+		AND s.movie_code = #{movieCode}
+		AND TO_CHAR(s.start_time, 'YYYY-MM-DD') = #{date}
+		ORDER BY s.start_time
+	</select>
 </mapper>
