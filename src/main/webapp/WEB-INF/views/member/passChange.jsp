@@ -7,7 +7,7 @@
 </c:if>
 
 <form action="<%=path %>/member/passChangeAction" method = "POST">
-	<table>
+	<table class="list pass-box">
 		<tr >
 			<th colspan="2">비밀번호 변경</th> 
 		</tr>

@@ -17,7 +17,9 @@
     SET 
         title = #{title},
         director = #{director},
-        genre = #{genre}
+        genre = #{genre},
+        story = #{story},
+        poster = #{poster}        
     WHERE movie_code = #{movie_code}
 </update>
 

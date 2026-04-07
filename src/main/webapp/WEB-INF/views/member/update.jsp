@@ -50,15 +50,21 @@
 		<tr>
 			<td>성별</td>
 			<td>
-				<label>
-				<input type="radio" name="gender" value="남성" checked />
-				남성
-				</label>
-				<label>
-				<input type="radio" name="gender" value="여성" />
-				여성
-				</label>
+				<div class="gender">
+				    <label>
+				        <input type="radio" name="gender" value="남성"
+				        <%= "남성".equals(loginMember.getGender()) ? "checked" : "" %>>
+				        남성
+				    </label>
+				
+				    <label>
+				        <input type="radio" name="gender" value="여성"
+				        <%= "여성".equals(loginMember.getGender()) ? "checked" : "" %>>
+				        여성
+				    </label>
+			    </div>
 			</td>
+			
 		</tr>
 		<tr>
 			<td>나이</td>
