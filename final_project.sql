@@ -432,39 +432,43 @@ VALUES (
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
 VALUES (
-    '마녀 배달부 키키', 
-    '미야자키 하야오', 
-    '드라마,가족,판타지',
-    '2026-04-15', 
+    '네가 마지막으로 남긴 노래', 
+    '미키 타카히로', 
+    '멜로, 로맨스',
+    '2026-04-11', 
     0,
-    '"가끔 지칠 때도 있지만, 저는 잘 지내요" 13살이 된 초보 마녀 키키는 마녀의 전통에 따라 검은 고양이 지지와 함께 낯선 바닷가 마을로 떠난다.',
+    '"나에게 가사를 써줄래?” 유난히 눈에 띄지 않는 소년 ‘하루토’와 유난히 빛나는 소녀 ‘아야네’. ',
     102,
     '/resources/img/movies/Kikis_Delivery_Service.jpg'
 );
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
 VALUES (
-    '내 이름은', 
-    '정지영', 
+    '짱구', 
+    '정우', 
     '드라마',
-    '2026-04-15', 
+    '2026-04-22', 
     0,
-    '지독하게 아픈 봄이었수다, 우리 어멍의 1949년은” 가슴에 묻은 78년의 약속, 이제야 부릅니다. 가장 아픈 비밀에서 가장 찬란한 진실이 된 ‘내 이름은',
-    113,
+    '"99번째 오디션 낙방! 자빠져도 다시 한번!" 배우가 되고 싶어 서울 자취러가 된 부산 사나이 짱구. 
+     전기세도 못 낼 만큼 팍팍한 서울살이 속에서 되는 일은 좀처럼 없다.',
+    95,
     '/resources/img/movies/My_Name.jpg'
 );
 
-INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time)
 VALUES (
-    '침묵의 친구', 
-    '일디코 엔예디', 
-    '드라마',
+    '쉘터', 
+    '릭 로먼워', 
+    '액션,스릴러',
     '2026-04-15', 
     15,
-    '독일 대학의 한 식물원에는 1832년부터 인간을 바라보며 뿌리내린 장엄한 한 그루의 은행나무가 서있다.',
-    113,
-    '/resources/img/movies/Silent_Friend.jpg'
+    '등대에 홀로 숨어살던 한 남자. 그 앞에 홀로 나타난 한 소녀. 이제 소녀를 지키기 위해, 그 남자의 숨겨왔던 액션 본능이 깨어난다!',
+    107
 );
+
+DELETE FROM final_movie 
+WHERE title = '쉘터' 
+AND director = '릭 로먼워';
 
 commit
 
@@ -908,10 +912,257 @@ VALUES (17, '5관 리클라이너(레이저영사기)', '2D');
 
 INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
 VALUES (17, '6관 리클라이너(레이저영사기)', '2D');
+  ------------ 메가박스 2026 04 06 --------------
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (18, '컴포트 1관', '2D');
 
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (18, '컴포트 2관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (18, '컴포트 6관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (18, '컴포트 7관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (19, '2관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (19, '7관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (19, '리클라이너 1관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (19, '리클라이너 3관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (19, '리클라이너 4관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (19, '리클라이너 5관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (19, '리클라이너 6관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (20, '컴포트 2관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (20, '컴포트 3관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (20, '컴포트 4관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (20, '컴포트 6관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (20, '컴포트 7관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (20, '컴포트 8관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (20, '컴포트 9관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (20, '1관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (21, '리클라이너 1관 ', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (21, '리클라이너 2관 ', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (21, '리클라이너 3관 ', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (21, '리클라이너 4관 ', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (21, '리클라이너 5관 ', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (21, '리클라이너 6관 ', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (21, '리클라이너 7관 ', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (22, '1관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (22, '2관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (22, '3관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (22, '4관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (23, '리클라이너 1관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (23, '리클라이너 2관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (23, '리클라이너 3관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (24, '리클라이너 1관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (24, '리클라이너 2관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (24, '리클라이너 3관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (24, '리클라이너 4관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (24, '리클라이너 5관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (24, '리클라이너 6관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (24, '리클라이너 7관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (26, '1관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (26, '2관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (26, '3관', '2D');
+
+INSERT INTO branch_screen (branch_code, screen_name, screen_type) 
+VALUES (26, '4관', '2D');
 
 COMMIT
 
+
+
+
+CREATE TABLE schedule (
+	schedule_code NUMBER GENERATED BY DEFAULT ON NULL AS IDENTITY PRIMARY KEY,
+	movie_code NUMBER NOT NULL REFERENCES final_movie(movie_code),
+	screen_code NUMBER NOT NULL REFERENCES branch_screen(screen_code),
+	start_time DATE NOT NULL,
+	end_time date
+);
+
+SELECT * FROM BRANCH_SCREEN;
+
+SELECT * FROM FINAL_MOVIE;
+
+SELECT * FROM schedule;
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 4, TO_DATE('2026-04-15 13:30', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 4, TO_DATE('2026-04-15 15:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 4, TO_DATE('2026-04-15 18:10', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 4, TO_DATE('2026-04-15 20:30', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-15 12:35', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-15 17:15', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-16 13:30', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-16 15:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-16 18:10', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-16 20:30', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-16 12:35', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-16 17:15', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-16 17:15', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-17 13:30', 'YYYY-MM-DD HH24:MI'));
+
+DELETE FROM schedule 
+WHERE movie_code = 45 
+  AND screen_code = 3 
+  AND start_time = TO_DATE('2026-04-17 17:15', 'YYYY-MM-DD HH24:MI');
+  
+DELETE FROM schedule WHERE movie_code = 45;  
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-17 15:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-17 18:10', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-17 20:30', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-17 12:35', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-17 17:15', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-18 14:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-18 17:10', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-18 19:30', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-18 21:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-18 15:25', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-18 15:35', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 5, TO_DATE('2026-04-18 17:40', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-19 14:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-19 17:10', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 4, TO_DATE('2026-04-19 19:30', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-19 12:40', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-19 17:20', 'YYYY-MM-DD HH24:MI'));
 
 
 
