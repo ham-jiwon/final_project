@@ -46,5 +46,14 @@ public class TheaterDAOImpl implements TheaterDAO {
 		List<ScheduleVO>list = session.selectList("TheaterMapper.scheduleByMovie", map);
 		return list;
 	}
+	
+	public List<ScheduleVO> scheduleByDate(int branchCode, int movieCode, String date){
+		Map<String, Object> map = new HashMap<>();
+		map.put("branchCode", branchCode);
+		map.put("movieCode", movieCode);
+		map.put("date", date);
+		List<ScheduleVO> list = session.selectList("theaterMapper.scheduleByDate", map);
+		return list;
+	}
 
 }

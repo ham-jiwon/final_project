@@ -37,5 +37,9 @@ public class TheaterService {
 		return list;
 	}
 	
+	public List<ScheduleVO> scheduleByDate(int branchCode, int movieCode, String date){
+		List<ScheduleVO> list = theaterDAO.scheduleByDate(branchCode, movieCode, date);
+		return list;
+	}
 	
 }//end TherterService

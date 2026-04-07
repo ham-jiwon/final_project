@@ -62,11 +62,20 @@ public class TheaterController {
 		return service.moviByBranch(branchCode);
 	}
 	
-	// 스케쥴 Ajax
+	// 영화별 스케쥴 Ajax
 	@GetMapping("/scheduleByMovie")
 	@ResponseBody
 	public List<ScheduleVO> scheduleList(@RequestParam int branchCode, @RequestParam int movieCode){
 		return service.scheduleBymovie(branchCode, movieCode);
+	}
+	
+	// 날짜별 스케쥴 Ajax
+	@GetMapping("/scheduleByDate")
+	@ResponseBody
+	public List<ScheduleVO> scheduleList(@RequestParam int branchCode, 
+										 @RequestParam int movieCode, 
+										 @RequestParam String date){
+		return service.scheduleByDate(branchCode, movieCode, date);
 	}
 	
 	
