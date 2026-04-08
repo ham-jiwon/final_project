@@ -1,32 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp" %>
+<style>
+	/* 전체 wrapper */
+    .panel-wrapper {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid #444;
+        height: 500px;
+        background-color: #222;
+    }
+
+    /* 왼쪽 3개 기둥 공통 */
+    .panel-movie, .panel-theater, .panel-branch {
+        flex: 1; 
+        border-right: 1px solid #444;
+        overflow-y: auto;
+    }
+
+    /* ⭐️ 오른쪽 통합 기둥 (날짜/스케줄) ⭐️ */
+    .panel-right {
+        flex: 1.5; /* 시간표 영역이니 조금 더 넓게 배분 */
+        display: flex;
+        flex-direction: column; /* 위아래로 쌓기 */
+        height: 100%;
+    }
+</style>
 <section class="content">
 	<div class="container">
 	
-		<div class="panel-theater">
-            <c:forEach var="movie" items="${movieList}">
-                <div class="movie-item ${movie.movie_code == selectedmovie ? 'selected' : ''}"
-                     onclick="selectMovie(${movie.movie_code}, this)">
-                    ${movie.title}
-                </div>
-            </c:forEach>
-        </div>
+		<div class="panel-wrapper">
+	
+			<div class="panel-theater">
+	            <c:forEach var="movie" items="${movieList}">
+	                <div class="movie-item ${movie.movie_code == selectedmovie ? 'selected' : ''}"
+	                     onclick="selectMovie(${movie.movie_code}, this)">
+	                    ${movie.title}
+	                </div>
+	            </c:forEach>
+	        </div>
+	        
+	        <div class="panel-theater" id="theaterPanel">
+	        	영화관을 선택하세요.
+	        </div>
+	        
+	        <div class="panel-branch" id="branchPanel">
+	        
+	        </div>
+	        
+		    <div class="panel-right">
+				<div class="panel-date" id="datePanel">
+					
+				</div>
+				<div class="panel-schedule" id="schedulePanel">
+				
+				</div>
+			</div>
         
-        <div class="panel-theater" id="theaterPanel">
-        	영화관을 선택하세요.
         </div>
-        
-        <div class="panel-branch" id="branchPanel">
-        	
-        </div>
-		<div class="panel-date" id="datePanel">
-		
-		</div>
-		<div class="panel-schedule" id="schedulePanel">
-		
-		</div>
-        
         
 	</div>
 </section>
