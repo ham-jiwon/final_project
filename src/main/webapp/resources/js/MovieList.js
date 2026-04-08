@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const fileInput = document.getElementById("posterFile");
     const previewImg = document.getElementById("previewImg");
 
-    if (fileInput && previewImg) {
+    if (fileInput) {
         fileInput.addEventListener("change", function(e) {
 
             const file = e.target.files[0];
@@ -45,13 +45,19 @@ document.addEventListener("DOMContentLoaded", function() {
                     return;
                 }
 
-                const reader = new FileReader();
+                // previewImg 있을 때만 실행
+                if (previewImg) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        previewImg.src = event.target.result;
 
-                reader.onload = function(event) {
-                    previewImg.src = event.target.result;
-                };
+                        previewImg.style.display = "block";                                 // 이미지 보이기
+                        document.getElementById("noImageText").style.display = "none";      // 텍스트 숨기기                        
+                    };
 
-                reader.readAsDataURL(file);
+                    reader.readAsDataURL(file);
+                }
+                
             }
 
             const fileName = e.target.files.length > 0 
@@ -61,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("file-name").innerText = fileName;
         });
     }
-
 });
 
 document.addEventListener("DOMContentLoaded", function() {

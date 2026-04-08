@@ -270,7 +270,16 @@ COMMIT
 
 -- 시퀀스 존재 여부 판단
 SELECT * FROM user_sequences WHERE sequence_name = 'BOARD_SEQ';
+SELECT * FROM user_sequences WHERE sequence_name = 'FINAL_MOVIE_SEQ';
 
+SELECT sequence_name FROM user_sequences;
+
+-- 시퀀스 생성 sql
+CREATE SEQUENCE final_movie_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
 
 INSERT INTO board_team(title, author, content, category)
@@ -297,18 +306,15 @@ SET poster = '/resources/img/movies/we_live_in_time.jpg' -- 예시)'/resources/i
 WHERE title = '위 리브 인 타임';
 
 --영화 db등록--
-INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
+INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time)
 VALUES (
-    '위 리브 인 타임', 
-    '존 크로울리', 
-    '멜로/로맨스, 드라마', 
-    '2026-04-08', 
-    15,
-    '본인의 레스토랑 오픈을 준비하며 새로운 도약을 꿈꾸는 셰프 ‘알무트’. 
-	최근 이혼을 하면서 삶의 한 챕터를 끝낸 ‘토비아스’. 예기치 못한 만남을 계기로 두 사람은 서로의 삶을 변화시키는 잊지 못할 10년을 보낸다. 
-	우리의 사랑은 함께한 시간에 영원히 남는다.',
-    108,
-    '/resources/img/movies/we_live_in_time.jpg'
+    '프로젝트 헤일메리', 
+    '필 로드, 크리스 밀러', 
+    'sf', 
+    '2026-04-18', 
+    12,
+    '"죽어가는 태양, 종말 위기에 놓인 지구. 인류의 운명을 건 단 하나의 미션. 그의 마지막 임무가 시작된다!"',
+    156
 );
 
 INSERT INTO final_movie (title, director, genre, release_date, age_limit, story, running_time, poster)
@@ -1111,7 +1117,15 @@ WHERE movie_code = 45
   AND screen_code = 3 
   AND start_time = TO_DATE('2026-04-17 17:15', 'YYYY-MM-DD HH24:MI');
   
-DELETE FROM schedule WHERE movie_code = 45;  
+DELETE FROM schedule 
+WHERE movie_code = 45 
+  AND screen_code = 5
+  AND start_time = TO_DATE('2026-04-17 15:35', 'YYYY-MM-DD HH24:MI');
+  
+SELECT * FROM schedule 
+WHERE movie_code = 45 
+  AND screen_code = 5
+  AND start_time = TO_DATE('2026-04-17 17:40', 'YYYY-MM-DD HH24:MI');  
 
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(45, 4, TO_DATE('2026-04-17 15:50', 'YYYY-MM-DD HH24:MI'));
@@ -1140,6 +1154,20 @@ VALUES(45, 4, TO_DATE('2026-04-18 19:30', 'YYYY-MM-DD HH24:MI'));
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(45, 4, TO_DATE('2026-04-18 21:50', 'YYYY-MM-DD HH24:MI'));
 
+-- schedule 테이블 schedule_code 선택 삭제
+DELETE FROM schedule
+WHERE schedule_code IN (37, 38, 39, 40);
+
+UPDATE SCHEDULE SET SCREEN_CODE = 5 WHERE SCHEDULE_CODE = 34;
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-18 15:25', 'YYYY-MM-DD HH24:MI'));
+
+SELECT * FROM schedule;
+
+
+
+
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(45, 3, TO_DATE('2026-04-18 15:25', 'YYYY-MM-DD HH24:MI'));
 
@@ -1164,11 +1192,170 @@ VALUES(45, 3, TO_DATE('2026-04-19 12:40', 'YYYY-MM-DD HH24:MI'));
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(45, 3, TO_DATE('2026-04-19 17:20', 'YYYY-MM-DD HH24:MI'));
 
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-19 17:20', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 4, TO_DATE('2026-04-19 14:50', 'YYYY-MM-DD HH24:MI'));
+
+DELETE FROM schedule
+WHERE movie_code = 12
+  AND screen_code = 4
+  AND start_time = TO_DATE('2026-04-19 14:50', 'YYYY-MM-DD HH24:MI');
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 4, TO_DATE('2026-04-19 17:10', 'YYYY-MM-DD HH24:MI'));
+
+DELETE FROM schedule
+WHERE movie_code = 12
+  AND screen_code = 4
+  AND start_time = TO_DATE('2026-04-19 17:10', 'YYYY-MM-DD HH24:MI');
+
+DELETE FROM schedule
+WHERE movie_code = 12
+  AND start_time = TO_DATE('2026-04-19 17:10', 'YYYY-MM-DD HH24:MI');
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 4, TO_DATE('2026-04-19 19:30', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 4, TO_DATE('2026-04-19 21:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 3, TO_DATE('2026-04-19 12:40', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-19 12:40', 'YYYY-MM-DD HH24:MI'));
+
+SELECT ROWID, movie_code, screen_code, start_time
+FROM schedule
+WHERE movie_code = 12 
+  AND screen_code = 3 
+  AND start_time = TO_DATE('2026-04-19 12:40', 'YYYY-MM-DD HH24:MI');
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(45, 3, TO_DATE('2026-04-16 17:20', 'YYYY-MM-DD HH24:MI'));
+
+SELECT * FROM schedule;
+SELECT * FROM final_movie;
+
+SELECT * FROM BRANCH_SCREEN;
+
+SELECT * FROM FINAL_MOVIE;
+
+SELECT * FROM schedule;
 
 
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 75, TO_DATE('2026-04-15 16:30', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(9, 74, TO_DATE('2026-04-15 16:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 75, TO_DATE('2026-04-16 18:45', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(9, 73, TO_DATE('2026-04-17 17:55', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(12, 75, TO_DATE('2026-04-17 18:45', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(9, 74, TO_DATE('2026-04-17 19:10', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 74, TO_DATE('2026-04-17 19:10', 'YYYY-MM-DD HH24:MI'));
+
+DELETE FROM schedule
+WHERE movie_code = 46
+  AND screen_code = 74
+  AND start_time = TO_DATE('2026-04-17 19:10', 'YYYY-MM-DD HH24:MI')
+  AND ROWNUM = 1;
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 73, TO_DATE('2026-04-17 17:55', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 76, TO_DATE('2026-04-17 19:40', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 74, TO_DATE('2026-04-17 20:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 75, TO_DATE('2026-04-18 18:45', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 72, TO_DATE('2026-04-18 20:15', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 73, TO_DATE('2026-04-19 17:55', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 76, TO_DATE('2026-04-19 19:40', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 74, TO_DATE('2026-04-19 20:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 75, TO_DATE('2026-04-17 17:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 77, TO_DATE('2026-04-17 19:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 75, TO_DATE('2026-04-17 20:45', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 75, TO_DATE('2026-04-19 17:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 77, TO_DATE('2026-04-19 19:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 75, TO_DATE('2026-04-19 20:45', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 75, TO_DATE('2026-04-20 17:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 77, TO_DATE('2026-04-20 19:50', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(47, 75, TO_DATE('2026-04-20 20:45', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 72, TO_DATE('2026-04-19 19:10', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 74, TO_DATE('2026-04-19 20:15', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 72, TO_DATE('2026-04-19 21:25', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 72, TO_DATE('2026-04-20 19:10', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 74, TO_DATE('2026-04-20 20:15', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 72, TO_DATE('2026-04-20 21:25', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 72, TO_DATE('2026-04-21 19:10', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 74, TO_DATE('2026-04-21 20:15', 'YYYY-MM-DD HH24:MI'));
+
+INSERT INTO schedule(movie_code, screen_code, start_time)
+VALUES(46, 72, TO_DATE('2026-04-21 21:25', 'YYYY-MM-DD HH24:MI'));
+
+select * from theater_branch;
+DELETE FROM theater_branch WHERE branch_code = 26;
 
 
-
+select * from branch_screen where branch_code = 26; 
 
 
 

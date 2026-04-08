@@ -19,42 +19,61 @@ header {
 	display: flex;
 	
 	min-height: 100px; /* 헤더 최소 높이 */
-    width: 100%;
+    width: 100%; /* 중요 */
 	border-bottom: 2px solid #ccc; /* 상단 라인을 조금 더 두껍게 강조 */    
     padding: 0;
 	background-color: #0b0b0b;
 	color: #ffffff;
 }
 
-/* 3. 컨텐츠 정렬 */
-header > div {
+/* 3. 헤더 목록 찌그러짐 방지 */
+header > ul {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+header > ul > li {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* 4. 컨텐츠 정렬 */
+.header-inner {
+	position: relative;
+	
     max-width: 1500px;   /* 중앙 컨텐츠 최대 폭 */
+    min-width: 1200px;	 /* 중앙 컨텐츠 최소 폭 */
     margin: 0 auto;      /* 가운데 정렬 */
     padding: 0 10px;     /* 양쪽 여백 */
     
     display: flex;
     align-items: center;
+    justify-content: space-between; /* 중요 */
 }
 
 
-/* 4. 하단 메인 메뉴 (영화, 영화관별 등) */
+/* 5. 하단 메인 메뉴 (영화, 영화관별 등) */
 header .main-nav {
-    position: absolute;
-    left: 240px;
-    bottom: 15px;
+    position: static;
+    /* left: 240px; */
+    /* bottom: 15px; */
 
     display: flex;
     flex-direction: row;   /* 가로 강제 */
     align-items: center;
     gap: 40px;
 
-    margin: 0;
+	align-self: flex-end;
+	margin-bottom: 5px;
     padding: 0;
 }
 
 header .main-nav > li {
+	position: relative;
     list-style: none;
     display: block;   /* ⭐ inline-block 제거 */
+    
+    padding-top: 0;
 }
 
 
@@ -65,18 +84,23 @@ header .main-nav > li > a {
     font-size: 18px; /* 크게 */
     font-weight: bold; /* 굵게 */
     display: block;
+    
+    padding: 10px;
 }
 
-/* 5. 드롭다운 하위 메뉴 (상위 메뉴보다 작게) */
+/* 6. 드롭다운 하위 메뉴 (상위 메뉴보다 작게) */
 header .main-nav > li > ul {
     display: none;
     position: absolute;
+    
     top: 100%; 
     left: 0;
+    
     background: #111;
     border: 1px solid #333;
     padding: 10px 0;
     min-width: 140px;
+    
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     z-index: 1000;
     list-style: none;
@@ -117,17 +141,17 @@ header .main-nav > li > ul > li a:hover {
     color: gold;
 }
 
-/* 6. 오른쪽 서브 메뉴 (로그인, 공지사항 등 - 작게 유지) */
+/* 7. 오른쪽 서브 메뉴 (로그인, 공지사항 등 - 작게 유지) */
 header .sub-nav {
-    position: absolute;
+    position: static;
     right: 240px;
-    top: 15px;   /* 그냥 고정 */
 
     display: flex;
+    align-self: flex-start;
     align-items: center;   /* 세로 정렬 */
     gap: 15px;
 
-    margin: 0;
+    margin-top: 10px;
 }
 
 header .sub-nav > li {
@@ -140,21 +164,29 @@ header .sub-nav a, header .sub-nav span {
     font-size: 13px;
 
 }
-/*
-/* 7. 홈페이지 logo 수정 css */
+
+/* 8. 홈페이지 logo 수정 css */
 .logo {
     position: absolute;
+
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);  /* 핵심 */
+    top: 5px;
+
+    transform: translateX(-50%);
     
-    height: 89px;        /* ⭐ 보여줄 높이 */
-    overflow: hidden;    /* ⭐ 잘라내기 */    
+    width: 130px;
+    height: 85px;
+
+    overflow: hidden;    
 }
 
 .logo img {
-    height: 131px;   /* ⭐ 원본보다 크게 */
-    display: block;
-    width: auto;
+	position: absolute;
+	
+    top: 50%;             /* 핵심 */
+    left: 50%;
+
+    transform: translate(-50%, -50%);  /* 핵심 */
+
+    height: 130px;
 }
-*/
