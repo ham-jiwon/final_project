@@ -19,9 +19,11 @@
 			    </a>
 			
 			    <!-- 예매하기 (비활성) -->
-			    <button class="btn disabled" disabled title="서비스 준비중입니다">
-			        예매하기
-			    </button>
+			    <a href="/cinema/theater/bookingByMovie?movie_code=${movie.movie_code}">
+				    <button>
+				        예매하기
+				    </button>
+				</a>
 			</div>  
 		</div>      
 
