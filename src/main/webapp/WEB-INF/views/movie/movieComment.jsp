@@ -48,6 +48,11 @@ function writeComment(){
     alert("로그인 후 이용해주세요");
     return;
   }
+  
+  if(!score){
+    alert("별점을 선택하세요");
+    return;
+  }  
 
   fetch(path + "/comment/write", {
     method : "POST",
@@ -59,7 +64,10 @@ function writeComment(){
          + "&content=" + encodeURIComponent(content)
          + "&score=" + score
   })
-  .then(res => res.text())
+  .then(res => {
+      if(!res.ok) throw new Error("요청 실패");
+      return res.text();
+  })
   .then(data => {
     console.log("응답:", data);
     alert("댓글 등록 완료");
@@ -69,8 +77,13 @@ function writeComment(){
     document.getElementById("score").value = "";
 
     // TODO: 댓글 다시 불러오기
-    loadComments();
-  });
+    loadComments();	// 댓글 갱신
+    loadRating();	// 평점 갱신
+  })
+  .catch(err => {
+    console.error(err);
+    alert("댓글 등록 실패");
+  });  
 
 }
 
@@ -201,11 +214,6 @@ document.getElementById("star-input").addEventListener("mouseleave", function(){
   hoverStar(selectedScore); // 원래 선택값으로 복구
 });	
 	
-	
-window.onload = function(){
-	  loadComments();
-	}
-	
 // 수정 함수
 function updateComment(comment_num, oldContent, oldScore){
 
@@ -227,6 +235,7 @@ function updateComment(comment_num, oldContent, oldScore){
   .then(data => {
     alert("수정 완료");
     loadComments();
+    loadRating();
   });
 }
 
@@ -292,6 +301,7 @@ function saveEdit(comment_num){
   .then(data => {
     alert("수정 완료");
     loadComments();
+    loadRating();
   });
 }
 
@@ -310,10 +320,60 @@ function deleteComment(comment_num){
   .then(data => {
     alert("삭제 완료");
     loadComments();
+    loadRating();
   });
 }
 
+// 댓글 파라미터 애니메이션 효과
+window.addEventListener("load", function() {
+	loadComments(); // 댓글
+	
+    const bars = document.querySelectorAll(".fill"); // 애니메이션
+    
+    bars.forEach(bar => {
+        const target = bar.getAttribute("data-width");       
+        if (target) {
+            bar.style.width = target;
+        }
+    });
+});
 
+function loadRating(){
+
+    let movieCode = document.getElementById("movie_code").value;
+
+    fetch(path + "/comment/rating?movie_code=" + movieCode)
+    .then(res => res.json())
+    .then(data => {
+
+        // 평균
+        document.querySelector(".rating-left h1").innerText = data.avg.toFixed(1);
+
+        // 총 개수
+        document.querySelector(".rating-left p").innerText = data.count + "명 평가";
+
+        // 막대
+        const bars = document.querySelectorAll(".fill");
+        
+        // 1단계: 전부 0으로 초기화
+        bars.forEach(bar => {
+            bar.style.width = "0%";
+        });        
+
+        // 2단계: 살짝 딜레이 후 다시 채움 (핵심)
+        setTimeout(() => {
+            bars.forEach((bar, i) => {
+                let score = i + 1;
+                
+                let count = data.map[score] || 0;
+                let percent = data.count > 0 ? (count * 100 / data.count) : 0;
+
+                bar.style.width = percent + "%";
+            });
+        }, 100); // 0.1초 딜레이
+
+    });
+}
 
 </script>
 

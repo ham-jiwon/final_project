@@ -1,8 +1,9 @@
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>    
+      
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
         
 <div class="movie-wrap">    
@@ -36,7 +37,7 @@
 					</td>
 		            <td>
 		                ${m.title}(${m.running_time}분)
-	
+						<%--	디버깅용 file exist 검증 코드
 					    <c:if test="${loginMember != null && loginMember.id eq 'admin'}">
 					        <br><span class="poster-path">
 					            <c:choose>
@@ -49,6 +50,7 @@
 							    </c:choose>
 					        </span>
 					    </c:if>
+					     --%>
 		            </td>
 		            <td>${m.director}</td>
 		            <td>${m.genre}</td>

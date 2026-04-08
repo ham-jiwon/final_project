@@ -37,5 +37,10 @@
 	    DELETE FROM movie_comment
 	    WHERE comment_num = #{comment_num}
 	</delete>	
+	
+	<select id="selectRatings" resultType="int">
+    SELECT score FROM movie_comment
+    WHERE movie_code = #{movie_code}
+	</select>
 
 </mapper>
