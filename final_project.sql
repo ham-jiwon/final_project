@@ -558,7 +558,7 @@ INSERT INTO THEATER_BRANCH(theater_code, branch_name, addr)
 VALUES(3, '해운대장산점', '부산광역시 해운대구 해운대로 813 8층');
 
 INSERT INTO THEATER_BRANCH(theater_code, branch_name, addr)
-VALUES(3, '부산극장본관', '부산광역시 중구 비프광장로 36');
+VALUES(3, '부산극장본관', '부산광역시 중구 비프광장로 36'); 22
 
 INSERT INTO THEATER_BRANCH(theater_code, branch_name, addr)
 VALUES(3, '서면대한점', '부산광역시 진구 중앙대로692번길 16 3층');
@@ -570,9 +570,9 @@ INSERT INTO THEATER_BRANCH(theater_code, branch_name, addr)
 VALUES(3, '장산점', '부산광역시 해운대구 해운대로 813 NC백화점해운대점9F');
 
 INSERT INTO THEATER_BRANCH(theater_code, branch_name, addr)
-VALUES(3, '부산극장신관', '부산광역시 중구 비프광장로 28');
+VALUES(26, '부산극장신관', '부산광역시 중구 비프광장로 28'); 
 
-DELETE FROM theater_branch WHERE branch_code =25;
+DELETE FROM theater_branch WHERE branch_code =26;
 
 
 
