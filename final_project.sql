@@ -270,7 +270,16 @@ COMMIT
 
 -- 시퀀스 존재 여부 판단
 SELECT * FROM user_sequences WHERE sequence_name = 'BOARD_SEQ';
+SELECT * FROM user_sequences WHERE sequence_name = 'FINAL_MOVIE_SEQ';
 
+SELECT sequence_name FROM user_sequences;
+
+-- 시퀀스 생성 sql
+CREATE SEQUENCE final_movie_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 
 
 INSERT INTO board_team(title, author, content, category)
@@ -1341,6 +1350,8 @@ VALUES(46, 74, TO_DATE('2026-04-21 20:15', 'YYYY-MM-DD HH24:MI'));
 
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(46, 72, TO_DATE('2026-04-21 21:25', 'YYYY-MM-DD HH24:MI'));
+
+
 
 
 

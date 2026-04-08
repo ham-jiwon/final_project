@@ -13,4 +13,6 @@ public interface MovieListMapper {
 
 	void updateMovie(MovieVO movie);
 	
+	void insertMovie(MovieVO movie);	
+	
 }

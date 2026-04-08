@@ -8,7 +8,7 @@
 <form action="<%=path%>/member/adminUpdateAction" method="POST">
 	<input type="hidden" name="id" value="${updateMember.id}">
 	<input type="hidden" name="pass" value="${updateMember.pass}">
-	<table class="list">
+	<table class="list info-table">
 		<tr>
 			<th colspan="2"><h1>회원정보 수정</h1></th>
 		</tr>
@@ -39,14 +39,16 @@
 		<tr>
 			<td>성별</td>
 			<td>
-				<label>
-				<input type="radio" name="gender" value="남성" <c:if test="${updateMember.gender == '남성'}">checked</c:if> />
-				남성
-				</label>
-				<label>
-				<input type="radio" name="gender" value="여성" <c:if test="${updateMember.gender == '여성'}">checked</c:if>/>
-				여성
-				</label>
+				<div class="gender">
+					<label>
+					<input type="radio" name="gender" value="남성" <c:if test="${updateMember.gender == '남성'}">checked</c:if> />
+					남성
+					</label>
+					<label>
+					<input type="radio" name="gender" value="여성" <c:if test="${updateMember.gender == '여성'}">checked</c:if>/>
+					여성
+					</label>
+				</div>
 			</td>
 		</tr>
 		<tr>
