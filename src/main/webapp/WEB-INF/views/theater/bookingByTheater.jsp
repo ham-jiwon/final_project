@@ -166,12 +166,12 @@
                 const mins = String(start.getMinutes()).padStart(2, '0');
                 
                 html += '<div class="schedule-item">'
-                      + '<span class="schedule-time">' + hours + ':' + mins + '</span>'
+                      + '<span class="schedule-time">' + hours + ':' + mins + '</span><br>'
                       + '<span class="schedule-screen">' + schedule.screen_name + ' · ' + schedule.screen_type + '</span>'
                       + '</div>';
             });
             panel.innerHTML = html;
-        });
+        }).catch(error => console.error("scheduleByDate 오류:", error));
     }
 	
 </script>

@@ -24,35 +24,10 @@
 
 <header>
 
-    <!-- 상단 메뉴바 -->
-	<div>
-	
-	    <ul class="sub-nav">
-	
-	<%if(loginMember == null){ %>
-	        <li><a href="<%=path %>/member/login">로그인</a></li>
-	        <li><a href="<%=path %>/member/join">회원가입</a></li>
-	<%}else{ %>	        
-	        <li>
-	            <a href="<%=path %>/member/info"><%=loginMember.getNickname() %></a><span>님 환영합니다.</span>
-	        </li>
-
-	        <li><a href="<%=path %>/member/logout">로그아웃</a></li>
-		<%if(loginMember.getId().equals("admin")){ %>
-	        <li><a href="<%=path %>/member/memberList">회원 관리</a></li>
-	    <%} %>
-	    
-		<%if(loginMember.getId().equals("admin")){ %>
-		    <li><a href="<%=path %>/admin/movieList">영화관리</a></li>
-		<%} %>	    
-	    
-	<%} %>		    
-	    </ul>
-    </div>
     
-    <!-- 하단 드롭다운 메뉴 -->
-    <div>
-
+    <div class="header-inner">
+		<!-- 하단 드롭다운 메뉴 -->
+		
         <ul class="main-nav">
             <!-- 영화 -->
             <li>
@@ -73,13 +48,40 @@
                 </ul>
             </li>
         </ul>
-                
+        
+	    <!-- 상단 메뉴바 -->
+	    
+	 	<ul class="sub-nav">
+	
+			<%if(loginMember == null){ %>
+			        <li><a href="<%=path %>/member/login">로그인</a></li>
+			        <li><a href="<%=path %>/member/join">회원가입</a></li>
+			<%}else{ %>	        
+			        <li>
+			            <a href="<%=path %>/member/info"><%=loginMember.getNickname() %></a><span>님 환영합니다.</span>
+			        </li>
+		
+			        <li><a href="<%=path %>/member/logout">로그아웃</a></li>
+				<%if(loginMember.getId().equals("admin")){ %>
+			        <li><a href="<%=path %>/member/memberList">회원 관리</a></li>
+			    <%} %>
+			    
+				<%if(loginMember.getId().equals("admin")){ %>
+				    <li><a href="<%=path %>/admin/movieList">영화관리</a></li>
+				<%} %>	    
+			    
+			<%} %>
+					    
+	    </ul>        
+               
     </div>
     
    	<!-- 홈페이지 로고 삽입 -->
    	<div class="logo">
     <a href="<%=path %>"><img src="${pageContext.request.contextPath}/resources/img/logo2.gif"></a>	
-	</div>
+	</div>    
+    
+
 </header>
 
 
