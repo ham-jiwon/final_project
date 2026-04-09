@@ -134,20 +134,43 @@ section.main2{
 	text-align: center;
 	color: #57b3e0;
 	text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
-	
-	animation: fadeOut 4s forwards;
 }
 
-/* 애니메이션 */
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
+/* 페이지 안내 문구 경계선 애니메이션 css */
+.title-line {
+    position: relative;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/* 가짜 border */
+.title-line::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+
+    width: 100%;
+    height: 2px;
+    
+    background: linear-gradient(90deg, #A9A9A960, #F0F8FF60);
+
+    transform: translateX(-50%) scaleX(0); /* 시작 상태 */
+    transform-origin: center;
+}
+
+/* 등장 시 애니메이션 */
+.title-line.active::after {
+    animation: lineDraw 0.6s ease forwards;
+}
+
+@keyframes lineDraw {
+    from {
+        transform: translateX(-50%) scaleX(0);
     }
-    70% {   /* 3초 동안 유지 느낌 */
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
+    to {
+        transform: translateX(-50%) scaleX(1);
     }
 }
 
@@ -638,19 +661,35 @@ table.list input[type="submit"] {
     background: transparent;   /* 테이블 헤더 배경색 설정 */ /* 기존 : background: #00ADB540; */
     color: #fff;
     font-weight: bold;
-    
-    /* backdrop-filter: blur(2px); */
 }
 
 .movie-list thead th {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: #00ADB570; /* 현재 헤더 색에 맞춤 */
+    background: rgba(0,173,181,0.15); /* 현재 헤더 색에 맞춤 */
+    
+    /* 유리 효과 */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* 테두리 (빛나는 느낌) */
+    border-bottom: 1px solid rgba(0, 173, 181, 0.6);
+
+    /* 살짝 입체감 */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+
+    /* 텍스트 강조 */
+    color: #e0ffff;    
+}
+
+.movie-list thead th * {
+    position: relative;
+    z-index: 1; /* 텍스트 위로 */
 }
 
 .movie-list thead th:hover {
-    background: #00ADB570;  /* 마우스 오버 방지 */
+    background: rgba(0,173,181,0.15);  /* 마우스 오버 방지 */
 }
 
 .movie-list thead tr th {
@@ -903,6 +942,13 @@ table.list input[type="submit"] {
 /* hover */
 .btn:hover {
     background-color: #666;
+    box-shadow: 0 0 10px rgba(0,173,181,0.8);
+}
+
+/* active */
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 5px rgba(0,173,181,0.9);
 }
 
 /* 비활성 버튼 */
@@ -982,12 +1028,58 @@ table.list input[type="submit"] {
     font-size: 18px;
 }
 
+.stars-avg {
+	position: absolute;
+    top: 10px;
+    right: 15px;	
+	
+    color: gold;
+    font-size: 18px;
+}
+
+.star-wrap {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.star-back {
+    color: #555;
+}
+
+.star-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: gold;
+}
+
+.star-back,
+.star-front {
+    display: block;
+}
+
 /* 버튼 */
 .comment-side button {
     padding: 8px 12px;
-    border: none;
+    /* border: none; */
+    border: 1px solid #00ADB5;
     border-radius: 5px;
     cursor: pointer;
+    
+    background: transparent;
+    color: #00ADB5;
+    
+    transition: 0.2s;    
+}
+
+/* hover 시 채워짐 */
+.comment-side button:hover {
+    background: #00ADB5;
+    color: #fff;
 }
 
 .comment-content {
@@ -1037,7 +1129,7 @@ table.list input[type="submit"] {
 }
 
 .stars-bottom {
-    color: gold;
+    /* color: gold; */
     font-size: 20px;
 }
 
