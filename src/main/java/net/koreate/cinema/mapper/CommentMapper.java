@@ -13,6 +13,8 @@ public interface CommentMapper {
     
     List<CommentVO> selectComments(int movie_code);
     
+    List<Integer> selectRatings(int movie_code);
+    
     void deleteComment(int comment_num);
     
     void updateComment(CommentVO vo);

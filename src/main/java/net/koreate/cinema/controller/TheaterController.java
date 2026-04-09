@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import net.koreate.cinema.services.MovieListService;
 import net.koreate.cinema.services.TheaterService;
 import net.koreate.cinema.vo.BranchVO;
 import net.koreate.cinema.vo.MovieVO;
@@ -23,6 +24,9 @@ public class TheaterController {
 
 	@Autowired
 	private TheaterService service;
+	
+	@Autowired
+	private MovieListService movieService;
 	
 	@GetMapping("/cgv")
 	public String cgv(Model model) {
@@ -45,6 +49,13 @@ public class TheaterController {
 		List<TheaterVO> list = service.theaterList();
 		model.addAttribute("theaterList", list);
 		model.addAttribute("selectedTheater", 3);
+		return "theater/bookingByTheater";
+	}
+	
+	@GetMapping("bookingByTheater")
+	public String bookingByTheater(Model model) {
+		List<TheaterVO> list = service.theaterList();
+		model.addAttribute("theaterList", list);
 		return "theater/bookingByTheater";
 	}
 	
@@ -78,9 +89,25 @@ public class TheaterController {
 		return service.scheduleByDate(branchCode, movieCode, date);
 	}
 	
+	////////////////////////////////////////////////////////////////////////////
+	// 영화 상세 페이지에서 예매(스케쥴 확인) 눌렀을 때
 	
+	@GetMapping("/bookingByMovie")
+	public String bookingByMovie(@RequestParam(required = false) Integer movie_code, Model model) {
+		List<MovieVO> movieList = movieService.getList();
+		List<TheaterVO> theaterList = service.theaterList();
+		model.addAttribute("theaterList", theaterList);
+		model.addAttribute("movieList", movieList);
+		model.addAttribute("selectedMovie", movie_code);
+		return "theater/bookingByMovie";
+	}
 	
-	
+	// 영화관 목록 Ajax
+	@GetMapping("/theaterList")
+	@ResponseBody
+	public List<TheaterVO> theaterList(){
+		return service.theaterList();
+	}
 	
 	
 	

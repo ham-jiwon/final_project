@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		JOIN branch_screen bs ON s.screen_code = bs.screen_code
 		WHERE bs.branch_code = #{branchCode}
 		AND s.movie_code = #{movieCode}
-		AND TO_CHAR(s.start_time, 'YYYY-MM-DD') = #{date}
+		AND TRUNC(s.start_time) = TO_DATE(#{date}, 'YYYY-MM-DD')
 		ORDER BY s.start_time
 	</select>
 </mapper>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp" %>
 <style>
+
 	/* 전체 wrapper */
     .panel-wrapper {
         display: flex;
@@ -11,23 +12,24 @@
         height: 500px;
         background-color: #222;
         overflow:hidden;
+        
     }
 
     /* 왼쪽 3개 기둥 공통 */
     .panel-movie, .panel-theater, .panel-branch {
-        flex: 0 0 250px; 
+        flex: 1; 
         border-right: 1px solid #444;
         overflow-y: auto;
     }
 
     /* ⭐️ 오른쪽 통합 기둥 (날짜/스케줄) ⭐️ */
     .panel-right {
-        flex: 1; /* 시간표 영역이니 조금 더 넓게 배분 */
+        flex: 1.5; /* 시간표 영역이니 조금 더 넓게 배분 */
         display: flex;
         flex-direction: column; /* 위아래로 쌓기 */
         height: 100%;
-        min-width: 0;     /* flex 자식이 넘치지 않게 */
     }
+    
     /* 아이템 공통 */
 	.movie-item, .theater-item, .branch-item, .date-item, .schedule-item{
 	    padding: 12px 16px;
@@ -46,14 +48,6 @@
     background: #3a3a3a;
     color: #e8b84b;             /* 선택 강조색 */
     font-weight: 600;
-	}
-	
-	.panel-date {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;   /* 날짜 많으면 가로 스크롤 */
-    border-bottom: 1px solid #444;
-    flex-shrink: 0;
 	}
 	
 	/* 날짜 아이템 */
@@ -93,65 +87,91 @@
 </style>
 <section class="content">
 	<div class="container">
-		
+	
 		<div class="panel-wrapper">
-		
+	
 			<div class="panel-theater">
-	            <c:forEach var="theater" items="${theaterList}">
-	                <div class="theater-item ${theater.theater_code == selectedTheater ? 'selected' : ''}"
-	                     onclick="selectTheater(${theater.theater_code}, this)">
-	                    ${theater.theater_name}
+	            <c:forEach var="movie" items="${movieList}">
+	                <div class="movie-item ${movie.movie_code == selectedmovie ? 'selected' : ''}"
+	                     onclick="selectMovie(${movie.movie_code}, this)">
+	                    ${movie.title}
 	                </div>
 	            </c:forEach>
 	        </div>
 	        
+	        <div class="panel-theater" id="theaterPanel">
+	        	영화를 선택해 주세요.
+	        </div>
+	        
 	        <div class="panel-branch" id="branchPanel">
-	        	영화관을 선택해 주세요.
+	        
 	        </div>
 	        
-	        <div class="panel-movie" id="moviePanel">
-	        	
-	        </div>
-	        
-	        <div class="panel-rigth">
-	        
+		    <div class="panel-right">
 				<div class="panel-date" id="datePanel">
-				
+					
 				</div>
 				<div class="panel-schedule" id="schedulePanel">
 				
 				</div>
-				
 			</div>
-				
+        
         </div>
         
 	</div>
 </section>
 	
 <script>
+	let selectedTheaterCode = null;
 	let selectedBranchCode = null;
-	let selectedMovieCode = null;
+	let selectedMovieCode = ${selectedMovie}
 	
 	
 	document.addEventListener('DOMContentLoaded', function() {
-	    loadBranches(${selectedTheater});
+	    loadTheaters(${selectedMovie});
 	});
 	
-	function selectTheater(theaterCode, el){
-		document.querySelectorAll('.theater-item').forEach(e => e.classList.remove('selected'));
+	function selectMovie(movieCode, el){
+		document.querySelectorAll('.movie-item').forEach(e => e.classList.remove('selected'));
 		el.classList.add('selected');
-		loadBranches(theaterCode);
+		selectedMovieCode = movieCode;
+		loadTheaters(movieCode);
 	}
 	
-	function loadBranches(theaterCode){
+	function loadTheaters(movieCode){
+		if(!movieCode) return;
+		
+		fetch("/cinema/theater/theaterList")
+		.then(response => response.json())
+		.then(data => {
+			const panel = document.getElementById('theaterPanel');
+			document.getElementById("branchPanel").innerHTML = "";
+			document.getElementById("datePanel").innerHTML = "";
+	        document.getElementById("schedulePanel").innerHTML = "";
+	        
+			if(data.length === 0){
+				panel.innerHTML = '지점이 없습니다.';
+				return;
+			}
+			let html = '';
+			data.forEach(theater => {
+				html += '<div class="theater-item" onclick="loadBranches('+theater.theater_code+', this)">' 
+				+ theater.theater_name + '</div>'; 
+			})
+			panel.innerHTML = html;
+		})
+	}
+	
+	function loadBranches(theaterCode, el){
 		if(!theaterCode) return;
+		document.querySelectorAll('.theater-item').forEach(e => e.classList.remove('selected'));
+	    el.classList.add('selected'); 
+		
 		
 		fetch("/cinema/theater/branchList?theaterCode=" + theaterCode)
 		.then(response => response.json())
 		.then(data => {
 			const panel = document.getElementById('branchPanel');
-			document.getElementById("moviePanel").innerHTML = "";
 			document.getElementById("datePanel").innerHTML = "";
 	        document.getElementById("schedulePanel").innerHTML = "";
 	        
@@ -161,45 +181,20 @@
 			}
 			let html = '';
 			data.forEach(branch => {
-				html += '<div class="branch-item" onclick="loadMovies('+branch.branch_code+', this)">' 
+				html += '<div class="branch-item" onclick="loadDates('+branch.branch_code+', this)">' 
 				+ branch.branch_name + '</div>'; 
 			})
 			panel.innerHTML = html;
 		})
 	}
 	
-	function loadMovies(branchCode, el){
+	function loadDates(branchCode, el){
 		selectedBranchCode = branchCode;
-		document.querySelectorAll('.branch-item').forEach(e => e.classList.remove('selected'));
-		el.classList.add('selected');
-		document.getElementById("datePanel").innerHTML = "";
-	    document.getElementById("schedulePanel").innerHTML = "";
-	    
-	    
-		fetch("/cinema/theater/movieByBranch?branchCode="+branchCode)
-		.then(response => response.json())
-		.then(data => {
-			const panel = document.getElementById("moviePanel");
-			
-			if(data.length === 0){
-				panel.innerHTML = "상영중인 영화가 없습니다.";
-				return;
-			}
-			let html = '';
-			data.forEach(movie => {
-				html += '<div class="movie-item" onclick="loadDates(' + movie.movie_code + ', this)">'+movie.title+'</div>';
-			})
-			panel.innerHTML = html;
-		})
-	}
-	
-	function loadDates(movieCode, el){
-		selectedMovieCode = movieCode;
-		document.querySelectorAll(".movie-item").forEach(e => e.classList.remove('selected'));
+		document.querySelectorAll(".branch-item").forEach(e => e.classList.remove('selected'));
 		el.classList.add('selected')
 		document.getElementById("schedulePanel").innerHTML = "";
 		
-		fetch("/cinema/theater/scheduleByMovie?branchCode="+selectedBranchCode+"&movieCode="+movieCode)
+		fetch("/cinema/theater/scheduleByMovie?branchCode="+selectedBranchCode+"&movieCode="+selectedMovieCode)
 		.then(response => response.json())
 		.then(data => {
 			const panel = document.getElementById("datePanel");
