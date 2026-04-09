@@ -1,7 +1,9 @@
 package net.koreate.cinema.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import net.koreate.cinema.services.CommentService;
 import net.koreate.cinema.services.MovieService;
 import net.koreate.cinema.vo.MovieVO;
 
@@ -59,12 +62,43 @@ public class MovieController {
         return "movie/willGoMov";
 	}
 	
+	@Autowired
+	private CommentService commentService;	
+	
 	@GetMapping("/movieDetail")
 	public String movieDetail(@RequestParam("code") int code, Model model) {
 	    
 		MovieVO movie = service.read(code);
 		
 	    model.addAttribute("movie", movie);
+	    
+	    // 리뷰 목록 가져오기
+	    List<Integer> ratings = commentService.getRatings(code);
+	    // 개수
+	    int ratingCount = ratings.size();
+	    // 별점 평균
+	    double avgRating = 0.0;
+	    
+	    if(ratingCount > 0){
+	        avgRating = ratings.stream()
+	            .mapToInt(Integer::intValue)
+	            .average()
+	            .orElse(0.0);
+	    }
+	    // 분포
+	    Map<Integer, Integer> ratingMap = new HashMap<>();
+
+	    for(int i=1; i<=5; i++){
+	        ratingMap.put(i, 0);
+	    }
+
+	    for(int r : ratings){
+	        ratingMap.put(r, ratingMap.get(r) + 1);
+	    }
+	    
+	    model.addAttribute("avgRating", avgRating);
+	    model.addAttribute("ratingCount", ratingCount);
+	    model.addAttribute("ratingMap", ratingMap);
 	    
 	    return "movie/movieDetail";
 	}

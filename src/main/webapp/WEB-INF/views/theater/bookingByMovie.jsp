@@ -65,6 +65,7 @@
 <script>
 	let selectedTheaterCode = null;
 	let selectedBranchCode = null;
+	let selectedMovieCode = ${selectedMovie}
 	
 	
 	document.addEventListener('DOMContentLoaded', function() {
@@ -74,6 +75,7 @@
 	function selectMovie(movieCode, el){
 		document.querySelectorAll('.movie-item').forEach(e => e.classList.remove('selected'));
 		el.classList.add('selected');
+		selectedMovieCode = movieCode;
 		loadTheaters(movieCode);
 	}
 	
@@ -130,7 +132,7 @@
 		el.classList.add('selected')
 		document.getElementById("schedulePanel").innerHTML = "";
 		
-		fetch("/cinema/theater/scheduleByMovie?branchCode="+selectedBranchCode+"&movieCode="+${selectedMovie})
+		fetch("/cinema/theater/scheduleByMovie?branchCode="+selectedBranchCode+"&movieCode="+selectedMovieCode)
 		.then(response => response.json())
 		.then(data => {
 			const panel = document.getElementById("datePanel");
@@ -179,7 +181,7 @@
         el.classList.add('selected');
         
         fetch("/cinema/theater/scheduleByDate?branchCode=" + selectedBranchCode
-            + "&movieCode=" + ${selectedMovie} + "&date=" + date)
+            + "&movieCode=" + selectedMovieCode + "&date=" + date)
         .then(response => response.json())
         .then(data => {
             const panel = document.getElementById("schedulePanel");

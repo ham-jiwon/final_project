@@ -509,6 +509,9 @@ table.list input[type="submit"] {
     max-width: 1200px;   /* 핵심 */
     margin: 0 auto;      /* 가운데 정렬 */
     padding: 0 20px;     /* 좌우 여백 */
+    
+    height: 700px;
+    overflow-y: auto;
 }
 
 .movie-list {
@@ -629,23 +632,30 @@ table.list input[type="submit"] {
     border: 1px solid rgba(255,255,255,0.15);
 }
 
+/* 관리자 영화수정 화면 테이블 css 상세 설정 */
 /* 테이블 헤더 (1행) */
 .movie-list thead tr {
-    background: #00ADB540;   /* 테이블 헤더 배경색 설정 */
+    background: transparent;   /* 테이블 헤더 배경색 설정 */ /* 기존 : background: #00ADB540; */
     color: #fff;
     font-weight: bold;
     
     /* backdrop-filter: blur(2px); */
 }
 
+.movie-list thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #00ADB570; /* 현재 헤더 색에 맞춤 */
+}
+
+.movie-list thead th:hover {
+    background: #00ADB570;  /* 마우스 오버 방지 */
+}
+
 .movie-list thead tr th {
     font-size: 18px;
     padding: 12px;
-}
-
-/* 헤더 hover 완전 차단 */
-.movie-list thead tr:hover {
-    background: #00ADB540;
 }
 
 /* 일반 행만 hover */
@@ -659,7 +669,7 @@ table.list input[type="submit"] {
     margin-bottom: 20px;
 }
 
-/* 제목 css 전환 효과 설정 */
+/* 제목 column css 전환 효과 설정 */
 .poster-path {
     transition: opacity 0.3s;
     color: #00ADB5;
@@ -905,12 +915,12 @@ table.list input[type="submit"] {
 /* 영화 상세페이지 댓글 게시판 css 설정 */
 
 #comment-section {
-    margin-top: 50px;
+    margin-top: 40px;
     padding: 20px;
     
     background-color: rgba(255,255,255,0.05);
     border-radius: 5px;
-    /* border-top: 2px solid #444; */
+    border-top: 2px solid #777;
 }
 
 #comment-section h3 {
@@ -1002,7 +1012,107 @@ table.list input[type="submit"] {
   transition: 0.2s;
 }
 
+/* 저장 및 취소 버튼 기본 숨김 */
 .save-btn,
 .cancel-btn {
   display: none;
+}
+
+/* 별점 평균 css 수정 */
+/* 별점 평균 전체 영역 */
+.rating-summary {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;    
+    
+    gap: 175px;
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.rating-left h1 {
+    font-size: 50px;
+    margin: 0;
+}
+
+.stars-bottom {
+    color: gold;
+    font-size: 20px;
+}
+
+.rating-right {
+    flex: 1;
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+}
+
+.bar span {
+    width: 20px;
+}
+
+.progress {
+    flex: 1;
+    height: 10px;
+    background: #eee;
+    margin-left: 10px;
+    /* border-radius: 5px; */
+    overflow: hidden;
+}
+
+.progress div {
+	min-width: 5px;
+    height: 100%;
+    background: linear-gradient(to right, #9be15d, #fbd786);
+}
+
+/* 별점 바(Bar) 수정 css */
+/* 오른쪽 영역 */
+.rating-right {
+    flex: 0 0 50%;
+    
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* 한 줄 */
+.bar {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+}
+
+/* 숫자 (5,4,3...) */
+.label {
+    width: 20px;
+}
+
+/* 막대 전체 */
+.progress {
+    flex: 1;
+    height: 20px;
+    background: #444;
+    /* border-radius: 5px; */
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+/* 채워지는 부분 */
+.fill {
+	/* display: block; */
+    height: 100%;
+    /* background: linear-gradient(to right, #9be15d, #fbd786); */
+    
+    width: 0;
+    transition: width 1s ease;
+}
+
+/* 오른쪽 숫자 */
+.count {
+    width: 20px;
+    text-align: right;
 }
