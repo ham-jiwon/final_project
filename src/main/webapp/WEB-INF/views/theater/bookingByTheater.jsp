@@ -15,7 +15,7 @@
 
     /* 왼쪽 3개 기둥 공통 */
     .panel-movie, .panel-theater, .panel-branch {
-        flex: 0 0 160px; 
+        flex: 0 0 250px; 
         border-right: 1px solid #444;
         overflow-y: auto;
     }
