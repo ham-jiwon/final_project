@@ -17,7 +17,7 @@
 		        <th>장르</th>
 		        <th>개봉일</th>
 		        <th>줄거리</th>
-		        <th>관리 &nbsp;&nbsp;&nbsp;
+		        <th>관리<br>
 		        	<button type="button"
 	                	    onclick="location.href='${pageContext.request.contextPath}/admin/movieRgst?movie_code=${m.movie_code}';">
 		                    등록
