@@ -52,6 +52,13 @@ public class TheaterController {
 		return "theater/bookingByTheater";
 	}
 	
+	@GetMapping("bookingByTheater")
+	public String bookingByTheater(Model model) {
+		List<TheaterVO> list = service.theaterList();
+		model.addAttribute("theaterList", list);
+		return "theater/bookingByTheater";
+	}
+	
 	// 지점 목록 Ajax
 	@GetMapping("/branchList")
 	@ResponseBody
@@ -86,7 +93,7 @@ public class TheaterController {
 	// 영화 상세 페이지에서 예매(스케쥴 확인) 눌렀을 때
 	
 	@GetMapping("/bookingByMovie")
-	public String bookingByMovie(int movie_code, Model model) {
+	public String bookingByMovie(@RequestParam(required = false) Integer movie_code, Model model) {
 		List<MovieVO> movieList = movieService.getList();
 		List<TheaterVO> theaterList = service.theaterList();
 		model.addAttribute("theaterList", theaterList);

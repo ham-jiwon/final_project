@@ -7,24 +7,89 @@
         display: flex;
         flex-direction: row;
         border: 1px solid #444;
+        border-radius:12px;
         height: 500px;
         background-color: #222;
+        overflow:hidden;
     }
 
     /* 왼쪽 3개 기둥 공통 */
     .panel-movie, .panel-theater, .panel-branch {
-        flex: 1; 
+        flex: 0 0 250px; 
         border-right: 1px solid #444;
         overflow-y: auto;
     }
 
     /* ⭐️ 오른쪽 통합 기둥 (날짜/스케줄) ⭐️ */
     .panel-right {
-        flex: 1.5; /* 시간표 영역이니 조금 더 넓게 배분 */
+        flex: 1; /* 시간표 영역이니 조금 더 넓게 배분 */
         display: flex;
         flex-direction: column; /* 위아래로 쌓기 */
         height: 100%;
+        min-width: 0;     /* flex 자식이 넘치지 않게 */
     }
+    /* 아이템 공통 */
+	.movie-item, .theater-item, .branch-item, .date-item, .schedule-item{
+	    padding: 12px 16px;
+	    cursor: pointer;
+	    border-bottom: 1px solid #333;
+	    color: #ccc;
+	    font-size: 0.85rem;
+	    transition: background 0.15s, color 0.15s;
+	}
+	.movie-item:hover, .theater-item:hover, .branch-item:hover, .date-item:hover, .schedule-item:hover {
+    background: #2e2e2e;
+    color: #fff;
+	}
+	
+	.movie-item.selected, .theater-item.selected, .branch-item.selected, .date-item.selected, .schedule-item.selected {
+    background: #3a3a3a;
+    color: #e8b84b;             /* 선택 강조색 */
+    font-weight: 600;
+	}
+	
+	.panel-date {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;   /* 날짜 많으면 가로 스크롤 */
+    border-bottom: 1px solid #444;
+    flex-shrink: 0;
+	}
+	
+	/* 날짜 아이템 */
+	.date-item {
+	    display: inline-flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    padding: 10px 14px;
+	    cursor: pointer;
+	    border-right: 1px solid #333;
+	    transition: background 0.15s;
+	    gap: 2px;
+	}
+	.date-month { font-size: 0.75rem; color: #888; }
+	.date-day   { font-size: 1rem;  font-weight: 600; color: #eee; }
+	.date-week  { font-size: 0.75rem; color: #888; }
+	.date-item.selected .date-day { color: #e8b84b; }
+    
+    /* 스케줄 아이템 */
+	.schedule-item {
+	    display: inline-block;
+	    margin: 8px;
+	    padding: 10px 16px;
+	    background: #2a2a2a;
+	    border: 1px solid #444;
+	    border-radius: 8px;
+	    cursor: pointer;
+	    transition: background 0.15s, border-color 0.15s;
+	}
+	.schedule-item:hover {
+	    background: #333;
+	    border-color: #e8b84b;
+	}
+	.schedule-time   { font-size: 1.1rem; font-weight: 700; color: #fff; display: block; }
+	.schedule-screen { font-size: 0.72rem; color: #888; margin-top: 3px; display: block; }
 </style>
 <section class="content">
 	<div class="container">
@@ -41,7 +106,7 @@
 	        </div>
 	        
 	        <div class="panel-branch" id="branchPanel">
-	        	지점을 선택하세요.
+	        	영화관을 선택해 주세요.
 	        </div>
 	        
 	        <div class="panel-movie" id="moviePanel">
@@ -165,8 +230,8 @@
 				
 				html += '<div class="date-item" onclick="loadSchedules(\''+date+'\', this)">'
 					 + '<span class="date-month">' + month + '월</span>'
-					 + '<span class="date-day">' + day + '</span>'
-					 + '<span class="date-week">' + dayName + '</span>'
+					 + '<span class="date-day">' + day + '일</span>'
+					 + '<span class="date-week">(' + dayName + ')</span>'
 					 + '</div>';
 			});
 			panel.innerHTML = html;
