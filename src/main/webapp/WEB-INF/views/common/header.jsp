@@ -31,7 +31,7 @@
         <ul class="main-nav">
             <!-- 영화 -->
             <li>
-                <a href="#">영화</a>
+                <a href="<%=path %>/theater/bookingByMovie">영화</a>
                 <ul>
                     <li><a href="<%=path %>/movie/goingMov">상영중</a></li>
                     <li><a href="<%=path %>/movie/willGoMov">상영예정</a></li>

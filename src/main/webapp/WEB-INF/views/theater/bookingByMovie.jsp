@@ -100,7 +100,7 @@
 	        </div>
 	        
 	        <div class="panel-theater" id="theaterPanel">
-	        	영화관을 선택하세요.
+	        	영화를 선택해 주세요.
 	        </div>
 	        
 	        <div class="panel-branch" id="branchPanel">

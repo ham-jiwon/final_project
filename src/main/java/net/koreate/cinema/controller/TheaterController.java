@@ -86,7 +86,7 @@ public class TheaterController {
 	// 영화 상세 페이지에서 예매(스케쥴 확인) 눌렀을 때
 	
 	@GetMapping("/bookingByMovie")
-	public String bookingByMovie(int movie_code, Model model) {
+	public String bookingByMovie(@RequestParam(required = false) Integer movie_code, Model model) {
 		List<MovieVO> movieList = movieService.getList();
 		List<TheaterVO> theaterList = service.theaterList();
 		model.addAttribute("theaterList", theaterList);
