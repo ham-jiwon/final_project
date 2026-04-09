@@ -32,6 +32,8 @@ public class MovieController {
 		
 		List<MovieVO> list = service.list();
 		
+		model.addAttribute("page", "goingMov");
+		
 		//날짜 필터링
 		Date today = new Date();
 
@@ -50,6 +52,8 @@ public class MovieController {
     public String willGoMov(Model model) {
 		
 	    List<MovieVO> list = service.list();
+	    
+	    model.addAttribute("page", "willGoMov");
 
 	    Date today = new Date();
 
@@ -71,6 +75,8 @@ public class MovieController {
 		MovieVO movie = service.read(code);
 		
 	    model.addAttribute("movie", movie);
+	    
+	    model.addAttribute("page", "movieDetail");
 	    
 	    // 리뷰 목록 가져오기
 	    List<Integer> ratings = commentService.getRatings(code);
