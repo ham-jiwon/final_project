@@ -1,11 +1,15 @@
 package net.koreate.cinema.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.koreate.cinema.services.CommentService;
@@ -40,7 +44,7 @@ public class CommentController {
 
             commentService.writeComment(vo);
 
-            return "ok";
+            return "redirect:/movieDetail?code=" + movie_code;
         }
 	
 	@GetMapping(value = "/list", produces="application/json; charset=UTF-8")
@@ -73,4 +77,31 @@ public class CommentController {
 	    commentService.deleteComment(comment_num);
 	    return "ok";
 	}
-}
+	
+	@GetMapping("/rating")
+	@ResponseBody
+	public Map<String, Object> getRating(int movie_code){
+
+	    List<Integer> ratings = commentService.getRatings(movie_code);
+
+	    Map<Integer, Integer> ratingMap = new HashMap<>();
+
+	    for(int i=1; i<=5; i++){
+	        ratingMap.put(i, 0);
+	    }
+
+	    for(int r : ratings){
+	        ratingMap.put(r, ratingMap.get(r) + 1);
+	    }
+
+	    double avg = ratings.stream().mapToInt(i->i).average().orElse(0);
+
+	    Map<String, Object> result = new HashMap<>();
+	    result.put("avg", avg);
+	    result.put("count", ratings.size());
+	    result.put("map", ratingMap);
+
+	    return result;
+	}	
+	
+} // end class

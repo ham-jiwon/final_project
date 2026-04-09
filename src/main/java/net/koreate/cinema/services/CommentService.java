@@ -30,4 +30,8 @@ public class CommentService {
         mapper.updateComment(vo);
     }
     
+    public List<Integer> getRatings(int movie_code){
+    	return mapper.selectRatings(movie_code);
+    }    
+    
 }
