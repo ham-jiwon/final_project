@@ -106,7 +106,7 @@
 	        </div>
 	        
 	        <div class="panel-branch" id="branchPanel">
-	        	지점을 선택하세요.
+	        	영화관을 선택해 주세요.
 	        </div>
 	        
 	        <div class="panel-movie" id="moviePanel">

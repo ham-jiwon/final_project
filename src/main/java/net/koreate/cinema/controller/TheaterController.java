@@ -52,6 +52,13 @@ public class TheaterController {
 		return "theater/bookingByTheater";
 	}
 	
+	@GetMapping("bookingByTheater")
+	public String bookingByTheater(Model model) {
+		List<TheaterVO> list = service.theaterList();
+		model.addAttribute("theaterList", list);
+		return "theater/bookingByTheater";
+	}
+	
 	// 지점 목록 Ajax
 	@GetMapping("/branchList")
 	@ResponseBody

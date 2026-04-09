@@ -40,7 +40,7 @@
 
             <!-- 영화관별 -->
             <li>
-                <a href="#">영화관별</a>
+                <a href="<%=path %>/theater/bookingByTheater">영화관별</a>
                 <ul>
                     <li><a href="<%=path %>/theater/mega">메가박스</a></li>
                     <li><a href="<%=path %>/theater/cgv">CGV</a></li>
