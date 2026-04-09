@@ -16,3 +16,6 @@
 ---
 
 ## 🗂️ 화면 구성
+
+![영화관별 상영일정 확인 페이지](/resources/imag/mdImage/bookingByTheater.png)
+영화관별 상영일정 확인 페이지
