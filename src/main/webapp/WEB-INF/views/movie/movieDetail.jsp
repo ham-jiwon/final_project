@@ -9,6 +9,9 @@
 
 <section class="container">
 
+	<input type="hidden" id="movie_code" value="${movie.movie_code}">
+	<input type="hidden" id="member_id" value="${loginUser.member_id}">
+
     <div class="detail-top">
         <!-- 포스터 (왼쪽) -->
         <div class="poster">
@@ -19,14 +22,16 @@
 			<div class="btn-area">
 			    <!-- 목록으로 -->
 			    <a href="${pageContext.request.contextPath}/movie/goingMov" class="btn">
+			    	
 			        목록으로
+			        
 			    </a>
 			
-			    <!-- 예매하기 (비활성) -->
-			    <a href="/cinema/theater/bookingByMovie?movie_code=${movie.movie_code}">
-				    <button>
+			    <!-- 예매하기 -->
+			    <a href="/cinema/theater/bookingByMovie?movie_code=${movie.movie_code}" class="btn">
+				    
 				        예매하기
-				    </button>
+				    
 				</a>
 			</div>  
 		</div>      
@@ -66,18 +71,12 @@
 	    <!-- 왼쪽: 평균 -->
 	    <div class="rating-left">
 	        <h1><fmt:formatNumber value="${avgRating}" pattern="0.0"/></h1>
-	
-	        <div class="stars-bottom">
-	            <c:forEach begin="1" end="5" var="i">
-	                <c:choose>
-	                    <c:when test="${i <= avgRating}">
-	                        ★
-	                    </c:when>
-	                    <c:otherwise>
-	                        ☆
-	                    </c:otherwise>
-	                </c:choose>
-	            </c:forEach>
+			
+			<div class="stars-bottom">
+		        <div class="star-wrap">  	
+				    <div class="star-back">★★★★★</div>
+				    <div class="star-front">★★★★★</div>
+		        </div>
 	        </div>
 	
 	        <p>${ratingCount}명 평가</p>
@@ -98,9 +97,9 @@
 				</c:if>
 			    
 			    <!-- 퍼센트 -->
-			    <c:set var="percent" value="0"/>	    	
+			    <c:set var="barPercent" value="0"/>	    	
 			    <c:if test="${ratingCount > 0}">
-			        <c:set var="percent" value="${(count * 100.0) / ratingCount}"/>
+			        <c:set var="barPercent" value="${(count * 100.0) / ratingCount}"/>
 			    </c:if>			    
 			
 				<%-- 디버깅 확인용 코드
@@ -113,7 +112,7 @@
 			        <span>${score}</span>
 			
 			        <div class="progress">
-			            <div class="fill" data-width="${percent}%"></div> <%-- <div class="fill" style="width:${percent}%"> --%>
+			            <div class="fill" data-width="${barPercent}%"></div> <%-- <div class="fill" style="width:${percent}%"> --%>
 			        </div>
 			    </div>
 			
@@ -131,4 +130,11 @@
 
 </section>
 
+<script>
+    const path = "${pageContext.request.contextPath}";
+</script>
+
+<c:if test="${page eq 'movieDetail'}">
+<script src="${pageContext.request.contextPath}/resources/js/movieComment.js"></script>
+</c:if>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

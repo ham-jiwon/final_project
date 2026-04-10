@@ -9,7 +9,7 @@
 	<div class="container">
 	
 	 	<div class="text-box2">
-			<h3>여기는 상영중인 영화 페이지입니다.</h3>
+			<h3 class="title-line">여기는 상영중인 영화 페이지입니다.</h3>
 		</div>
 		
 		<div class="movie-grid">
@@ -39,5 +39,7 @@
 	
 </section>
 
-
+<c:if test="${page eq 'goingMov' or page eq 'willGoMov'}">
+<script src="${pageContext.request.contextPath}/resources/js/MovieList.js"></script>
+</c:if>
 <%@ include file="../common/footer.jsp" %>
