@@ -2084,3 +2084,5 @@ INCREMENT BY 1;
 -- insert 테스트
 INSERT INTO banner (id, img_name, is_active)
 VALUES (banner_seq.NEXTVAL, 'test.png', 'Y');
+
+SELECT id, is_active FROM banner WHERE id = 1;
