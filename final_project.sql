@@ -2052,3 +2052,35 @@ VALUES(50, 128, TO_DATE('2026-04-21 20:00', 'YYYY-MM-DD HH24:MI'));
 
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(50, 129, TO_DATE('2026-04-21 21:10', 'YYYY-MM-DD HH24:MI'));
+
+-- banner 테이블 조회
+SELECT * FROM banner;
+
+-- banner 시퀀스 조회
+SELECT *
+FROM user_sequences
+WHERE sequence_name = 'BANNER_SEQ';
+
+SELECT MAX(id) FROM banner;
+
+DROP SEQUENCE banner_seq;
+
+CREATE SEQUENCE banner_seq
+START WITH (MAX+1)
+INCREMENT BY 1;
+
+-- banner 테이블
+CREATE TABLE banner (
+    id NUMBER PRIMARY KEY,
+    img_name VARCHAR2(100),
+    is_active VARCHAR2(1)
+);
+
+-- 시퀀스
+CREATE SEQUENCE banner_seq
+START WITH 1
+INCREMENT BY 1;
+
+-- insert 테스트
+INSERT INTO banner (id, img_name, is_active)
+VALUES (banner_seq.NEXTVAL, 'test.png', 'Y');
