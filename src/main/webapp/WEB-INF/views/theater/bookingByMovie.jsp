@@ -259,6 +259,10 @@
                 const hours = String(start.getHours()).padStart(2, '0');
                 const mins = String(start.getMinutes()).padStart(2, '0');
                 
+                const end = new Date(schedule.end_time);
+                const endHours = String(end.getHours()).padStart(2, '0');
+                const endMins = String(end.getMinutes()).padStart(2, '0');
+                
                 // 여기서 theaterCode 기반 URL 결정
                 let bookingUrl = "";
                 if (selectedTheaterCode == 1) {
@@ -271,6 +275,7 @@
                 
                 html += '<div class="schedule-item" onclick="goBooking(\'' + bookingUrl + '\')">'
                       + '<span class="schedule-time">' + hours + ':' + mins + '</span><br>'
+                      + ' ~ ' + endHours + ':' + endMins + '</span><br>'
                       + '<span class="schedule-screen">' + schedule.screen_name + ' · ' + schedule.screen_type + '</span>'
                       + '</div>';
             });

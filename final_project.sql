@@ -2053,6 +2053,7 @@ VALUES(50, 128, TO_DATE('2026-04-21 20:00', 'YYYY-MM-DD HH24:MI'));
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(50, 129, TO_DATE('2026-04-21 21:10', 'YYYY-MM-DD HH24:MI'));
 
+<<<<<<< HEAD
 -- banner 테이블 조회
 SELECT * FROM banner;
 
@@ -2086,3 +2087,11 @@ INSERT INTO banner (id, img_name, is_active)
 VALUES (banner_seq.NEXTVAL, 'test.png', 'Y');
 
 SELECT id, is_active FROM banner WHERE id = 1;
+=======
+SELECT s.start_time, m.running_time,
+       s.start_time + m.running_time/1440 AS end_time
+FROM schedule s
+JOIN final_movie m ON s.movie_code = m.movie_code
+WHERE rownum <= 5;
+
+>>>>>>> f54cc1ca5be2dbb4fa36a629002f6e400ef2c0c4
