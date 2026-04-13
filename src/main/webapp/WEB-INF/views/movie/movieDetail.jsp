@@ -10,7 +10,7 @@
 <section class="container">
 
 	<input type="hidden" id="movie_code" value="${movie.movie_code}">
-	<input type="hidden" id="member_id" value="${loginUser.member_id}">
+	<input type="hidden" id="member_id" value="${loginMember.id}">
 
     <div class="detail-top">
         <!-- 포스터 (왼쪽) -->
@@ -123,7 +123,9 @@
 	</div><!-- end rating-summary -->    
 
     <div>
-    	<jsp:include page="movieComment.jsp" />
+    	<jsp:include page="movieComment.jsp">
+    		<jsp:param name="member_id" value="${loginMember.id}" />
+    	</jsp:include>
     </div>
 
     

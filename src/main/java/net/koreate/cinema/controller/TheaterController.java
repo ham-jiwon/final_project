@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -75,14 +75,14 @@ public class TheaterController {
 		return service.movieByBranch(branchCode);
 	}
 	
-	// 영화별 스케쥴 Ajax
+	// 영화별 스케줄 Ajax
 	@GetMapping("/scheduleByMovie")
 	@ResponseBody
 	public List<ScheduleVO> scheduleList(@RequestParam int branchCode, @RequestParam int movieCode){
 		return service.scheduleBymovie(branchCode, movieCode);
 	}
 	
-	// 날짜별 스케쥴 Ajax
+	// 날짜별 스케줄 Ajax
 	@GetMapping("/scheduleByDate")
 	@ResponseBody
 	public List<ScheduleVO> scheduleList(@RequestParam int branchCode, 
@@ -92,7 +92,7 @@ public class TheaterController {
 	}
 	
 	////////////////////////////////////////////////////////////////////////////
-	// 영화 상세 페이지에서 예매(스케쥴 확인) 눌렀을 때
+	// 영화 상세 페이지에서 예매(스케줄 확인) 눌렀을 때
 	
 	@GetMapping("/bookingByMovie")
 	public String bookingByMovie(@RequestParam(required = false) Integer movie_code, Model model) {
