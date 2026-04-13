@@ -164,7 +164,11 @@ public class TheaterController {
 	@GetMapping("/scheduleUpdate")
 	public String scheduleUpdate(@RequestParam int scheduleCode, Model model) {
 	    ScheduleVO vo = service.getSchedule(scheduleCode);
+	    List<TheaterVO> theaterList = service.theaterList();
+	    List<MovieVO> movieList = movieService.getList();
 	    model.addAttribute("schedule", vo);
+	    model.addAttribute("theaterList", theaterList);
+	    model.addAttribute("movieList", movieList);
 	    return "theater/scheduleUpdate";
 	}
 

@@ -87,7 +87,7 @@ public class TheaterDAOImpl implements TheaterDAO {
 
 	@Override
 	public ScheduleVO getSchedule(int scheduleCode) {
-		ScheduleVO sc = session.selectOne("TheaterMappper.getSchedule", scheduleCode);
+		ScheduleVO sc = session.selectOne("TheaterMapper.getSchedule", scheduleCode);
 		return sc;
 	}
 
