@@ -35,3 +35,24 @@
 영화관별 상영일정 확인 페이지
 ![영화관별 상영일정 확인 페이지](https://github.com/ham-jiwon/final_project/blob/develop/src/main/webapp/resources/img/mdImage/bookingByTheater.png?raw=true)
 <br>
+
+## 👥 팀원 소개
+| 이름 | 역할 |
+|------|------|
+| 함지원 | GitHub 관리, DB 구축, 회원관리 페이지, 상영일정 페이지 제작 |
+| 박수현 | 헤더, 푸터, 메인 페이지 제작, 영화 관리 페이지 제작, CSS 작업 |
+| 박철원 | 자료 수집, DB 입력 |
+
+---
+
+## ⚙️ 개발 환경
+| 항목 | 내용 |
+|------|------|
+| Language | Java 11 |
+| Framework | Spring MVC |
+| Database | Oracle21 |
+| Server | Apache Tomcat 9.0 |
+| IDE | STS 3 |
+| 형상관리 | Git / GitHub |
+
+---
