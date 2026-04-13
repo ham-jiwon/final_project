@@ -2058,3 +2058,4 @@ SELECT s.start_time, m.running_time,
 FROM schedule s
 JOIN final_movie m ON s.movie_code = m.movie_code
 WHERE rownum <= 5;
+
