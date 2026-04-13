@@ -27,7 +27,7 @@ public class TheaterService {
 		return list;
 	}
 	
-	public List<MovieVO> moviByBranch(int branchCode){
+	public List<MovieVO> movieByBranch(int branchCode){
 		List<MovieVO> list = theaterDAO.movieByBranch(branchCode);
 		return list;
 	}

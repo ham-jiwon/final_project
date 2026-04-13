@@ -2052,3 +2052,9 @@ VALUES(50, 128, TO_DATE('2026-04-21 20:00', 'YYYY-MM-DD HH24:MI'));
 
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(50, 129, TO_DATE('2026-04-21 21:10', 'YYYY-MM-DD HH24:MI'));
+
+SELECT s.start_time, m.running_time,
+       s.start_time + m.running_time/1440 AS end_time
+FROM schedule s
+JOIN final_movie m ON s.movie_code = m.movie_code
+WHERE rownum <= 5;

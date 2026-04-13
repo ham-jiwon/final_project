@@ -30,9 +30,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="scheduleByDate" parameterType="map" resultType="net.koreate.cinema.vo.ScheduleVO">
-		SELECT s.*, bs.screen_name, bs.screen_type
+		SELECT s.schedule_code, s.movie_code, s.screen_code, s.start_time,
+           	   bs.screen_name, bs.screen_type,
+               s.start_time + m.running_time/1440 AS end_time
 		FROM schedule s
 		JOIN branch_screen bs ON s.screen_code = bs.screen_code
+		JOIN final_movie m ON s.movie_code = m.movie_code
 		WHERE bs.branch_code = #{branchCode}
 		AND s.movie_code = #{movieCode}
 		AND TRUNC(s.start_time) = TO_DATE(#{date}, 'YYYY-MM-DD')

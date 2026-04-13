@@ -70,7 +70,7 @@ public class TheaterController {
 	@GetMapping("/movieByBranch")
 	@ResponseBody
 	public List<MovieVO> movieList(@RequestParam int branchCode){
-		return service.moviByBranch(branchCode);
+		return service.movieByBranch(branchCode);
 	}
 	
 	// 영화별 스케쥴 Ajax
