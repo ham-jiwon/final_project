@@ -220,11 +220,14 @@ public class MemberController {
 			helper.setTo(member.getEmail());
 			helper.setSubject("Cinema in Busan 비밀번호 재설정 인증코드");
 			helper.setText(
+					"<!DOCTYPE html>" +
+					"<html><head><meta charset='UTF-8'></head><body>" +
 				    "<div style='padding:20px; background-color:#000; color:#fff; border:1px solid #ddd;'>" +
 				    "<h1>Cinema in Busan</h1>" +
 				    "<h2>비밀번호 재설정 인증번호</h2>" +
 				    "<p>인증번호: <strong style='font-size:24px'>" + code + "</strong></p>" +
-				    "</div>",
+				    "</div>"+
+				    "</body></html>",
 				    true
 			);
 			mailSender.send(message);
