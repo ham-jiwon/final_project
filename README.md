@@ -17,5 +17,5 @@
 
 ## 🗂️ 화면 구성
 
-![영화관별 상영일정 확인 페이지](webapp/resources/img/mdImage/bookingByTheater.png)
+![영화관별 상영일정 확인 페이지](https://github.com/ham-jiwon/final_project/blob/develop/src/main/webapp/resources/img/mdImage/bookingByTheater.png?raw=true)
 영화관별 상영일정 확인 페이지
