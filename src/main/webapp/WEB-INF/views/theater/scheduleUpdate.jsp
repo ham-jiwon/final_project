@@ -2,52 +2,69 @@
 <%@ include file="../common/header.jsp" %>
 
 <section class="content">
-<div class="container">
-    <h2>스케줄 수정</h2>
-    
-    <form action="/cinema/theater/scheduleUpdate" method="post">
+<div class="container" style="padding:30px 40px;">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+        <h2 style="color:#2d6cdf; font-size:1.4rem;">스케줄 수정</h2>
+        <a href="<%=path %>/theater/scheduleList"
+           style="padding:8px 18px; background:#333; color:#fff; border:1px solid #555; border-radius:6px; font-weight:600; text-decoration:none; font-size:0.9rem;">
+            ← 목록으로
+        </a>
+    </div>
+
+    <form action="/cinema/theater/scheduleUpdate" method="post"
+          style="background:#1a1a1a; border:1px solid #333; border-radius:12px; padding:30px; max-width:500px; margin: 0 auto;">
+
         <input type="hidden" name="schedule_code" value="${schedule.schedule_code}">
-        
-        <label>영화관</label><br>
-        <select id="theaterSelect" onchange="loadBranches(this.value)">
+
+        <label style="color:#aaa; font-size:0.85rem;">영화관</label><br>
+        <select id="theaterSelect" onchange="loadBranches(this.value)"
+                style="width:100%; padding:10px 12px; margin:6px 0 18px; background:#2a2a2a; color:#fff; border:1px solid #444; border-radius:6px; font-size:0.9rem;">
             <option value="">선택하세요</option>
             <c:forEach var="theater" items="${theaterList}">
                 <option value="${theater.theater_code}">${theater.theater_name}</option>
             </c:forEach>
         </select>
-        <br>
-        
-        <label>지점</label><br>
-        <select id="branchSelect" onchange="loadScreens(this.value)">
+
+        <label style="color:#aaa; font-size:0.85rem;">지점</label><br>
+        <select id="branchSelect" onchange="loadScreens(this.value)"
+                style="width:100%; padding:10px 12px; margin:6px 0 18px; background:#2a2a2a; color:#fff; border:1px solid #444; border-radius:6px; font-size:0.9rem;">
             <option value="">영화관을 먼저 선택하세요</option>
         </select>
-        <br>
-        
-        <label>상영관</label><br>
-        <select name="screen_code" id="screenSelect">
+
+        <label style="color:#aaa; font-size:0.85rem;">상영관</label><br>
+        <select name="screen_code" id="screenSelect"
+                style="width:100%; padding:10px 12px; margin:6px 0 18px; background:#2a2a2a; color:#fff; border:1px solid #444; border-radius:6px; font-size:0.9rem;">
             <option value="">지점을 먼저 선택하세요</option>
         </select>
-        <br>
-        
-        <label>영화</label><br>
-        <select name="movie_code">
+
+        <label style="color:#aaa; font-size:0.85rem;">영화</label><br>
+        <select name="movie_code"
+                style="width:100%; padding:10px 12px; margin:6px 0 18px; background:#2a2a2a; color:#fff; border:1px solid #444; border-radius:6px; font-size:0.9rem;">
             <option value="">선택하세요</option>
             <c:forEach var="movie" items="${movieList}">
-                <option value="${movie.movie_code}" 
+                <option value="${movie.movie_code}"
                         ${movie.movie_code == schedule.movie_code ? 'selected' : ''}>
                     ${movie.title}
                 </option>
             </c:forEach>
         </select>
-        <br>
-        
-        <label>시작 시간</label><br>
-        <input type="datetime-local" name="start_time">
-        <br>
-        
-        <button type="submit">수정 완료</button>
-        <a href="/cinema/theater/scheduleList">취소</a>
-        
+
+        <label style="color:#aaa; font-size:0.85rem;">시작 시간</label><br>
+        <input type="datetime-local" name="start_time"
+               style="width:100%; padding:10px 12px; margin:6px 0 24px; background:#2a2a2a; color:#fff; border:1px solid #444; border-radius:6px; font-size:0.9rem; box-sizing:border-box;">
+
+        <div style="display:flex; gap:10px;">
+            <button type="submit"
+                    style="flex:1; padding:12px; background:#2d6cdf; color:#fff; border:none; border-radius:6px; font-size:0.95rem; font-weight:600; cursor:pointer;">
+                수정 완료
+            </button>
+            <a href="<%=path %>/theater/scheduleList"
+               style="flex:1; padding:12px; background:#333; color:#fff; border:1px solid #555; border-radius:6px; font-size:0.95rem; font-weight:600; text-decoration:none; text-align:center;">
+                취소
+            </a>
+        </div>
+
     </form>
 </div>
 </section>
