@@ -166,6 +166,7 @@
 		if(!theaterCode) return;
 		document.querySelectorAll('.theater-item').forEach(e => e.classList.remove('selected'));
 	    el.classList.add('selected'); 
+	    selectedTheaterCode = theaterCode;
 		
 		
 		fetch("/cinema/theater/branchList?theaterCode=" + theaterCode)
@@ -258,14 +259,38 @@
                 const hours = String(start.getHours()).padStart(2, '0');
                 const mins = String(start.getMinutes()).padStart(2, '0');
                 
-                html += '<div class="schedule-item">'
+                const end = new Date(schedule.end_time);
+                const endHours = String(end.getHours()).padStart(2, '0');
+                const endMins = String(end.getMinutes()).padStart(2, '0');
+                
+                // 여기서 theaterCode 기반 URL 결정
+                let bookingUrl = "";
+                if (selectedTheaterCode == 1) {
+                    bookingUrl = "https://cgv.co.kr/cnm/movieBook";
+                } else if (selectedTheaterCode == 2) {
+                    bookingUrl = "https://www.lottecinema.co.kr/NLCHS/Ticketing";
+                } else {
+                    bookingUrl = "https://www.megabox.co.kr/booking";
+                }
+                
+                html += '<div class="schedule-item" onclick="goBooking(\'' + bookingUrl + '\')">'
                       + '<span class="schedule-time">' + hours + ':' + mins + '</span><br>'
+                      + ' ~ ' + endHours + ':' + endMins + '</span><br>'
                       + '<span class="schedule-screen">' + schedule.screen_name + ' · ' + schedule.screen_type + '</span>'
                       + '</div>';
             });
             panel.innerHTML = html;
         }).catch(error => console.error("scheduleByDate 오류:", error));
     }
-	
+	 
+	 function goBooking(url){
+		 if(confirm("예매 페이지로 이동하시겠습니까?")){
+			 window.open(url, '_blank');
+		 }
+	 }
+	 
+	 
+	 
+	 
 </script>
 <%@ include file="../common/footer.jsp" %>

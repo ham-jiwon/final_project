@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import net.koreate.cinema.services.TheaterService;
 import net.koreate.cinema.vo.BranchVO;
 import net.koreate.cinema.vo.MovieVO;
 import net.koreate.cinema.vo.ScheduleVO;
+import net.koreate.cinema.vo.ScreenVO;
 import net.koreate.cinema.vo.TheaterVO;
 
 @Controller
@@ -70,7 +72,7 @@ public class TheaterController {
 	@GetMapping("/movieByBranch")
 	@ResponseBody
 	public List<MovieVO> movieList(@RequestParam int branchCode){
-		return service.moviByBranch(branchCode);
+		return service.movieByBranch(branchCode);
 	}
 	
 	// 영화별 스케쥴 Ajax
@@ -109,6 +111,73 @@ public class TheaterController {
 		return service.theaterList();
 	}
 	
+	
+	////////////////////////////////////////////////////////////////////////////
+	// 스케줄 관리
+	
+	@GetMapping("/scheduleAdd")
+	public String scheduleSetting(Model model) {
+		List<TheaterVO> theaterList = service.theaterList();
+		List<MovieVO> movieList = movieService.getList();
+		model.addAttribute("theaterList", theaterList);
+		model.addAttribute("movieList", movieList);
+		return "theater/scheduleAdd";
+	}//end scheduleSetting
+	
+	
+	@GetMapping("/screenByBranch")
+	@ResponseBody
+	public List<ScreenVO> screenByBranch(int branchCode){
+	    return service.screenByBranch(branchCode);
+	}
+	
+	@PostMapping("/scheduleAdd")
+	public String scheduleAdd(ScheduleVO vo){
+	    service.insertSchedule(vo);
+	    return "redirect:/theater/scheduleAdd?success=true";
+	}
+	
+	
+	// 스케줄 목록 페이지
+	@GetMapping("/scheduleList")
+	public String scheduleList(Model model) {
+	    List<TheaterVO> theaterList = service.theaterList();
+	    model.addAttribute("theaterList", theaterList);
+	    return "theater/scheduleList";
+	}
+
+	// 스케줄 목록 Ajax
+	@GetMapping("/scheduleListAjax")
+	@ResponseBody
+	public List<ScheduleVO> scheduleListAjax(@RequestParam int branchCode, @RequestParam String date) {
+	    return service.scheduleList(branchCode, date);
+	}
+
+	// 스케줄 삭제
+	@PostMapping("/scheduleDelete")
+	public String scheduleDelete(@RequestParam int scheduleCode) {
+	    service.deleteSchedule(scheduleCode);
+	    return "redirect:/theater/scheduleList?success=true";
+	}
+
+	// 스케줄 수정 페이지
+	@GetMapping("/scheduleUpdate")
+	public String scheduleUpdate(@RequestParam int scheduleCode, Model model) {
+	    ScheduleVO vo = service.getSchedule(scheduleCode);
+	    List<TheaterVO> theaterList = service.theaterList();
+	    List<MovieVO> movieList = movieService.getList();
+	    model.addAttribute("schedule", vo);
+	    model.addAttribute("theaterList", theaterList);
+	    model.addAttribute("movieList", movieList);
+	    return "theater/scheduleUpdate";
+	}
+
+	// 스케줄 수정 처리
+	@PostMapping("/scheduleUpdate")
+	public String scheduleUpdate(ScheduleVO vo) {
+	    service.updateSchedule(vo);
+	    return "redirect:/theater/scheduleList?success=true";
+	}
 	
 	
 	
