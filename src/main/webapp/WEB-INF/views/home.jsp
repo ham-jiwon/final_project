@@ -53,7 +53,7 @@
 	
 	<section class="main">
 	
-	<div class="text-box">
+	<div class="text-box hidden">
 		<h1>저희 Cinema in Busan 홈페이지를 찾아주셔서 감사합니다.</h1>
 		<h3>따사로운 계절을 맞이하여 여러 흥미로운 영화가 선보이고 있습니다. 
 		자칫 무료한 일상에 여러분의 소중한 사람들과 함께 간직할 아름다운 추억과 감동의 시간들을 보내시길 바라며
