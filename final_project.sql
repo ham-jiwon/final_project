@@ -2922,11 +2922,12 @@ INSERT INTO banner (id, img_name, is_active)
 VALUES (banner_seq.NEXTVAL, 'test.png', 'Y');
 
 SELECT id, is_active FROM banner WHERE id = 1;
-=======
+
 SELECT s.start_time, m.running_time,
        s.start_time + m.running_time/1440 AS end_time
 FROM schedule s
 JOIN final_movie m ON s.movie_code = m.movie_code
 WHERE rownum <= 5;
 
->>>>>>> f54cc1ca5be2dbb4fa36a629002f6e400ef2c0c4
+-- 현재 배너 썸네일 상태 조회
+SELECT id, img_name, is_active FROM banner;
