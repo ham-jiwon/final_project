@@ -1,15 +1,11 @@
 package net.koreate.cinema.services;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.koreate.cinema.mapper.CommentMapper;
-import net.koreate.cinema.utils.DBUtil;
 import net.koreate.cinema.vo.CommentVO;
 
 @Service
