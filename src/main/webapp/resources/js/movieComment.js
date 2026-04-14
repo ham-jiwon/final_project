@@ -16,7 +16,7 @@
 
 		let movieCode = document.getElementById("movie_code").value;
 		
-		let loginId = document.getElementById("member_id").value;
+		let loginId = document.getElementById("member_id").value.trim();
 		
 		// 디버깅용 출력코드
 		console.log("loginId:", loginId);
@@ -28,7 +28,7 @@
 
   	    let html = "";
 
-		let isAdmin = document.getElementById("is_admin").value === "true";
+		let isAdmin = document.getElementById("is_admin").value.trim() === "true";
 
   	    data.forEach(c => {
   	    	// 디버깅용 출력코드
@@ -63,7 +63,7 @@
   		    html += "</div>";
   		    
   		    // 버튼
-  		    if(loginId === c.member_id || isAdmin){
+  		    if(loginId.trim() === String(c.member_id).trim() || isAdmin){
   			    html += "<button class='edit-btn' onclick='showEdit(" + c.comment_num + ")'>수정</button>";		    
   		  		html += "<button class='delete-btn' onclick='deleteComment(" + c.comment_num + ")'>삭제</button>";
   		    }
