@@ -266,7 +266,7 @@
 	
 	// delete 기능
 	function deleteBanner(id){
-	    if(!confirm("삭제할까?")) return;
+	    if(!confirm("삭제하시겠습니까?")) return;
 	
 	    fetch('/cinema/banner/delete?id=' + id, {
 	        method: 'POST'

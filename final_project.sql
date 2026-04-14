@@ -2888,7 +2888,6 @@ VALUES(50, 128, TO_DATE('2026-04-21 20:00', 'YYYY-MM-DD HH24:MI'));
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(50, 129, TO_DATE('2026-04-21 21:10', 'YYYY-MM-DD HH24:MI'));
 
-<<<<<<< HEAD
 -- banner 테이블 조회
 SELECT * FROM banner;
 
