@@ -6,6 +6,8 @@
   <input type="hidden" id="member_id" 
   		 value="${sessionScope.loginMember.id}">
 		 <%-- <span style="color:gray">로그인ID: ${sessionScope.loginMember.id}</span> --%>
+  <input type="hidden" id="is_admin" 
+         value="${sessionScope.loginMember.id eq 'admin'}">
   <h3>댓글</h3>
   
   <div id="comment-list"></div>
