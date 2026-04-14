@@ -30,12 +30,58 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="scheduleByDate" parameterType="map" resultType="net.koreate.cinema.vo.ScheduleVO">
-		SELECT s.*, bs.screen_name, bs.screen_type
+		SELECT s.schedule_code, s.movie_code, s.screen_code, s.start_time,
+           	   bs.screen_name, bs.screen_type,
+               s.start_time + m.running_time/1440 AS end_time
 		FROM schedule s
 		JOIN branch_screen bs ON s.screen_code = bs.screen_code
+		JOIN final_movie m ON s.movie_code = m.movie_code
 		WHERE bs.branch_code = #{branchCode}
 		AND s.movie_code = #{movieCode}
 		AND TRUNC(s.start_time) = TO_DATE(#{date}, 'YYYY-MM-DD')
 		ORDER BY s.start_time
 	</select>
+	
+	<select id="screenByBranch" parameterType="int" resultType="net.koreate.cinema.vo.ScreenVO">
+	    SELECT screen_code, branch_code, screen_name, screen_type
+	    FROM branch_screen
+	    WHERE branch_code = #{branchCode}
+	</select>
+	
+	<insert id="insertSchedule" parameterType="net.koreate.cinema.vo.ScheduleVO">
+	    INSERT INTO schedule (movie_code, screen_code, start_time)
+	    VALUES (#{movie_code}, #{screen_code}, #{start_time})
+	</insert>
+	
+	<select id="scheduleList" parameterType="map" resultType="net.koreate.cinema.vo.ScheduleVO">
+	    SELECT s.schedule_code, s.start_time,
+	           s.start_time + m.running_time/1440 AS end_time,
+	           m.title AS movie_title,
+	           bs.screen_name, bs.screen_type
+	    FROM schedule s
+	    JOIN final_movie m ON s.movie_code = m.movie_code
+	    JOIN branch_screen bs ON s.screen_code = bs.screen_code
+	    WHERE bs.branch_code = #{branchCode, jdbcType=INTEGER}
+	    AND TRUNC(s.start_time) = TO_DATE(#{date, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+	    ORDER BY s.start_time
+	</select>
+	
+	<select id="getSchedule" parameterType="int" resultType="net.koreate.cinema.vo.ScheduleVO">
+	    SELECT s.*, bs.screen_name, bs.screen_type, m.title
+	    FROM schedule s
+	    JOIN branch_screen bs ON s.screen_code = bs.screen_code
+	    JOIN final_movie m ON s.movie_code = m.movie_code
+	    WHERE s.schedule_code = #{scheduleCode}
+	</select>
+	
+	<delete id="deleteSchedule" parameterType="int">
+	    DELETE FROM schedule WHERE schedule_code = #{scheduleCode}
+	</delete>
+	
+	<update id="updateSchedule" parameterType="net.koreate.cinema.vo.ScheduleVO">
+	    UPDATE schedule SET start_time = #{start_time}
+	    WHERE schedule_code = #{schedule_code}
+	</update>
+	
+	
 </mapper>

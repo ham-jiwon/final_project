@@ -19,6 +19,11 @@ body{
 	min-width: 1200px; /* 최소 너비 */
 }
 
+/* 숨김 기능 css */
+.hidden {
+    display: none !important;
+}
+
 .container{
 	min-height: 700px;
     max-width: 1250px;
@@ -138,6 +143,12 @@ section#poster #imgList.show {
     border-radius: 6px;
 
     transition: 0.2s;    
+}
+
+.admin-btns {
+    display: flex;
+    align-items: center;
+    gap: 8px;  /* ← 여기만 조절하면 끝 */
 }
 
 /* hover */
@@ -1275,4 +1286,130 @@ table.list input[type="submit"] {
 .count {
     width: 20px;
     text-align: right;
+}
+
+/* 메인화면 관리자 전용 배너 thumb ON/OFF css 설정 */
+.poster-top {
+    display: flex;
+    justify-content: flex-start; /* 정렬 */
+}
+
+.poster-top .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 430px;
+}
+
+.banner-btn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* ON 상태 */
+.banner-btn.on {
+    background-color: #2ecc71;  /* 초록 */
+}
+
+/* OFF 상태 */
+.banner-btn.off {
+    background-color: #7f8c8d;  /* 회색 */
+}
+
+/* 이미지 선택 박스 */
+#imagePicker {
+    margin-top: 10px;
+    padding: 15px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.upload-btn {
+    margin-left: auto;
+}
+
+/* 파일 input 숨기기 */
+#bannerFile {
+    display: none;
+}
+
+/* 파일 선택 버튼 스타일 */
+.file-label {
+    padding: 6px 12px;
+    background: #444;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.file-label:hover {
+    background: #666;
+}
+
+/* 파일명 표시 */
+.file-name {
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* 업로드 버튼 */
+.upload-btn {
+    padding: 8px 14px;
+    background: #00c853;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.upload-btn:hover {
+    background: #00e676;
+}
+
+.btn-danger.btn {
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* 기본 (파일 선택 / 배너 추가) */
+.poster-top .btn-primary {
+    background-color: #444;
+    color: white;
+}
+
+.btn-primary.btn {
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;	
+}
+
+.poster-top .btn-primary:hover {
+    background-color: #666;
+}
+
+/* 삭제 버튼 */
+.btn-danger {
+    background-color: #d9534f;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
 }

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.koreate.cinema.services.CommentService;
 import net.koreate.cinema.vo.CommentVO;
+import net.koreate.cinema.vo.MemberVO;
 
 
 
@@ -60,22 +63,39 @@ public class CommentController {
 	public String update(
 	    @RequestParam int comment_num,
 	    @RequestParam String content,
-	    @RequestParam int score
+	    @RequestParam int score,
+	    HttpSession session
 	){
-	    CommentVO vo = new CommentVO();
-	    vo.setComment_num(comment_num);
-	    vo.setContent(content);
-	    vo.setScore(score);
+	    String loginId = ((MemberVO)session.getAttribute("loginMember")).getId();
 
-	    commentService.updateComment(vo);
-
-	    return "ok";
+	    CommentVO comment = commentService.getCommentById(comment_num);		
+		
+	    if(loginId.equals(comment.getMember_id()) || loginId.equals("admin")){		
+		    CommentVO vo = new CommentVO();
+		    vo.setComment_num(comment_num);
+		    vo.setContent(content);
+		    vo.setScore(score);
+		    
+	        commentService.updateComment(vo);
+	        return "ok";		    
+	    } else {
+	        return "fail";
+	    }
 	}	
 	
 	@PostMapping("/delete")
-	public String delete(@RequestParam int comment_num){
-	    commentService.deleteComment(comment_num);
+	public String delete(@RequestParam int comment_num, HttpSession session){
+		
+	    String loginId = ((MemberVO)session.getAttribute("loginMember")).getId();
+
+	    CommentVO comment = commentService.getCommentById(comment_num);
+	    
+	    if(loginId.equals(comment.getMember_id()) || loginId.equals("admin")){
+	        commentService.deleteComment(comment_num);
 	    return "ok";
+	    } else {
+	        return "fail";
+	    }
 	}
 	
 	@GetMapping("/rating")
