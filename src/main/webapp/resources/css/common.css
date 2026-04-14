@@ -19,6 +19,11 @@ body{
 	min-width: 1200px; /* 최소 너비 */
 }
 
+/* 숨김 기능 css */
+.hidden {
+    display: none !important;
+}
+
 .container{
 	min-height: 700px;
     max-width: 1250px;

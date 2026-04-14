@@ -42,5 +42,9 @@
     SELECT score FROM movie_comment
     WHERE movie_code = #{movie_code}
 	</select>
+	
+	<select id="selectCommentById" resultType="net.koreate.cinema.vo.CommentVO">
+    SELECT * FROM movie_comment WHERE comment_num = #{comment_num}
+	</select>
 
 </mapper>

@@ -17,12 +17,18 @@
 		let movieCode = document.getElementById("movie_code").value;
 		
 		let loginId = document.getElementById("member_id").value;
-
+		
+		// 디버깅용 출력코드
+		console.log("loginId:", loginId);
+		console.log("is_admin raw:", document.getElementById("is_admin").value);
+		
 		fetch(path + "/comment/list?movie_code=" + movieCode)
 		.then(res => res.json())
 		.then(data => {
 
   	    let html = "";
+
+		let isAdmin = document.getElementById("is_admin").value === "true";
 
   	    data.forEach(c => {
   	    	// 디버깅용 출력코드
@@ -57,7 +63,7 @@
   		    html += "</div>";
   		    
   		    // 버튼
-  		    if(loginId === c.member_id){
+  		    if(loginId === c.member_id || isAdmin){
   			    html += "<button class='edit-btn' onclick='showEdit(" + c.comment_num + ")'>수정</button>";		    
   		  		html += "<button class='delete-btn' onclick='deleteComment(" + c.comment_num + ")'>삭제</button>";
   		    }
