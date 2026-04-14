@@ -122,8 +122,9 @@
 	            html += '<div class="admin-btns">';
 	            
 	            let isOn = (b.isActive && b.isActive.trim().toUpperCase() === 'Y');
-	            let btnClass = (b.isActive === 'Y') ? 'on' : 'off';
-	            let btnText  = (b.isActive === 'Y') ? 'ON' : 'OFF';
+	            
+	            let btnClass = isOn ? 'on' : 'off';
+	            let btnText  = isOn ? 'ON' : 'OFF';
 	            let nextState = isOn ? 'N' : 'Y';
 	            
 	            html += '<button type="button" class="banner-btn ' + btnClass + '" ' + 
