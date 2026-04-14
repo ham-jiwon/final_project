@@ -2913,7 +2913,7 @@ CREATE TABLE banner (
 
 -- 시퀀스
 CREATE SEQUENCE banner_seq
-START WITH 1
+START WITH 2
 INCREMENT BY 1;
 
 -- insert 테스트
@@ -2930,3 +2930,5 @@ WHERE rownum <= 5;
 
 -- 현재 배너 썸네일 상태 조회
 SELECT id, img_name, is_active FROM banner;
+
+
