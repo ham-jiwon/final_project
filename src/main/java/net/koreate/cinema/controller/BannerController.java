@@ -43,18 +43,13 @@ public class BannerController {
     @ResponseBody
     public String update(BannerVO vo){
     	
-        if(vo.getId() == null || vo.getIsActive() == null || vo.getIsActive().isEmpty()){
+        if(vo.getId() == null){
             System.out.println("❌ 잘못된 요청 차단: " + vo);
             return "fail";
         }
 
         System.out.println("정상 요청: " + vo);
-        
-        // Y로 바뀌는 경우만 초기화
-        if("Y".equals(vo.getIsActive())){
-            service.resetActive();
-        }        
-        
+                     
         service.update(vo);
         return "ok";
     }
