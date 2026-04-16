@@ -135,6 +135,7 @@
 	let selectedTheaterCode = null;
 	
 	document.addEventListener('DOMContentLoaded', function() {
+		selectedTheaterCode = ${selectedTheater};
 	    loadBranches(${selectedTheater});
 	});
 	
