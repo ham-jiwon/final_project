@@ -1546,15 +1546,15 @@ VALUES(8, 76, TO_DATE('2026-04-16 18:40', 'YYYY-MM-DD HH24:MI'));
 
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(8, 76, TO_DATE('2026-04-16 20:35', 'YYYY-MM-DD HH24:MI'));
->>>>>>> 7eeb187b844bd70c1d02dde12e8f83f7f38bba63
+
 
 INSERT INTO schedule(movie_code, screen_code, start_time)
 VALUES(11, 14, TO_DATE('2026-04-16 13:50', 'YYYY-MM-DD HH24:MI'));
 
 INSERT INTO schedule(movie_code, screen_code, start_time)
-<<<<<<< HEAD
+
 VALUES(4, 12, TO_DATE('2026-04-09 21:15', 'YYYY-MM-DD HH24:MI'));
-=======
+
 VALUES(8, 76, TO_DATE('2026-04-17 16:45', 'YYYY-MM-DD HH24:MI'));
 
 DELETE FROM schedule
