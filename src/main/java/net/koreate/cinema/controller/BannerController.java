@@ -75,11 +75,11 @@ public class BannerController {
             file.transferTo(dest1);
             
             // 2️) Git 경로 ⭐
-            String gitPath = "C:/Users/KTE/git/final_project/src/main/webapp/resources/img/banner/";
+            // String gitPath = "C:/Users/KTE/git/final_project/src/main/webapp/resources/img/banner/";
             
             // 다른 컴일 시
-//            String gitPath = new File("src/main/webapp/resources/img/banner/")
-//                    .getAbsolutePath() + "/";
+            String gitPath = new File("src/main/webapp/resources/img/banner/")
+                    .getAbsolutePath() + "/";
             
             File dir2 = new File(gitPath);
             if(!dir2.exists()){
