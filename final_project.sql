@@ -2907,7 +2907,7 @@ INCREMENT BY 1;
 -- banner 테이블
 CREATE TABLE banner (
     id NUMBER PRIMARY KEY,
-    img_name VARCHAR2(100),
+    img_name VARCHAR2(255),
     is_active VARCHAR2(1)
 );
 
